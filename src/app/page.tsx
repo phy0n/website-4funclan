@@ -17,11 +17,11 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
 
         <div className="relative z-20 flex flex-col items-start md:items-center text-left md:text-center max-w-6xl mx-auto w-full mt-20">
-          <h1 className="font-black text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white mb-2 leading-[0.9] uppercase drop-shadow-2xl">
+          <h1 className="font-black text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white mb-2 leading-[0.9] uppercase drop-shadow-2xl">
             Welcome to
           </h1>
           <div className="border-l-8 border-primary pl-4 md:pl-6 md:border-l-0 md:border-b-8 md:pb-2 md:inline-block mb-8">
-            <h1 className="font-black text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white leading-[0.9] uppercase drop-shadow-2xl">
+            <h1 className="font-black text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white leading-[0.9] uppercase drop-shadow-2xl">
               4Fun Clan<span className="text-primary">.</span>
             </h1>
           </div>
@@ -112,11 +112,11 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-64 bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
           <div className="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center">
-            <h2 className="font-black text-6xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase mb-6 leading-none">
+            <h2 className="font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase mb-6 leading-none">
               JOIN THE <span className="text-primary">FAMILY.</span>
             </h2>
-            <p className="text-zinc-400 font-medium text-lg md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">
-              Looking for a solid community to play and chill with? Whether you want to rank up together or just hang out in voice chat, there's always an empty seat for you here.
+            <p className="text-zinc-400 font-medium text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+              Looking for a solid community to chill and play with? There's always an empty seat for you here.
             </p>
             <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-primary text-white font-black px-12 py-5 text-xl md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
               JOIN DISCORD NOW
