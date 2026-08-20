@@ -1,5 +1,6 @@
 import { Users, Mic, Footprints, Swords, Cuboid, Gamepad2, Shield, Crown, Flame } from "lucide-react";
-
+import Image from "next/image";
+import RandomGalleryPreview from "@/components/RandomGalleryPreview";
 export default function Home() {
   return (
     <div className="w-full bg-[#0a0a0a]">
@@ -16,18 +17,35 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/70 z-10"></div>
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
 
-        <div className="relative z-20 flex flex-col items-start md:items-center text-left md:text-center max-w-6xl mx-auto w-full mt-20">
-          <h1 className="font-black text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white mb-2 leading-[0.9] uppercase drop-shadow-2xl">
+        <div className="relative z-20 flex flex-col items-start md:items-center text-left md:text-center max-w-6xl mx-auto w-full mt-10 md:mt-16">
+
+          <h1 className="font-black text-4xl sm:text-5xl md:text-7xl lg:text-[3rem] tracking-tighter text-zinc-300 mb-2 leading-[0.9] uppercase drop-shadow-2xl">
             Welcome to
           </h1>
-          <div className="border-l-8 border-primary pl-4 md:pl-6 md:border-l-0 md:border-b-8 md:pb-2 md:inline-block mb-8">
-            <h1 className="font-black text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white leading-[0.9] uppercase drop-shadow-2xl">
+          <div className="border-l-8 border-primary pl-4 md:pl-6 md:border-l-0 md:border-b-8 md:pb-2 md:inline-block mb-8 relative">
+            <h1 className="font-black text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] tracking-tighter text-white leading-[0.9] uppercase drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]">
               4Fun Clan<span className="text-primary">.</span>
             </h1>
           </div>
-          <p className="text-zinc-400 font-medium text-lg md:text-xl max-w-2xl mx-auto md:mx-0 mb-10 leading-relaxed drop-shadow-lg">
+
+          <p className="text-zinc-400 font-medium text-base md:text-xl max-w-2xl mx-auto md:mx-0 mb-10 leading-relaxed drop-shadow-lg">
             Just a solid community playing and chilling together. We're more than just a clan, we're family.
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+            <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
+              JOIN DISCORD
+            </a>
+            <a href="/members" className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white/10 transition-all text-center backdrop-blur-sm">
+              MEET MEMBERS
+            </a>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 opacity-50 hidden md:flex">
+          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white rotate-90 mb-6">Scroll</span>
+          <div className="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>
         </div>
       </section>
 
@@ -73,22 +91,22 @@ export default function Home() {
               <div className="flex flex-col py-10 border-b border-white/5 hover:border-primary transition-colors group relative overflow-hidden -mx-6 px-6 sm:mx-0 sm:px-6">
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors -z-10"></div>
                 <div className="flex items-baseline justify-between mb-4">
-                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Evade</h4>
+                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Evade <span className="text-xl md:text-2xl text-zinc-600 font-bold ml-2 hidden sm:inline-block">/ Roblox</span></h4>
                   <span className="font-bold text-xl text-zinc-600 group-hover:text-primary/50 transition-colors">01</span>
                 </div>
                 <p className="text-zinc-400 font-medium text-lg leading-relaxed max-w-2xl">
-                  Run, slide, and revive! We spend countless hours in this Roblox horror-survival map dodging nextbots and saving teammates.
+                  Run, slide, and revive! We spend countless hours dodging nextbots and saving teammates. It's all about speed and teamwork.
                 </p>
               </div>
 
               <div className="flex flex-col py-10 border-b border-white/5 hover:border-primary transition-colors group relative overflow-hidden -mx-6 px-6 sm:mx-0 sm:px-6">
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors -z-10"></div>
                 <div className="flex items-baseline justify-between mb-4">
-                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Blade Ball</h4>
+                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Blade Ball <span className="text-xl md:text-2xl text-zinc-600 font-bold ml-2 hidden sm:inline-block">/ Roblox</span></h4>
                   <span className="font-bold text-xl text-zinc-600 group-hover:text-primary/50 transition-colors">02</span>
                 </div>
                 <p className="text-zinc-400 font-medium text-lg leading-relaxed max-w-2xl">
-                  Reflexes and timing. This is our go-to competitive Roblox arena to show off our parry skills and climb the leaderboards.
+                  Reflexes and timing. This is our go-to competitive arena to show off our parry skills and climb the leaderboards.
                 </p>
               </div>
 
@@ -104,6 +122,21 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="w-full max-w-7xl mx-auto px-6 py-20 mb-10 text-center">
+          <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+            OUR <span className="text-primary">MOMENTS.</span>
+          </h2>
+          <p className="text-zinc-400 text-lg font-medium max-w-2xl mx-auto mb-12">
+            A sneak peek into our best times together. Just vibes, laughs, and pure fun.
+          </p>
+
+          <RandomGalleryPreview />
+
+          <a href="/gallery" className="inline-flex px-8 py-4 bg-transparent border border-white/20 text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
+            VIEW FULL GALLERY
+          </a>
         </section>
 
         <section className="w-full pt-32 pb-0 mt-12 relative overflow-hidden flex flex-col items-center text-center">

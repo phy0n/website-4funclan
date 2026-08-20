@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/5 bg-black">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary via-primary to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-primary"></div>
         <div className="flex items-center justify-between px-6 md:px-8 py-4 md:py-5 w-full max-w-7xl mx-auto">
           <Link
             href="/"

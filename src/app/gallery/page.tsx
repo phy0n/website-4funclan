@@ -9,9 +9,13 @@ import galleryData from "@/data/gallery.json";
 
 export default function Gallery() {
   const thirdIndex = Math.ceil(galleryData.length / 3);
-  const row1 = galleryData.slice(0, thirdIndex);
-  const row2 = galleryData.slice(thirdIndex, thirdIndex * 2);
-  const row3 = galleryData.slice(thirdIndex * 2);
+  const baseRow1 = galleryData.slice(0, thirdIndex);
+  const baseRow2 = galleryData.slice(thirdIndex, thirdIndex * 2);
+  const baseRow3 = galleryData.slice(thirdIndex * 2);
+
+  const row1 = [...baseRow1, ...baseRow1, ...baseRow1, ...baseRow1];
+  const row2 = [...baseRow2, ...baseRow2, ...baseRow2, ...baseRow2];
+  const row3 = [...baseRow3, ...baseRow3, ...baseRow3, ...baseRow3];
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [emblaRef1] = useEmblaCarousel({ loop: true, dragFree: true }, [
