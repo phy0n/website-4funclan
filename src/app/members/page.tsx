@@ -92,7 +92,7 @@ export default function Members() {
           </p>
         </div>
         <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
-          Members.
+          MEMBERS<span className="text-primary">.</span>
         </h1>
         <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4">
           Meet the family. The people who make this clan feel like home.

@@ -1,7 +1,11 @@
 import { Users, Mic, Footprints, Swords, Cuboid, Gamepad2, Shield, Crown, Flame } from "lucide-react";
 import Image from "next/image";
 import RandomGalleryPreview from "@/components/RandomGalleryPreview";
+import membersData from "@/data/members.json";
+
 export default function Home() {
+  const leaders = membersData.filter(m => m.roles.includes("OWNER"));
+
   return (
     <div className="w-full bg-[#0a0a0a]">
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-black">
@@ -76,67 +80,93 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full max-w-7xl mx-auto px-6 py-12 mb-20 text-left">
-          <div className="flex flex-col lg:flex-row gap-16 justify-between items-start">
-            <div className="w-full lg:w-1/3 lg:sticky lg:top-32 lg:pt-10">
-              <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-6 leading-none">
-                GAMES WE <span className="text-primary">PLAY.</span>
-              </h2>
-              <p className="text-zinc-400 text-lg font-medium border-l-2 border-primary pl-4">
-                These are the main arenas where our clan gathers to chill, practice, and dominate.
+        <section className="w-full px-6 md:px-24 py-20 mb-10 text-left">
+          <div className="mb-12">
+            <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+              GAMES WE <span className="text-primary">PLAY.</span>
+            </h2>
+            <p className="text-zinc-400 text-lg font-medium max-w-2xl border-l-2 border-primary pl-4">
+              These are the main arenas where our clan gathers to chill, practice, and dominate.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="flex flex-col p-8 rounded-xl bg-[#111] border border-white/5 transition-all group cursor-default">
+              <div className="flex justify-between items-start mb-6 relative z-10">
+                <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Evade</h4>
+                <span className="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Roblox</span>
+              </div>
+              <p className="text-zinc-400 font-medium text-lg leading-relaxed relative z-10">
+                Run, slide, and revive! We spend countless hours dodging nextbots and saving teammates. It's all about speed and teamwork.
               </p>
             </div>
 
-            <div className="w-full lg:w-2/3 flex flex-col">
-              <div className="flex flex-col py-10 border-b border-white/5 hover:border-primary transition-colors group relative overflow-hidden -mx-6 px-6 sm:mx-0 sm:px-6">
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors -z-10"></div>
-                <div className="flex items-baseline justify-between mb-4">
-                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Evade <span className="text-xl md:text-2xl text-zinc-600 font-bold ml-2 hidden sm:inline-block">/ Roblox</span></h4>
-                  <span className="font-bold text-xl text-zinc-600 group-hover:text-primary/50 transition-colors">01</span>
-                </div>
-                <p className="text-zinc-400 font-medium text-lg leading-relaxed max-w-2xl">
-                  Run, slide, and revive! We spend countless hours dodging nextbots and saving teammates. It's all about speed and teamwork.
-                </p>
+            <div className="flex flex-col p-8 rounded-xl bg-[#111] border border-white/5 transition-all group cursor-default">
+              <div className="flex justify-between items-start mb-6 relative z-10">
+                <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Blade Ball</h4>
+                <span className="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Roblox</span>
               </div>
+              <p className="text-zinc-400 font-medium text-lg leading-relaxed relative z-10">
+                Reflexes and timing. This is our go-to competitive arena to show off our parry skills and climb the leaderboards.
+              </p>
+            </div>
 
-              <div className="flex flex-col py-10 border-b border-white/5 hover:border-primary transition-colors group relative overflow-hidden -mx-6 px-6 sm:mx-0 sm:px-6">
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors -z-10"></div>
-                <div className="flex items-baseline justify-between mb-4">
-                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Blade Ball <span className="text-xl md:text-2xl text-zinc-600 font-bold ml-2 hidden sm:inline-block">/ Roblox</span></h4>
-                  <span className="font-bold text-xl text-zinc-600 group-hover:text-primary/50 transition-colors">02</span>
-                </div>
-                <p className="text-zinc-400 font-medium text-lg leading-relaxed max-w-2xl">
-                  Reflexes and timing. This is our go-to competitive arena to show off our parry skills and climb the leaderboards.
-                </p>
+            <div className="flex flex-col p-8 rounded-xl bg-[#111] border border-white/5 transition-all group cursor-default">
+              <div className="flex justify-between items-start mb-6 relative z-10">
+                <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Minecraft</h4>
               </div>
-
-              <div className="flex flex-col py-10 hover:border-primary transition-colors group relative overflow-hidden -mx-6 px-6 sm:mx-0 sm:px-6">
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors -z-10"></div>
-                <div className="flex items-baseline justify-between mb-4">
-                  <h4 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors">Minecraft</h4>
-                  <span className="font-bold text-xl text-zinc-600 group-hover:text-primary/50 transition-colors">03</span>
-                </div>
-                <p className="text-zinc-400 font-medium text-lg leading-relaxed max-w-2xl">
-                  When we want to take a break from Roblox, we jump into our own survival servers to build massive bases and chill.
-                </p>
-              </div>
+              <p className="text-zinc-400 font-medium text-lg leading-relaxed relative z-10">
+                When we want to take a break from Roblox, we jump into our own survival servers to build massive bases and chill.
+              </p>
             </div>
           </div>
         </section>
 
-        <section className="w-full max-w-7xl mx-auto px-6 py-20 mb-10 text-center">
-          <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
-            OUR <span className="text-primary">MOMENTS.</span>
-          </h2>
-          <p className="text-zinc-400 text-lg font-medium max-w-2xl mx-auto mb-12">
-            A sneak peek into our best times together. Just vibes, laughs, and pure fun.
-          </p>
+        <section className="w-full px-6 md:px-24 py-20 mb-10 text-left">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
+            <div>
+              <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+                OUR <span className="text-primary">MOMENTS.</span>
+              </h2>
+              <p className="text-zinc-400 text-lg font-medium max-w-2xl border-l-2 border-primary pl-4">
+                A sneak peek into our best times together. Just vibes, laughs, and pure fun.
+              </p>
+            </div>
+            <a href="/gallery" className="inline-flex px-8 py-4 bg-transparent border border-white/20 text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
+              VIEW FULL GALLERY
+            </a>
+          </div>
 
           <RandomGalleryPreview />
+        </section>
 
-          <a href="/gallery" className="inline-flex px-8 py-4 bg-transparent border border-white/20 text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
-            VIEW FULL GALLERY
-          </a>
+        <section className="w-full px-6 md:px-24 py-20 border-t border-white/5 text-center flex flex-col items-center">
+          <div className="mb-16 flex flex-col items-center">
+            <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+              THE <span className="text-primary">LEADERS.</span>
+            </h2>
+            <p className="text-zinc-400 text-lg font-medium max-w-2xl mx-auto">
+              The masterminds behind 4Fun Clan. Leading the family to dominance and keeping the vibes alive.
+            </p>
+          </div>
+
+          <div className="flex flex-row justify-center items-center gap-8 md:gap-16 w-full">
+            {leaders.map((leader, index) => (
+              <div key={index} className="flex flex-col items-center group cursor-default">
+                <div className="relative w-32 md:w-40 aspect-square rounded-full overflow-hidden bg-[#111] border-4 border-white/5 mb-6 group-hover:border-primary transition-colors duration-500 shadow-xl group-hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    fill
+                    sizes="(max-width: 768px) 150px, 200px"
+                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                  />
+                </div>
+                <h3 className="text-white font-black text-2xl md:text-3xl uppercase tracking-tighter mb-1 group-hover:text-primary transition-colors">{leader.name}</h3>
+                <span className="text-[10px] md:text-xs font-bold tracking-widest text-zinc-500 uppercase">{leader.roles.find(r => r === 'OWNER')}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="w-full pt-32 pb-0 mt-12 relative overflow-hidden flex flex-col items-center text-center">

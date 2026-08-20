@@ -36,8 +36,8 @@ export default function Gallery() {
         <p className="text-zinc-500 font-bold tracking-widest text-xs mb-3 uppercase">
           4Fun Clan / Highlights
         </p>
-        <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none">
-          GALLERY.
+        <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
+          GALLERY<span className="text-primary">.</span>
         </h1>
         <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4 pointer-events-auto">
           All our best moments in one place. Just good times, laughs, and chilling with the family.
