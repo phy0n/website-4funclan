@@ -8,10 +8,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "4Fun Clan | Roblox Community",
+  title: "4Fun Clan",
   description: "Welcome to 4Fun Clan",
   icons: {
-    icon: "/img/4F.jpg",
+    icon: "/img/4F.webp",
   },
 };
 

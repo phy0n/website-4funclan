@@ -80,7 +80,7 @@ export default function Members() {
   const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
 
   return (
-    <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-32 pt-32 md:pt-40">
+    <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-10 pt-32 md:pt-40">
       <div className="relative z-20 max-w-4xl px-6 md:px-24 mb-16">
         <div className="flex items-center gap-3 mb-3">
           <p className="text-zinc-500 font-bold tracking-widest text-xs uppercase">
@@ -95,7 +95,7 @@ export default function Members() {
           Members.
         </h1>
         <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4">
-          Meet the faces behind the madness. The core of our chaos, the heart of our community.
+          Meet the family. The people who make this clan feel like home.
         </p>
       </div>
 
@@ -133,6 +133,7 @@ export default function Members() {
                     src={member.image}
                     alt={`${member.name}'s avatar`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
                 </div>

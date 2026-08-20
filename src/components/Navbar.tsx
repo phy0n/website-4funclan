@@ -17,7 +17,7 @@ export default function Navbar() {
           <Link
             href="/"
             className="hover:opacity-80 transition-opacity flex items-center">
-            <Image src="/img/4F.jpg" alt="4Fun Logo" width={52} height={52} className="rounded-md object-cover" />
+            <Image src="/img/4F.webp" alt="4Fun Logo" width={52} height={52} className="rounded-md object-cover" />
           </Link>
           <div className="hidden md:flex items-center gap-10 text-sm font-bold text-gray-400 tracking-wide uppercase">
             <Link href="/" className="hover:text-white transition-colors relative group py-1">

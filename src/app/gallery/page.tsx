@@ -27,7 +27,7 @@ export default function Gallery() {
   ]);
 
   return (
-    <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-40 overflow-hidden flex flex-col justify-center pt-32 md:pt-40">
+    <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-10 overflow-hidden flex flex-col justify-center pt-32 md:pt-40">
       <div className="relative z-20 max-w-4xl px-6 md:px-24 mb-16 pointer-events-none">
         <p className="text-zinc-500 font-bold tracking-widest text-xs mb-3 uppercase">
           4Fun Clan / Highlights
@@ -36,7 +36,7 @@ export default function Gallery() {
           GALLERY.
         </h1>
         <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4 pointer-events-auto">
-          Epic moments, funny glitches, and victory screenshots.
+          All our best moments in one place. Just good times, laughs, and chilling with the family.
         </p>
       </div>
 
@@ -52,7 +52,7 @@ export default function Gallery() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  unoptimized
+                  sizes="(max-width: 640px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 35vw, 25vw"
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -128,14 +128,14 @@ export default function Gallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-[90vw] md:max-w-6xl aspect-[4/3] md:aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+              className="relative w-full max-w-[90vw] md:max-w-6xl h-[90vh] flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}>
               <Image
                 src={selectedImage}
                 alt="Selected Moment"
                 fill
-                unoptimized
-                className="object-contain"
+                sizes="100vw"
+                className="object-contain drop-shadow-2xl"
               />
             </motion.div>
           </motion.div>
