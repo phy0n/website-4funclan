@@ -32,7 +32,7 @@ export default function Navbar() {
               GALLERY
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </Link>
-            <Link href="https://discord.gg" target="_blank" className="ml-4 bg-primary text-white px-6 py-2.5 rounded-none font-black hover:bg-white hover:text-black transition-all">
+            <Link href="https://discord.gg/SrcssWm3xA" target="_blank" className="ml-4 bg-primary text-white px-6 py-2.5 rounded-none font-black hover:bg-white hover:text-black transition-all">
               JOIN DISCORD
             </Link>
           </div>
@@ -75,7 +75,7 @@ export default function Navbar() {
                 <Link href="/gallery" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
                   GALLERY
                 </Link>
-                <Link href="https://discord.gg" target="_blank" onClick={() => setIsOpen(false)} className="mt-8 bg-primary text-white text-center px-6 py-3 rounded-none font-black hover:bg-white hover:text-black transition-all">
+                <Link href="https://discord.gg/SrcssWm3xA" target="_blank" onClick={() => setIsOpen(false)} className="mt-8 bg-primary text-white text-center px-6 py-3 rounded-none font-black hover:bg-white hover:text-black transition-all">
                   JOIN DISCORD
                 </Link>
               </div>

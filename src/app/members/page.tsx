@@ -80,8 +80,8 @@ export default function Members() {
   const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 pt-36 pb-32 md:pt-40">
-      <div className="mb-16 max-w-2xl px-2 md:px-0">
+    <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-32 pt-32 md:pt-40">
+      <div className="relative z-20 max-w-4xl px-6 md:px-24 mb-16">
         <div className="flex items-center gap-3 mb-3">
           <p className="text-zinc-500 font-bold tracking-widest text-xs uppercase">
             4Fun Clan / Member
@@ -91,13 +91,15 @@ export default function Members() {
             {sortedMembers.length} ACTIVE
           </p>
         </div>
-        <h1 className="text-white font-black text-5xl sm:text-6xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
+        <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
           Members.
         </h1>
         <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4">
           Meet the faces behind the madness. The core of our chaos, the heart of our community.
         </p>
       </div>
+
+      <div className="w-full px-6 md:px-24">
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-2 mb-12">
@@ -182,6 +184,7 @@ export default function Members() {
           <p className="text-zinc-500 font-medium">There are currently no members with the <strong className="text-white">{activeFilter}</strong> role.</p>
         </div>
       )}
+      </div>
     </div>
   );
 }

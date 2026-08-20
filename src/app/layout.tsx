@@ -9,7 +9,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "4Fun Clan | Roblox Community",
-  description: "Welcome to 4Fun Clan, a vibrant Roblox community.",
+  description: "Welcome to 4Fun Clan",
+  icons: {
+    icon: "/img/4F.jpg",
+  },
 };
 
 import Navbar from "@/components/Navbar";

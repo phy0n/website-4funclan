@@ -28,12 +28,12 @@ export default function Gallery() {
 
   return (
     <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-40 overflow-hidden flex flex-col justify-center pt-32 md:pt-40">
-      <div className="relative z-20 max-w-2xl px-6 md:px-24 mb-16 pointer-events-none">
+      <div className="relative z-20 max-w-4xl px-6 md:px-24 mb-16 pointer-events-none">
         <p className="text-zinc-500 font-bold tracking-widest text-xs mb-3 uppercase">
           4Fun Clan / Highlights
         </p>
         <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none">
-          CLAN GALLERY.
+          GALLERY.
         </h1>
         <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4 pointer-events-auto">
           Epic moments, funny glitches, and victory screenshots.
