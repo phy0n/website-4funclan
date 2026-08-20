@@ -34,7 +34,7 @@ export default function Gallery() {
     <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-10 overflow-hidden flex flex-col justify-center pt-32 md:pt-40">
       <div className="relative z-20 max-w-4xl px-6 md:px-24 mb-16 pointer-events-none">
         <p className="text-zinc-500 font-bold tracking-widest text-xs mb-3 uppercase">
-          4Fun Clan / Highlights
+          4Fun Clan / GALLERY
         </p>
         <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
           GALLERY<span className="text-primary">.</span>

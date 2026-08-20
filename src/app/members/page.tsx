@@ -73,7 +73,7 @@ export default function Members() {
     return getHighestRolePriority(a.roles) - getHighestRolePriority(b.roles);
   });
 
-  const filteredMembers = sortedMembers.filter(member => 
+  const filteredMembers = sortedMembers.filter(member =>
     activeFilter === "ALL" || member.roles.includes(activeFilter)
   );
 
@@ -84,7 +84,7 @@ export default function Members() {
       <div className="relative z-20 max-w-4xl px-6 md:px-24 mb-16">
         <div className="flex items-center gap-3 mb-3">
           <p className="text-zinc-500 font-bold tracking-widest text-xs uppercase">
-            4Fun Clan / Member
+            4Fun Clan / Members
           </p>
           <span className="w-1.5 h-1.5 rounded-full bg-zinc-700"></span>
           <p className="text-primary font-black tracking-widest text-xs uppercase bg-primary/10 px-2 py-0.5 rounded-sm">
@@ -100,64 +100,60 @@ export default function Members() {
       </div>
 
       <div className="w-full px-6 md:px-24">
-
-      {/* Filter Buttons */}
-      <div className="flex flex-wrap gap-2 mb-12">
-        {ALL_ROLES.map(role => (
-          <button
-            key={role}
-            onClick={() => setActiveFilter(role)}
-            className={`px-4 py-2 text-xs font-bold tracking-widest uppercase rounded-full border transition-all duration-300 ${
-              activeFilter === role 
-                ? "bg-primary text-white border-primary shadow-[0_0_15px_rgba(220,38,38,0.5)]" 
+        <div className="flex flex-wrap gap-2 mb-12">
+          {ALL_ROLES.map(role => (
+            <button
+              key={role}
+              onClick={() => setActiveFilter(role)}
+              className={`px-4 py-2 text-xs font-bold tracking-widest uppercase rounded-full border transition-all duration-300 ${activeFilter === role
+                ? "bg-primary text-white border-primary shadow-[0_0_15px_rgba(220,38,38,0.5)]"
                 : "bg-transparent text-gray-500 border-white/10 hover:border-white/30 hover:text-white"
-            }`}
-          >
-            {role}
-          </button>
-        ))}
-      </div>
+                }`}>
+              {role}
+            </button>
+          ))}
+        </div>
 
-      {filteredMembers.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredMembers.map((member) => {
-          const mainRole = getHighestRole(member.roles);
-          const bannerGradient = getRoleBannerColor(mainRole);
+        {filteredMembers.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredMembers.map((member) => {
+              const mainRole = getHighestRole(member.roles);
+              const bannerGradient = getRoleBannerColor(mainRole);
 
-          return (
-            <div key={member.id} className="group relative rounded-2xl overflow-hidden border border-white/10 bg-[#111] hover:border-white/30 transition-colors flex flex-col shadow-xl duration-300">
-              <div className={`h-28 w-full bg-gradient-to-br ${bannerGradient} border-b border-white/5 relative`}></div>
-              <div className="relative -mt-14 flex justify-center w-full px-6">
-                <div className="w-28 h-28 rounded-full border-4 border-[#111] bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative shadow-lg">
-                  <Image
-                    src={member.image}
-                    alt={`${member.name}'s avatar`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+              return (
+                <div key={member.id} className="group relative rounded-2xl overflow-hidden border border-white/10 bg-[#111] hover:border-white/30 transition-colors flex flex-col shadow-xl duration-300">
+                  <div className={`h-28 w-full bg-gradient-to-br ${bannerGradient} border-b border-white/5 relative`}></div>
+                  <div className="relative -mt-14 flex justify-center w-full px-6">
+                    <div className="w-28 h-28 rounded-full border-4 border-[#111] bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative shadow-lg">
+                      <Image
+                        src={member.image}
+                        alt={`${member.name}'s avatar`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
 
-              <div className="flex flex-col items-center justify-start p-6 pt-4 flex-1">
-                <h3 className="font-black text-2xl text-white truncate mb-0">{member.name}</h3>
-                <p className="text-zinc-500 font-medium text-sm mb-3">
-                  @{member.username}
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 mt-3 mb-4">
-                  {member.roles.map((role) => (
-                    <span key={role} className={`font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border ${getRoleStyle(role)}`}>
-                      {role}
-                    </span>
-                  ))}
-                </div>
+                  <div className="flex flex-col items-center justify-start p-6 pt-4 flex-1">
+                    <h3 className="font-black text-2xl text-white truncate mb-0">{member.name}</h3>
+                    <p className="text-zinc-500 font-medium text-sm mb-3">
+                      @{member.username}
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-2 mt-3 mb-4">
+                      {member.roles.map((role) => (
+                        <span key={role} className={`font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border ${getRoleStyle(role)}`}>
+                          {role}
+                        </span>
+                      ))}
+                    </div>
 
-                <p className="text-sm text-gray-400 text-center font-medium line-clamp-3 mb-6">
-                  {member.description}
-                </p>
+                    <p className="text-sm text-gray-400 text-center font-medium line-clamp-3 mb-6">
+                      {member.description}
+                    </p>
 
-                {/* Socials */}
-                {/* <div className="flex gap-4 mt-auto pt-4 border-t border-white/5 w-full justify-center">
+                    {/* Socials */}
+                    {/* <div className="flex gap-4 mt-auto pt-4 border-t border-white/5 w-full justify-center">
                   {member.socials?.discord && (
                     <a href={`https://discord.com/users/${member.socials.discord}`} target="_blank" rel="noreferrer" title="Discord" className="text-gray-500 hover:text-[#5865F2] transition-colors">
                       <FaDiscord className="w-5 h-5" />
@@ -174,17 +170,17 @@ export default function Members() {
                     </a>
                   )}
                 </div> */}
-              </div>
-            </div>
-          );
-        })}
-        </div>
-      ) : (
-        <div className="w-full py-24 flex flex-col items-center justify-center text-center border border-white/5 rounded-2xl bg-[#111]">
-          <h3 className="font-black text-3xl text-zinc-600 uppercase tracking-tighter mb-2">NOBODY'S HERE</h3>
-          <p className="text-zinc-500 font-medium">There are currently no members with the <strong className="text-white">{activeFilter}</strong> role.</p>
-        </div>
-      )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="w-full py-24 flex flex-col items-center justify-center text-center border border-white/5 rounded-2xl bg-[#111]">
+            <h3 className="font-black text-3xl text-zinc-600 uppercase tracking-tighter mb-2">NOBODY'S HERE</h3>
+            <p className="text-zinc-500 font-medium">There are currently no members with the <strong className="text-white">{activeFilter}</strong> role.</p>
+          </div>
+        )}
       </div>
     </div>
   );
