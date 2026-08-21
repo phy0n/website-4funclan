@@ -192,9 +192,14 @@ export default function Home() {
             <p className="text-zinc-400 font-medium text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               Looking for a solid community to chill and play with? There's always an empty seat for you here.
             </p>
-            <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-primary text-white font-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-              JOIN DISCORD NOW
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto">
+              <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto relative z-10 bg-primary text-white font-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                JOIN DISCORD NOW
+              </a>
+              <a href="https://www.roblox.com/communities/144778500/4F-COMMUNITY" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto relative z-10 bg-transparent border-2 border-white/20 text-white font-black px-8 md:px-12 py-3.5 md:py-[18px] text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                ROBLOX COMMUNITIES
+              </a>
+            </div>
           </div>
         </section>
       </div>
