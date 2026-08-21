@@ -40,14 +40,14 @@ const getRoleStyle = (role: string) => {
 
 const getRoleBannerColor = (role: string) => {
   switch (role) {
-    case "OWNER": return "from-white/10 to-[#0a0a0a]";
-    case "CO OWNER": return "from-blue-900/60 to-blue-900/10";
-    case "STAFF": return "from-cyan-500/40 to-cyan-500/5";
-    case "ASSESSOR": return "from-green-500/40 to-green-500/5";
-    case "DARK SIDE": return "from-red-600/40 to-red-600/5";
-    case "CONTENT CREATOR": return "from-yellow-500/40 to-yellow-500/5";
-    case "MEMBER": return "from-pink-500/40 to-pink-500/5";
-    default: return "from-white/10 to-white/0";
+    case "OWNER": return "bg-white";
+    case "CO OWNER": return "bg-blue-600";
+    case "STAFF": return "bg-cyan-500";
+    case "ASSESSOR": return "bg-green-500";
+    case "DARK SIDE": return "bg-primary";
+    case "CONTENT CREATOR": return "bg-yellow-500";
+    case "MEMBER": return "bg-pink-500";
+    default: return "bg-gray-600";
   }
 };
 
@@ -118,42 +118,53 @@ export default function Members() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredMembers.map((member) => {
               const mainRole = getHighestRole(member.roles);
-              const bannerGradient = getRoleBannerColor(mainRole);
+              const bannerColor = getRoleBannerColor(mainRole);
 
               return (
-                <div key={member.id} className="group relative rounded-2xl overflow-hidden border border-white/10 bg-[#111] hover:border-white/30 transition-colors flex flex-col shadow-xl duration-300">
-                  <div className={`h-28 w-full bg-gradient-to-br ${bannerGradient} border-b border-white/5 relative`}></div>
-                  <div className="relative -mt-14 flex justify-center w-full px-6">
-                    <div className="w-28 h-28 rounded-full border-4 border-[#111] bg-[#1a1a1a] overflow-hidden flex items-center justify-center relative shadow-lg">
+                <div key={member.id} className="group relative rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 shadow-2xl flex flex-col p-6">
+                  
+                  {/* Subtle top border accent */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 ${bannerColor} opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+                  {/* Avatar */}
+                  <div className="relative mx-auto mt-4 mb-6 z-10">
+                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-white/10 overflow-hidden relative shadow-lg group-hover:border-white/30 transition-colors duration-500">
                       <Image
                         src={member.image}
                         alt={`${member.name}'s avatar`}
                         fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover"
+                        sizes="(max-width: 768px) 96px, 112px"
+                        quality={95}
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-center justify-start p-6 pt-4 flex-1">
-                    <h3 className="font-black text-2xl text-white truncate mb-0">{member.name}</h3>
-                    <p className="text-zinc-500 font-medium text-sm mb-3">
+                  {/* Card Content */}
+                  <div className="relative z-20 flex flex-col items-center flex-1">
+                    <h3 className="font-black text-2xl md:text-3xl text-white tracking-tighter group-hover:text-primary transition-colors drop-shadow-lg mb-1">{member.name}</h3>
+                    <p className="text-zinc-500 font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase mb-6">
                       @{member.username}
                     </p>
-                    <div className="flex flex-wrap justify-center gap-2 mt-3 mb-4">
+
+                    <div className="flex flex-wrap justify-center gap-2 mb-4">
                       {member.roles.map((role) => (
-                        <span key={role} className={`font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border ${getRoleStyle(role)}`}>
+                        <span key={role} className={`font-black text-[10px] uppercase tracking-widest px-3 py-1.5 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
                           {role}
                         </span>
                       ))}
                     </div>
 
-                    <p className="text-sm text-gray-400 text-center font-medium line-clamp-3 mb-6">
-                      {member.description}
-                    </p>
-
-                    {/* Socials */}
-                    {/* <div className="flex gap-4 mt-auto pt-4 border-t border-white/5 w-full justify-center">
+                    {member.description && (
+                      <div className="w-full mt-2 pt-4 border-t border-white/5">
+                        <p className="text-sm text-zinc-400 text-center font-medium line-clamp-3 leading-relaxed">
+                          {member.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  {/* Socials */}
+                  {/* <div className="flex gap-4 mt-auto pt-4 border-t border-white/5 w-full justify-center">
                   {member.socials?.discord && (
                     <a href={`https://discord.com/users/${member.socials.discord}`} target="_blank" rel="noreferrer" title="Discord" className="text-gray-500 hover:text-[#5865F2] transition-colors">
                       <FaDiscord className="w-5 h-5" />
@@ -171,7 +182,6 @@ export default function Members() {
                   )}
                 </div> */}
                   </div>
-                </div>
               );
             })}
           </div>

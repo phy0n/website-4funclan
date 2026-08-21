@@ -85,7 +85,7 @@ export default function Home() {
             <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
               GAMES WE <span className="text-primary">PLAY.</span>
             </h2>
-            <p className="text-zinc-400 text-lg font-medium max-w-2xl border-l-2 border-primary pl-4">
+            <p className="text-zinc-400 text-lg font-medium max-w-4xl border-l-2 border-primary pl-4">
               These are the main arenas where our clan gathers to chill, practice, and dominate.
             </p>
           </div>
@@ -128,7 +128,7 @@ export default function Home() {
               <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
                 OUR <span className="text-primary">MOMENTS.</span>
               </h2>
-              <p className="text-zinc-400 text-lg font-medium max-w-2xl border-l-2 border-primary pl-4">
+              <p className="text-zinc-400 text-lg font-medium max-w-4xl border-l-2 border-primary pl-4">
                 A sneak peek into our best times together. Just vibes, laughs, and pure fun.
               </p>
             </div>
@@ -140,7 +140,7 @@ export default function Home() {
           <RandomGalleryPreview />
         </section>
 
-        <section className="w-full px-6 md:px-24 py-20 border-t border-white/5 text-center flex flex-col items-center">
+        {/* <section className="w-full px-6 md:px-24 py-20 border-t border-white/5 text-center flex flex-col items-center">
           <div className="mb-16 flex flex-col items-center">
             <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
               THE <span className="text-primary">LEADERS.</span>
@@ -167,7 +167,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         <section className="w-full pt-32 pb-0 mt-12 relative overflow-hidden flex flex-col items-center text-center">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#0a0a0a] -z-20"></div>

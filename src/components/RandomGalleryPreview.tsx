@@ -9,7 +9,6 @@ export default function RandomGalleryPreview() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Shuffle the gallery data and pick 4 random images
     const shuffled = [...galleryData].sort(() => 0.5 - Math.random());
     setImages(shuffled.slice(0, 4));
     setMounted(true);
@@ -23,6 +22,7 @@ export default function RandomGalleryPreview() {
             src={item.image}
             alt={item.title}
             fill
+            unoptimized
             sizes="(max-width: 768px) 50vw, 25vw"
             className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
           />

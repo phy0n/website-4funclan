@@ -56,6 +56,7 @@ export default function Gallery() {
                   src={item.image}
                   alt={item.title}
                   fill
+                  unoptimized
                   sizes="(max-width: 640px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 35vw, 25vw"
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
@@ -138,6 +139,7 @@ export default function Gallery() {
                 src={selectedImage}
                 alt="Selected Moment"
                 fill
+                unoptimized
                 sizes="100vw"
                 className="object-contain drop-shadow-2xl"
               />
