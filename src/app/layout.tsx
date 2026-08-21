@@ -9,9 +9,31 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "4Fun Clan",
-  description: "Welcome to 4Fun Clan",
+  description: "Welcome to 4Fun Clan.",
   icons: {
     icon: "/img/4F.webp",
+  },
+  openGraph: {
+    title: "4Fun Clan",
+    description: "Welcome to 4Fun Clan.",
+    url: "https://4funclan.site",
+    siteName: "4Fun Clan",
+    images: [
+      {
+        url: "/img/banner.png",
+        width: 1200,
+        height: 630,
+        alt: "4Fun Clan Banner",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "4Fun Clan",
+    description: "Welcome to 4Fun Clan.",
+    images: ["/img/banner.png"],
   },
 };
 
