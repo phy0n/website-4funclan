@@ -54,12 +54,11 @@ const getRoleBannerColor = (role: string) => {
 
 export default function MembersClient({ initialMembers }: { initialMembers: Member[] }) {
   const [activeFilter, setActiveFilter] = useState("ALL");
-  const [statusFilter, setStatusFilter] = useState("ALL"); // ALL, ONLINE, OFFLINE
+  const [statusFilter, setStatusFilter] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [livePresences, setLivePresences] = useState<Record<number, any>>({});
 
   useEffect(() => {
-    // Ambil ID roblox dari profile
     const robloxIds = initialMembers
       .filter(m => m.robloxProfile)
       .map(m => {
@@ -90,8 +89,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
       }
     };
 
-    fetchPresence(); // fetch initially
-    const interval = setInterval(fetchPresence, 15000); // Poll every 15s
+    fetchPresence();
+    const interval = setInterval(fetchPresence, 15000);
     return () => clearInterval(interval);
   }, [initialMembers]);
 
@@ -102,12 +101,11 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
   const filteredMembers = sortedMembers.filter(member => {
     const matchesFilter = activeFilter === "ALL" || member.roles.includes(activeFilter);
     const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    // Status Match
+
     const robloxIdMatch = member.robloxProfile?.match(/users\/(\d+)/);
     const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
     const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
-    
+
     let matchesStatus = true;
     if (statusFilter === "ONLINE") {
       matchesStatus = currentPresence?.userPresenceType > 0;
@@ -142,7 +140,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
       <div className="w-full px-6 md:px-24">
         <div className="flex flex-col gap-6 mb-12">
-          {/* Top Row: Roles & Search */}
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
             <div className="flex flex-wrap gap-2 flex-1">
               {ALL_ROLES.map(role => (
@@ -157,7 +154,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 </button>
               ))}
             </div>
-            
+
             <div className="relative w-full md:w-64 lg:w-80 shrink-0">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 text-zinc-500" />
@@ -172,7 +169,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
             </div>
           </div>
 
-          {/* Bottom Row: Status Filter */}
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em] ml-1">Status Filter:</span>
             {["ALL", "ONLINE", "OFFLINE"].map(status => (
@@ -195,53 +191,44 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
             {filteredMembers.map((member) => {
               const mainRole = getHighestRole(member.roles);
               const bannerColor = getRoleBannerColor(mainRole);
-              
+
               const robloxIdMatch = member.robloxProfile?.match(/users\/(\d+)/);
               const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
               const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
 
               return (
                 <div key={member.id} className="group relative flex flex-col p-2 rounded-3xl bg-gradient-to-br from-zinc-800/80 via-black to-zinc-900/80 border border-white/10 shadow-2xl">
-                  
-                  {/* Inner Playing Card Frame */}
                   <div className="relative w-full h-full flex flex-col items-center border-[1.5px] border-white/5 rounded-2xl bg-[#0a0a0a] overflow-hidden">
-                    
-                    {/* Role-based background glow inside the card */}
                     <div className={`absolute top-0 inset-x-0 h-48 ${bannerColor} opacity-15 blur-2xl z-0 pointer-events-none rounded-t-2xl`}></div>
-                    
-                    {/* Subtle grid pattern inside card for texture */}
                     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
-
-                    {/* Avatar */}
-                    <div className="relative w-full h-64 md:h-72 mt-4 mb-[-1rem] z-20 pointer-events-none">
-                      <Image
-                        src={member.image}
-                        alt={`${member.name}'s avatar`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 300px"
-                        quality={100}
-                        className="object-contain scale-[0.95] drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)] origin-bottom"
-                      />
+                    <div className="relative w-full h-64 md:h-72 mt-4 mb-[-1rem] z-20 pointer-events-none flex items-end justify-center">
+                      {member.image && !member.image.includes('wikipedia') && (
+                        <Image
+                          src={member.image}
+                          alt={`${member.name}'s avatar`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 300px"
+                          quality={100}
+                          className="object-contain scale-[0.95] drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)] origin-bottom"
+                        />
+                      )}
                     </div>
 
-                    {/* Content */}
                     <div className="relative z-20 flex flex-col items-center flex-1 px-4 pb-6 w-full pt-4 bg-gradient-to-t from-black via-black/80 to-transparent">
                       <h3 className="font-black text-xl md:text-2xl text-white tracking-tighter drop-shadow-lg mb-0.5 text-center">{member.name}</h3>
                       <p className="text-zinc-500 font-bold text-[9px] md:text-[10px] tracking-[0.2em] uppercase mb-4 text-center">
                         @{member.username}
                       </p>
 
-                      {/* Status Indicator */}
                       {member.robloxProfile && (
                         <div className="mb-6 w-full px-2 flex justify-center">
                           {currentPresence?.userPresenceType === 2 ? (
-                            // In Game Rich Presence
                             <div className="flex items-center gap-3 w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
                               {currentPresence.gameIconUrl ? (
                                 <div className="relative w-9 h-9 shrink-0">
-                                  <Image 
-                                    src={currentPresence.gameIconUrl} 
-                                    alt="Game Icon" 
+                                  <Image
+                                    src={currentPresence.gameIconUrl}
+                                    alt="Game Icon"
                                     fill
                                     sizes="36px"
                                     className="rounded-md object-cover border border-white/10"
@@ -260,25 +247,22 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                               </div>
                             </div>
                           ) : (
-                            // Default Status (Online/Offline/Studio)
                             <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
                               <div className="relative flex h-2 w-2 shrink-0">
-                                <span className={`relative inline-flex rounded-full h-2 w-2 ${
-                                  currentPresence?.userPresenceType === 1 ? 'bg-green-500' :
+                                <span className={`relative inline-flex rounded-full h-2 w-2 ${currentPresence?.userPresenceType === 1 ? 'bg-green-500' :
                                   currentPresence?.userPresenceType === 3 ? 'bg-orange-500' :
-                                  'bg-zinc-600'
-                                }`}></span>
+                                    'bg-zinc-600'
+                                  }`}></span>
                               </div>
                               <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase truncate max-w-[120px]">
                                 {currentPresence?.userPresenceType === 1 ? 'Online' :
-                                 currentPresence?.userPresenceType === 3 ? 'In Studio' :
-                                 'Offline'}
+                                  currentPresence?.userPresenceType === 3 ? 'In Studio' :
+                                    'Offline'}
                               </span>
                             </div>
                           )}
                         </div>
                       )}
-                      {/* Roles */}
                       <div className="flex flex-wrap justify-center gap-2 mb-4">
                         {member.roles.map((role) => (
                           <span key={role} className={`font-black text-[10px] uppercase tracking-widest px-3 py-1.5 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
