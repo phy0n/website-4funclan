@@ -12,10 +12,10 @@ export default function Footer() {
           <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
             Discord
           </a>
-          <a href="https://www.roblox.com/communities/144778500/4F-COMMUNITY" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors font-bold text-sm uppercase tracking-wider">
+          <a href="https://www.roblox.com/communities/144778500/4F-COMMUNITY" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
             Communities
           </a>
-          <a href="https://www.tiktok.com/@4fun.clan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors font-bold text-sm uppercase tracking-wider">
+          <a href="https://www.tiktok.com/@4fun.clan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
             TikTok
           </a>
         </div>
