@@ -22,8 +22,7 @@ export default function RandomGalleryPreview() {
             src={item.image}
             alt={item.title}
             fill
-            quality={95}
-            sizes="(max-width: 768px) 50vw, 25vw"
+            unoptimized
             className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
           />
         </div>

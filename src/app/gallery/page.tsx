@@ -57,8 +57,7 @@ export default function Gallery() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  quality={95}
-                  sizes="(max-width: 640px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 35vw, 25vw"
+                  unoptimized
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
