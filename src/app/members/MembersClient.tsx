@@ -167,12 +167,12 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
               const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
 
               return (
-                <div key={member.id} className="group relative transition-all duration-500 hover:-translate-y-2 hover:z-30 flex flex-col mt-12 md:mt-16 items-center">
+                <div key={member.id} className="group relative transition-all duration-500 flex flex-col mt-12 md:mt-16 items-center">
                   
                   {/* Podium Background Card (Only for content) */}
-                  <div className="absolute top-32 inset-x-0 bottom-0 bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/5 group-hover:border-white/20 rounded-2xl shadow-2xl transition-colors duration-500 z-0">
+                  <div className="absolute top-32 inset-x-0 bottom-0 bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/5 rounded-2xl shadow-2xl z-0">
                     {/* Subtle top border accent */}
-                    <div className={`absolute top-0 left-0 right-0 h-1 ${bannerColor} opacity-50 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl`}></div>
+                    <div className={`absolute top-0 left-0 right-0 h-1 ${bannerColor} opacity-50 rounded-t-2xl`}></div>
                   </div>
 
                   {/* Avatar */}
@@ -183,7 +183,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                       fill
                       sizes="(max-width: 768px) 100vw, 300px"
                       quality={100}
-                      className="object-contain scale-110 md:scale-125 drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)] group-hover:scale-125 md:group-hover:scale-[1.4] group-hover:-translate-y-4 transition-transform duration-700 origin-bottom"
+                      className="object-contain scale-110 md:scale-125 drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)] origin-bottom"
                     />
                   </div>
 
