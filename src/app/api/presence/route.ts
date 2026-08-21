@@ -22,6 +22,7 @@ export async function POST(request: Request) {
 
       if (presenceRes.ok) {
         const data = await presenceRes.json();
+        console.log("Roblox API Response:", data);
         if (data.userPresences) {
           userPresences.push(...data.userPresences);
         }
