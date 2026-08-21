@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
+import { Search } from "lucide-react";
 import membersData from "@/data/members.json";
 
 const ROLE_PRIORITY: Record<string, number> = {
@@ -68,14 +69,17 @@ type Member = {
 
 export default function Members() {
   const [activeFilter, setActiveFilter] = useState("ALL");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const sortedMembers = ([...membersData] as Member[]).sort((a, b) => {
     return getHighestRolePriority(a.roles) - getHighestRolePriority(b.roles);
   });
 
-  const filteredMembers = sortedMembers.filter(member =>
-    activeFilter === "ALL" || member.roles.includes(activeFilter)
-  );
+  const filteredMembers = sortedMembers.filter(member => {
+    const matchesFilter = activeFilter === "ALL" || member.roles.includes(activeFilter);
+    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
 
   const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
 
@@ -100,18 +104,33 @@ export default function Members() {
       </div>
 
       <div className="w-full px-6 md:px-24">
-        <div className="flex flex-wrap gap-2 mb-12">
-          {ALL_ROLES.map(role => (
-            <button
-              key={role}
-              onClick={() => setActiveFilter(role)}
-              className={`px-4 py-2 text-xs font-bold tracking-widest uppercase rounded-full border transition-all duration-300 ${activeFilter === role
-                ? "bg-primary text-white border-primary shadow-[0_0_15px_rgba(220,38,38,0.5)]"
-                : "bg-transparent text-gray-500 border-white/10 hover:border-white/30 hover:text-white"
-                }`}>
-              {role}
-            </button>
-          ))}
+        <div className="flex flex-col md:flex-row gap-6 mb-12 items-start md:items-center justify-between">
+          <div className="flex flex-wrap gap-2 flex-1">
+            {ALL_ROLES.map(role => (
+              <button
+                key={role}
+                onClick={() => setActiveFilter(role)}
+                className={`px-4 py-2 text-xs font-bold tracking-widest uppercase rounded-full border transition-all duration-300 ${activeFilter === role
+                  ? "bg-primary text-white border-primary shadow-[0_0_15px_rgba(220,38,38,0.5)]"
+                  : "bg-transparent text-gray-500 border-white/10 hover:border-white/30 hover:text-white"
+                  }`}>
+                {role}
+              </button>
+            ))}
+          </div>
+          
+          <div className="relative w-full md:w-64 lg:w-80 shrink-0">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Search className="h-4 w-4 text-zinc-500" />
+            </div>
+            <input
+              type="text"
+              placeholder="Search member..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-[#111] border border-white/10 rounded-full py-2.5 pl-10 pr-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-300"
+            />
+          </div>
         </div>
 
         {filteredMembers.length > 0 ? (
