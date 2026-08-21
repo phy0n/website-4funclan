@@ -91,10 +91,10 @@ export default function Members() {
             {sortedMembers.length} ACTIVE
           </p>
         </div>
-        <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
+        <h1 className="text-white font-black text-[13vw] sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase whitespace-nowrap">
           MEMBERS<span className="text-primary">.</span>
         </h1>
-        <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4">
+        <p className="text-zinc-400 font-medium text-sm md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4">
           Meet the family. The people who make this clan feel like home.
         </p>
       </div>
@@ -142,7 +142,7 @@ export default function Members() {
 
                   {/* Card Content */}
                   <div className="relative z-20 flex flex-col items-center flex-1">
-                    <h3 className="font-black text-2xl md:text-3xl text-white tracking-tighter group-hover:text-primary transition-colors drop-shadow-lg mb-1">{member.name}</h3>
+                    <h3 className="font-black text-xl md:text-3xl text-white tracking-tighter group-hover:text-primary transition-colors drop-shadow-lg mb-1">{member.name}</h3>
                     <p className="text-zinc-500 font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase mb-6">
                       @{member.username}
                     </p>
@@ -157,7 +157,7 @@ export default function Members() {
 
                     {member.description && (
                       <div className="w-full mt-2 pt-4 border-t border-white/5">
-                        <p className="text-sm text-zinc-400 text-center font-medium line-clamp-3 leading-relaxed">
+                        <p className="text-xs md:text-sm text-zinc-400 text-center font-medium line-clamp-3 leading-relaxed">
                           {member.description}
                         </p>
                       </div>

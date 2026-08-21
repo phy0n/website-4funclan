@@ -23,11 +23,11 @@ export default function Home() {
 
         <div className="relative z-20 flex flex-col items-start md:items-center text-left md:text-center max-w-6xl mx-auto w-full mt-10 md:mt-16">
 
-          <h1 className="font-black text-4xl sm:text-5xl md:text-7xl lg:text-[3rem] tracking-tighter text-zinc-300 mb-2 leading-[0.9] uppercase drop-shadow-2xl">
+          <h1 className="font-black text-3xl sm:text-5xl md:text-7xl lg:text-[3rem] tracking-tighter text-zinc-300 mb-2 leading-[0.9] uppercase drop-shadow-2xl">
             Welcome to
           </h1>
           <div className="border-l-8 border-primary pl-4 md:pl-6 md:border-l-0 md:border-b-8 md:pb-2 md:inline-block mb-8 relative">
-            <h1 className="font-black text-6xl sm:text-7xl md:text-8xl lg:text-[8rem] tracking-tighter text-white leading-[0.9] uppercase drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+            <h1 className="font-black text-[13vw] sm:text-7xl md:text-8xl lg:text-[8rem] tracking-tighter text-white leading-[0.9] uppercase drop-shadow-[0_0_30px_rgba(0,0,0,0.8)] whitespace-nowrap">
               4Fun Clan<span className="text-primary">.</span>
             </h1>
           </div>
@@ -58,22 +58,22 @@ export default function Home() {
         <section className="w-full max-w-7xl mx-auto px-6 py-12 mb-20">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border-y border-white/10">
             <div className="py-12 md:px-12 flex flex-col items-center text-center group cursor-default">
-              <h3 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">Exclusive</h3>
-              <p className="text-zinc-400 font-medium text-sm leading-relaxed max-w-xs">
+              <h3 className="font-black text-2xl md:text-4xl text-white uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">Exclusive</h3>
+              <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
                 Quality over quantity. We carefully select our members to ensure that everyone perfectly fits into our established culture.
               </p>
             </div>
 
             <div className="py-12 md:px-12 flex flex-col items-center text-center group cursor-default">
-              <h3 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">Solidarity</h3>
-              <p className="text-zinc-400 font-medium text-sm leading-relaxed max-w-xs">
+              <h3 className="font-black text-2xl md:text-4xl text-white uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">Solidarity</h3>
+              <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
                 We stand together through every victory and defeat. No one gets left behind in the lobby, both in-game and out.
               </p>
             </div>
 
             <div className="py-12 md:px-12 flex flex-col items-center text-center group cursor-default">
-              <h3 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">Pure Fun</h3>
-              <p className="text-zinc-400 font-medium text-sm leading-relaxed max-w-xs">
+              <h3 className="font-black text-2xl md:text-4xl text-white uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">Pure Fun</h3>
+              <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-xs">
                 Whether we're playing competitively or just hanging out in private servers, our main goal is always the same: having fun.
               </p>
             </div>
@@ -82,10 +82,10 @@ export default function Home() {
 
         <section className="w-full px-6 md:px-24 py-20 mb-10 text-left">
           <div className="mb-12">
-            <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+            <h2 className="font-black text-4xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
               GAMES WE <span className="text-primary">PLAY.</span>
             </h2>
-            <p className="text-zinc-400 text-lg font-medium max-w-4xl border-l-2 border-primary pl-4">
+            <p className="text-zinc-400 text-base md:text-lg font-medium max-w-4xl border-l-2 border-primary pl-4">
               These are the main arenas where our clan gathers to chill, practice, and dominate.
             </p>
           </div>
@@ -93,29 +93,29 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             <div className="flex flex-col p-8 rounded-xl bg-[#111] border border-white/5 transition-all group cursor-default">
               <div className="flex justify-between items-start mb-6 relative z-10">
-                <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Evade</h4>
+                <h4 className="font-black text-2xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Evade</h4>
                 <span className="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Roblox</span>
               </div>
-              <p className="text-zinc-400 font-medium text-lg leading-relaxed relative z-10">
+              <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed relative z-10">
                 Run, slide, and revive! We spend countless hours dodging nextbots and saving teammates. It's all about speed and teamwork.
               </p>
             </div>
 
             <div className="flex flex-col p-8 rounded-xl bg-[#111] border border-white/5 transition-all group cursor-default">
               <div className="flex justify-between items-start mb-6 relative z-10">
-                <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Blade Ball</h4>
+                <h4 className="font-black text-2xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Blade Ball</h4>
                 <span className="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full">Roblox</span>
               </div>
-              <p className="text-zinc-400 font-medium text-lg leading-relaxed relative z-10">
+              <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed relative z-10">
                 Reflexes and timing. This is our go-to competitive arena to show off our parry skills and climb the leaderboards.
               </p>
             </div>
 
             <div className="flex flex-col p-8 rounded-xl bg-[#111] border border-white/5 transition-all group cursor-default">
               <div className="flex justify-between items-start mb-6 relative z-10">
-                <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Minecraft</h4>
+                <h4 className="font-black text-2xl md:text-4xl text-white uppercase tracking-tighter group-hover:text-primary transition-colors duration-300">Minecraft</h4>
               </div>
-              <p className="text-zinc-400 font-medium text-lg leading-relaxed relative z-10">
+              <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed relative z-10">
                 When we want to take a break from Roblox, we jump into our own survival servers to build massive bases and chill.
               </p>
             </div>
@@ -125,10 +125,10 @@ export default function Home() {
         <section className="w-full px-6 md:px-24 py-20 mb-10 text-left">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
-              <h2 className="font-black text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+              <h2 className="font-black text-4xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
                 OUR <span className="text-primary">MOMENTS.</span>
               </h2>
-              <p className="text-zinc-400 text-lg font-medium max-w-4xl border-l-2 border-primary pl-4">
+              <p className="text-zinc-400 text-base md:text-lg font-medium max-w-4xl border-l-2 border-primary pl-4">
                 A sneak peek into our best times together. Just vibes, laughs, and pure fun.
               </p>
             </div>
@@ -175,13 +175,13 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-64 bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
           <div className="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center">
-            <h2 className="font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase mb-6 leading-none">
+            <h2 className="font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase mb-4 md:mb-6 leading-none">
               JOIN THE <span className="text-primary">FAMILY.</span>
             </h2>
-            <p className="text-zinc-400 font-medium text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-zinc-400 font-medium text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               Looking for a solid community to chill and play with? There's always an empty seat for you here.
             </p>
-            <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-primary text-white font-black px-12 py-5 text-xl md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+            <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-primary text-white font-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
               JOIN DISCORD NOW
             </a>
           </div>

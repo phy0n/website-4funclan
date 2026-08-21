@@ -36,10 +36,10 @@ export default function Gallery() {
         <p className="text-zinc-500 font-bold tracking-widest text-xs mb-3 uppercase">
           4Fun Clan / GALLERY
         </p>
-        <h1 className="text-white font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase">
+        <h1 className="text-white font-black text-[13vw] sm:text-5xl md:text-7xl tracking-tighter mb-4 md:mb-6 leading-none uppercase whitespace-nowrap">
           GALLERY<span className="text-primary">.</span>
         </h1>
-        <p className="text-zinc-400 font-medium text-base md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4 pointer-events-auto">
+        <p className="text-zinc-400 font-medium text-sm md:text-xl leading-relaxed max-w-lg border-l-2 border-primary pl-4 pointer-events-auto">
           All our best moments in one place. Just good times, laughs, and chilling with the family.
         </p>
       </div>
@@ -60,8 +60,8 @@ export default function Gallery() {
                   sizes="(max-width: 640px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 35vw, 25vw"
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <h3 className="text-white font-black text-xl uppercase tracking-tighter drop-shadow-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
+                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter drop-shadow-md">
                     {item.title}
                   </h3>
                 </div>
@@ -84,8 +84,8 @@ export default function Gallery() {
                   unoptimized
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <h3 className="text-white font-black text-xl uppercase tracking-tighter drop-shadow-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
+                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter drop-shadow-md">
                     {item.title}
                   </h3>
                 </div>
@@ -108,8 +108,8 @@ export default function Gallery() {
                   unoptimized
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <h3 className="text-white font-black text-xl uppercase tracking-tighter drop-shadow-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
+                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter drop-shadow-md">
                     {item.title}
                   </h3>
                 </div>
