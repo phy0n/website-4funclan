@@ -129,6 +129,14 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8 cursor-zoom-out">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              className="absolute top-4 right-4 md:top-8 md:right-8 z-[60] p-2 md:p-3 bg-black/50 hover:bg-primary text-white rounded-full transition-all duration-300 backdrop-blur-md border border-white/10 shadow-xl">
+              <X className="w-6 h-6 md:w-8 md:h-8" />
+            </button>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -144,14 +152,6 @@ export default function Gallery() {
                 sizes="100vw"
                 className="object-contain drop-shadow-2xl"
               />
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedImage(null);
-                }}
-                className="absolute top-4 right-4 md:top-8 md:right-8 z-[60] p-2 md:p-3 bg-black/50 hover:bg-primary text-white rounded-full transition-all duration-300 backdrop-blur-md border border-white/10 shadow-xl">
-                <X className="w-6 h-6 md:w-8 md:h-8" />
-              </button>
             </motion.div>
           </motion.div>
         )}

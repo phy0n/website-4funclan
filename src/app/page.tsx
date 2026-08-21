@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="flex flex-col items-center w-full pt-20 pb-16">
+      <div className="flex flex-col items-center w-full pt-20">
 
         <section className="w-full max-w-7xl mx-auto px-6 py-12 mb-20">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border-y border-white/10">
@@ -169,10 +169,21 @@ export default function Home() {
           </div>
         </section> */}
 
-        <section className="w-full pt-32 pb-0 mt-12 relative overflow-hidden flex flex-col items-center text-center">
+        <section className="w-full pt-20 md:pt-32 pb-16 md:pb-24 mt-12 relative flex flex-col items-center text-center">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#0a0a0a] -z-20"></div>
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-64 bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+          {/* Absolute Mascot Image (Floating on Right, in front) */}
+          <div className="absolute -right-4 sm:right-0 md:right-5 lg:right-10 -bottom-8 sm:-bottom-12 md:-bottom-16 lg:-bottom-24 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-[26rem] lg:h-[26rem] z-20 pointer-events-none">
+            <Image
+              src="/img/mascot1.webp"
+              alt="4Fun Mascot"
+              fill
+              unoptimized
+              className="object-contain object-bottom drop-shadow-2xl"
+            />
+          </div>
 
           <div className="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center">
             <h2 className="font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase mb-4 md:mb-6 leading-none">
