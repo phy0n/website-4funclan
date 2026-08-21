@@ -31,6 +31,33 @@ export async function POST(request: Request) {
       }
     }
 
+    const universeIds = [...new Set(userPresences.filter(p => p.userPresenceType === 2 && p.universeId).map(p => p.universeId))];
+    const gameIconsMap = new Map<number, string>();
+
+    if (universeIds.length > 0) {
+      try {
+        const iconsRes = await fetch(`https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeIds.join(',')}&size=150x150&format=Png&isCircular=false`, {
+          cache: "no-store",
+        });
+        if (iconsRes.ok) {
+          const iconsData = await iconsRes.json();
+          iconsData.data?.forEach((icon: any) => {
+            if (icon.state === "Completed") {
+              gameIconsMap.set(icon.targetId, icon.imageUrl);
+            }
+          });
+        }
+      } catch (e) {
+        console.error("Failed to fetch game icons chunk", e);
+      }
+    }
+
+    userPresences.forEach(p => {
+      if (p.universeId && gameIconsMap.has(p.universeId)) {
+        p.gameIconUrl = gameIconsMap.get(p.universeId);
+      }
+    });
+
     return NextResponse.json({ userPresences });
   } catch (error) {
     console.error("Presence API Error:", error);

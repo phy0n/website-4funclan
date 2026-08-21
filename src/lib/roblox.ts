@@ -98,7 +98,32 @@ export async function getEnhancedMembers(): Promise<Member[]> {
       }
     });
 
+    // Fetch Game Icons
+    const universeIds = [...new Set(presencesData.userPresences.filter((p: any) => p.userPresenceType === 2 && p.universeId).map((p: any) => p.universeId))];
+    const gameIconsMap = new Map<number, string>();
+    
+    if (universeIds.length > 0) {
+      try {
+        const iconsRes = await fetch(`https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeIds.join(',')}&size=150x150&format=Png&isCircular=false`, {
+          next: { revalidate: 3600 } // Cache icons for 1 hour
+        });
+        if (iconsRes.ok) {
+          const iconsData = await iconsRes.json();
+          iconsData.data?.forEach((icon: any) => {
+            if (icon.state === "Completed") {
+              gameIconsMap.set(icon.targetId, icon.imageUrl);
+            }
+          });
+        }
+      } catch (e) {
+        console.error("Failed to fetch game icons in roblox.ts");
+      }
+    }
+
     presencesData.userPresences?.forEach((p: any) => {
+      if (p.universeId && gameIconsMap.has(p.universeId)) {
+        p.gameIconUrl = gameIconsMap.get(p.universeId);
+      }
       robloxPresences.set(p.userId, p);
     });
 

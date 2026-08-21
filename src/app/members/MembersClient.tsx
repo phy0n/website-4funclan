@@ -196,20 +196,49 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                     {/* Status Indicator */}
                     {member.robloxProfile && (
-                      <div className="flex items-center gap-2 mb-6 bg-black/40 px-3 py-1.5 rounded-full border border-white/5 backdrop-blur-md">
-                        <div className="relative flex h-2 w-2">
-                          <span className={`relative inline-flex rounded-full h-2 w-2 ${
-                            (currentPresence?.userPresenceType === 1 || currentPresence?.userPresenceType === 2) ? 'bg-green-500' :
-                            currentPresence?.userPresenceType === 3 ? 'bg-orange-500' :
-                            'bg-zinc-600'
-                          }`}></span>
-                        </div>
-                        <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase truncate max-w-[120px]">
-                          {currentPresence?.userPresenceType === 1 ? 'Online' :
-                           currentPresence?.userPresenceType === 2 ? (currentPresence.lastLocation || 'In Game') :
-                           currentPresence?.userPresenceType === 3 ? 'In Studio' :
-                           'Offline'}
-                        </span>
+                      <div className="mb-6 w-full px-2 flex justify-center">
+                        {currentPresence?.userPresenceType === 2 ? (
+                          // In Game Rich Presence
+                          <div className="flex items-center gap-3 w-full bg-black/60 p-2 rounded-xl border border-white/5 backdrop-blur-md max-w-[200px]">
+                            {currentPresence.gameIconUrl ? (
+                              <div className="relative w-9 h-9 shrink-0">
+                                <Image 
+                                  src={currentPresence.gameIconUrl} 
+                                  alt="Game Icon" 
+                                  fill
+                                  sizes="36px"
+                                  className="rounded-md object-cover border border-white/10"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-9 h-9 bg-zinc-800 rounded-md shrink-0 border border-white/10 flex items-center justify-center">
+                                <span className="text-[10px] text-zinc-500 font-bold">?</span>
+                              </div>
+                            )}
+                            <div className="flex flex-col flex-1 min-w-0">
+                              <span className="text-[8px] font-bold text-green-500 uppercase tracking-[0.2em] mb-0.5">Playing</span>
+                              <span className="text-[10px] font-medium text-zinc-200 truncate" title={currentPresence.lastLocation || 'A Game'}>
+                                {currentPresence.lastLocation || 'A Game'}
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          // Default Status (Online/Offline/Studio)
+                          <div className="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/5 backdrop-blur-md">
+                            <div className="relative flex h-2 w-2 shrink-0">
+                              <span className={`relative inline-flex rounded-full h-2 w-2 ${
+                                currentPresence?.userPresenceType === 1 ? 'bg-green-500' :
+                                currentPresence?.userPresenceType === 3 ? 'bg-orange-500' :
+                                'bg-zinc-600'
+                              }`}></span>
+                            </div>
+                            <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase truncate max-w-[120px]">
+                              {currentPresence?.userPresenceType === 1 ? 'Online' :
+                               currentPresence?.userPresenceType === 3 ? 'In Studio' :
+                               'Offline'}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     )}
 
