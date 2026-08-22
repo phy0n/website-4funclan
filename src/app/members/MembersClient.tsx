@@ -100,7 +100,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
   const filteredMembers = sortedMembers.filter(member => {
     const matchesFilter = activeFilter === "ALL" || member.roles.includes(activeFilter);
-    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          (member.username && member.username.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const robloxIdMatch = member.robloxProfile?.match(/users\/(\d+)/);
     const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
