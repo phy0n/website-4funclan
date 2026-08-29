@@ -137,6 +137,20 @@
   },
   {
     "id": 11,
+    "name": "4Loyd",
+    "username": "Aethelgarde",
+    "description": "",
+    "roles": [
+      "DARK SIDE",
+      "CONTENT CREATOR"
+    ],
+    "image": "https://tr.rbxcdn.com/30DAY-Avatar-48A6338976EC6029D93D08DE2B770BC3-Png/420/420/Avatar/Png/noFilter",
+    "socials": {},
+    "orderPriority": 5,
+    "robloxProfile": "https://www.roblox.com/users/6228258828/profile"
+  },
+  {
+    "id": 12,
     "name": "4Chin",
     "username": "LALISA_MANOBAL188",
     "description": "",
@@ -149,7 +163,7 @@
     "robloxProfile": "https://www.roblox.com/users/4952591413/profile"
   },
   {
-    "id": 12,
+    "id": 13,
     "name": "4pikky",
     "username": "Van901405",
     "description": "",
@@ -162,12 +176,13 @@
     "robloxProfile": "https://www.roblox.com/users/2711162451/profile"
   },
   {
-    "id": 13,
+    "id": 14,
     "name": "4Rvy",
     "username": "catkofz2",
     "description": "",
     "roles": [
-      "CONTENT CREATOR"
+      "CONTENT CREATOR",
+      "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-5A63361263B46C014E9337D0D6924050-Png/420/420/Avatar/Png/noFilter",
     "socials": {},
@@ -175,7 +190,7 @@
     "robloxProfile": "https://www.roblox.com/users/3242646281/profile"
   },
   {
-    "id": 14,
+    "id": 15,
     "name": "4RionOG",
     "username": "Luxnoirs",
     "description": "",
@@ -188,7 +203,7 @@
     "robloxProfile": "https://www.roblox.com/users/3915028544/profile"
   },
   {
-    "id": 15,
+    "id": 16,
     "name": "4vanta",
     "username": "vocsvx",
     "description": "",
@@ -201,7 +216,7 @@
     "robloxProfile": "https://www.roblox.com/users/2064939065/profile"
   },
   {
-    "id": 16,
+    "id": 17,
     "name": "4Vie",
     "username": "MeltingVanilla_9",
     "description": "",
@@ -214,7 +229,7 @@
     "robloxProfile": "https://www.roblox.com/users/8663264141/profile"
   },
   {
-    "id": 17,
+    "id": 18,
     "name": "4jjuu",
     "username": "CaramelCookies_Yeet",
     "description": "",
@@ -227,7 +242,7 @@
     "robloxProfile": "https://www.roblox.com/users/1319534443/profile"
   },
   {
-    "id": 18,
+    "id": 19,
     "name": "4cilapaw",
     "username": "CarriSauwu",
     "description": "",
@@ -240,7 +255,7 @@
     "robloxProfile": "https://www.roblox.com/users/1653132836/profile"
   },
   {
-    "id": 19,
+    "id": 20,
     "name": "4Berry",
     "username": "faculaeee",
     "description": "",
@@ -253,7 +268,7 @@
     "robloxProfile": "https://www.roblox.com/users/2371627410/profile"
   },
   {
-    "id": 20,
+    "id": 21,
     "name": "4biyyel",
     "username": "iiyeeeL",
     "description": "",
@@ -266,7 +281,7 @@
     "robloxProfile": "https://www.roblox.com/users/6195616655/profile"
   },
   {
-    "id": 21,
+    "id": 22,
     "name": "4Nou",
     "username": "ikootamvan",
     "description": "",
@@ -279,7 +294,7 @@
     "robloxProfile": "https://www.roblox.com/users/8165343744/profile"
   },
   {
-    "id": 22,
+    "id": 23,
     "name": "4til",
     "username": "atilantic4",
     "description": "",
@@ -292,7 +307,7 @@
     "robloxProfile": "https://www.roblox.com/users/10834533106/profile"
   },
   {
-    "id": 23,
+    "id": 24,
     "name": "4nata",
     "username": "natadec00co",
     "description": "",
@@ -305,7 +320,7 @@
     "robloxProfile": "https://www.roblox.com/users/8313568888/profile"
   },
   {
-    "id": 24,
+    "id": 25,
     "name": "4Kessi",
     "username": "sjdhsksdh",
     "description": "",
@@ -318,7 +333,7 @@
     "robloxProfile": "https://www.roblox.com/users/3018414945/profile"
   },
   {
-    "id": 25,
+    "id": 26,
     "name": "4Yuabell",
     "username": "chocociia06",
     "description": "",
@@ -331,7 +346,7 @@
     "robloxProfile": "https://www.roblox.com/users/3103050113/profile"
   },
   {
-    "id": 26,
+    "id": 27,
     "name": "4Mj",
     "username": "Milessupp",
     "description": "",
@@ -344,7 +359,7 @@
     "robloxProfile": "https://www.roblox.com/users/6207070001/profile"
   },
   {
-    "id": 27,
+    "id": 28,
     "name": "405",
     "username": "Andrea13JB",
     "description": "",
@@ -357,7 +372,7 @@
     "robloxProfile": "https://www.roblox.com/users/3155392376/profile"
   },
   {
-    "id": 28,
+    "id": 29,
     "name": "4Vex",
     "username": "vvvaaaaannn",
     "description": "",
@@ -370,7 +385,7 @@
     "robloxProfile": "https://www.roblox.com/users/2946940825/profile"
   },
   {
-    "id": 29,
+    "id": 30,
     "name": "4moca",
     "username": "kokaci0",
     "description": "",
@@ -383,7 +398,7 @@
     "robloxProfile": "https://www.roblox.com/users/5381239536/profile"
   },
   {
-    "id": 30,
+    "id": 31,
     "name": "4phy0n",
     "username": "Phy0nn",
     "description": "",
@@ -396,7 +411,7 @@
     "robloxProfile": "https://www.roblox.com/users/8883015179/profile"
   },
   {
-    "id": 31,
+    "id": 32,
     "name": "4Vv",
     "username": "chocobuttrr",
     "description": "",
@@ -409,7 +424,7 @@
     "robloxProfile": "https://www.roblox.com/users/8478618324/profile"
   },
   {
-    "id": 32,
+    "id": 33,
     "name": "4ar",
     "username": "ardi34646",
     "description": "",
@@ -422,7 +437,7 @@
     "robloxProfile": "https://www.roblox.com/users/9175057389/profile"
   },
   {
-    "id": 33,
+    "id": 34,
     "name": "4Ryll",
     "username": "Ryllurfaav",
     "description": "",
@@ -435,7 +450,7 @@
     "robloxProfile": "https://www.roblox.com/users/9484036288/profile"
   },
   {
-    "id": 34,
+    "id": 35,
     "name": "4love",
     "username": "Ialitha",
     "description": "",
@@ -448,7 +463,7 @@
     "robloxProfile": "https://www.roblox.com/users/4472315431/profile"
   },
   {
-    "id": 35,
+    "id": 36,
     "name": "4wizz",
     "username": "RappDeClaude",
     "description": "",
@@ -461,7 +476,7 @@
     "robloxProfile": "https://www.roblox.com/users/1058114503/profile"
   },
   {
-    "id": 36,
+    "id": 37,
     "name": "4joyy",
     "username": "pookie_imup8",
     "description": "",
@@ -474,7 +489,7 @@
     "robloxProfile": "https://www.roblox.com/users/9417015622/profile"
   },
   {
-    "id": 38,
+    "id": 39,
     "name": "ellaaa",
     "username": "Kaguya_chan34",
     "description": "",
@@ -487,7 +502,7 @@
     "robloxProfile": "https://www.roblox.com/users/2955712896/profile"
   },
   {
-    "id": 39,
+    "id": 40,
     "name": "4Lucia",
     "username": "vell4fellyciaaa",
     "description": "",
@@ -500,7 +515,7 @@
     "robloxProfile": "https://www.roblox.com/users/10312761048/profile"
   },
   {
-    "id": 40,
+    "id": 41,
     "name": "4enjie",
     "username": "enjiexo",
     "description": "",
@@ -513,7 +528,7 @@
     "robloxProfile": "https://www.roblox.com/users/10585408978/profile"
   },
   {
-    "id": 41,
+    "id": 42,
     "name": "4brisse",
     "username": "1nethtrust",
     "description": "",
@@ -526,7 +541,7 @@
     "robloxProfile": "https://www.roblox.com/users/726629072/profile"
   },
   {
-    "id": 42,
+    "id": 43,
     "name": "4_LyeJ",
     "username": "xXanTeR1A_2",
     "description": "",
@@ -539,7 +554,7 @@
     "robloxProfile": "https://www.roblox.com/users/6157997105/profile"
   },
   {
-    "id": 43,
+    "id": 44,
     "name": "4asta",
     "username": "grimmjow099",
     "description": "",
@@ -552,7 +567,7 @@
     "robloxProfile": "https://www.roblox.com/users/3598585518/profile"
   },
   {
-    "id": 44,
+    "id": 45,
     "name": "4manaphy",
     "username": "Aruna_PM",
     "description": "",
@@ -565,7 +580,7 @@
     "robloxProfile": "https://www.roblox.com/users/2557565494/profile"
   },
   {
-    "id": 45,
+    "id": 46,
     "name": "4popesdurennn",
     "username": "popesdurennn",
     "description": "",
@@ -578,7 +593,7 @@
     "robloxProfile": "https://www.roblox.com/users/11422259562/profile"
   },
   {
-    "id": 46,
+    "id": 47,
     "name": "4u8xc",
     "username": "verles44",
     "description": "",
@@ -591,7 +606,7 @@
     "robloxProfile": "https://www.roblox.com/users/10144976280/profile"
   },
   {
-    "id": 47,
+    "id": 48,
     "name": "4kemii",
     "username": "XeonnRA",
     "description": "",
@@ -604,7 +619,7 @@
     "robloxProfile": "https://www.roblox.com/users/2034956922/profile"
   },
   {
-    "id": 48,
+    "id": 49,
     "name": "4rtyanzAngelic",
     "username": "Arthaaa_s",
     "description": "",
@@ -617,7 +632,7 @@
     "robloxProfile": "https://www.roblox.com/users/7841881473/profile"
   },
   {
-    "id": 49,
+    "id": 50,
     "name": "4Jiey",
     "username": "disy_57",
     "description": "",
@@ -630,7 +645,7 @@
     "robloxProfile": "https://www.roblox.com/users/2017882179/profile"
   },
   {
-    "id": 50,
+    "id": 51,
     "name": "4cioo",
     "username": "fgjbnbdvk",
     "description": "",
@@ -643,7 +658,7 @@
     "robloxProfile": "https://www.roblox.com/users/4431960032/profile"
   },
   {
-    "id": 51,
+    "id": 52,
     "name": "4Jino",
     "username": "Forty_Four5",
     "description": "",
@@ -656,7 +671,7 @@
     "robloxProfile": "https://www.roblox.com/users/3633739354/profile"
   },
   {
-    "id": 52,
+    "id": 53,
     "name": "4naomi",
     "username": "rimuru_aww",
     "description": "",
