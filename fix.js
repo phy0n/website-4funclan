@@ -19,7 +19,7 @@ async function fix() {
             console.log('Updated', m.name);
             changed = true;
           }
-        } catch(e) { 
+        } catch (e) {
           console.error(e);
         }
       }
