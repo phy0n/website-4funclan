@@ -370,7 +370,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
             </button>
 
             {/* Left Column - Avatar Showcase */}
-            <div className="relative w-full md:w-[45%] h-[350px] md:h-auto min-h-[400px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 shrink-0 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
+            <div className="relative w-full md:w-[45%] h-[300px] sm:h-[350px] md:h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 shrink-0 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
               {/* Background Glow */}
               <div className={`absolute inset-0 opacity-20 blur-3xl z-0 pointer-events-none ${getRoleBannerColor(getHighestRole(selectedMember.roles))}`}></div>
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
@@ -396,9 +396,9 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
                 const isOnline = (rPresence && rPresence.userPresenceType > 0) || (dData && dData.discord_status !== 'offline');
                 return (
-                  <div className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
-                    <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500 shadow-[0_0_8px_#22c55e]' : 'bg-zinc-600'}`}></span>
-                    <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase">
+                  <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20 flex items-center gap-1.5 md:gap-2 bg-black/40 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+                    <span className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${isOnline ? 'bg-green-500 shadow-[0_0_8px_#22c55e]' : 'bg-zinc-600'}`}></span>
+                    <span className="text-[8px] md:text-[9px] font-bold tracking-widest text-zinc-300 uppercase">
                       {isOnline ? 'Online' : 'Offline'}
                     </span>
                   </div>
@@ -407,11 +407,11 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
             </div>
 
             {/* Right Column - Info & Activity */}
-            <div className="w-full md:w-[55%] p-6 md:p-10 flex flex-col gap-8 bg-[#111] rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
+            <div className="w-full md:w-[55%] p-5 md:p-10 flex flex-col gap-6 md:gap-8 bg-[#111] rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
 
               {/* Header */}
-              <div className="mt-2 md:mt-0">
-                <h2 className="font-black text-4xl md:text-5xl text-white tracking-tighter uppercase mb-3 leading-none">{selectedMember.name}</h2>
+              <div className="mt-1 md:mt-0">
+                <h2 className="font-black text-3xl md:text-5xl text-white tracking-tighter uppercase mb-2 md:mb-3 leading-none">{selectedMember.name}</h2>
                 <div className="flex flex-wrap items-center gap-3">
                   <p className="text-primary font-bold text-sm tracking-widest uppercase">@{selectedMember.username}</p>
                   <div className="w-1 h-1 rounded-full bg-zinc-600"></div>
@@ -426,7 +426,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
               </div>
 
               {/* Bio & Socials */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div>
                   <h3 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-3">About</h3>
                   {selectedMember.description ? (
