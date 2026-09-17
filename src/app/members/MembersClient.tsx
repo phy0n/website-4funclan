@@ -576,8 +576,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                     );
                   }
 
-                  // 5. Discord Status (if no rich presence)
-                  if (isDiscordOnline && !dSpotify && !dActivity) {
+                  // 5. Discord Status (if no rich presence and not already showing Roblox online)
+                  if (isDiscordOnline && !dSpotify && !dActivity && !isRobloxOnline && !isRobloxPlaying) {
                     const discordStatusColor =
                       dData.discord_status === 'online' ? 'bg-green-500 shadow-[0_0_10px_#22c55e]' :
                         dData.discord_status === 'idle' ? 'bg-yellow-500 shadow-[0_0_10px_#eab308]' :
