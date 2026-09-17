@@ -391,7 +391,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 const isOnline = (rPresence && rPresence.userPresenceType > 0) || (dData && dData.discord_status !== 'offline');
                 return (
                   <div className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
-                    <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500 shadow-[0_0_8px_#22c55e] animate-pulse' : 'bg-zinc-600'}`}></span>
+                    <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500 shadow-[0_0_8px_#22c55e]' : 'bg-zinc-600'}`}></span>
                     <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase">
                       {isOnline ? 'Online' : 'Offline'}
                     </span>
@@ -553,14 +553,16 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                       <div key="roblox-online" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
                         <div className="flex items-center gap-4">
                           <div className={`w-14 h-14 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-[#00b06f]/10 border-[#00b06f]/20'} rounded-xl flex items-center justify-center border shrink-0`}>
-                            <div className={`w-3 h-3 ${rPresence.userPresenceType === 3 ? 'bg-orange-500 shadow-[0_0_10px_#f97316]' : 'bg-[#00b06f] shadow-[0_0_10px_#00b06f]'} rounded-full animate-pulse`}></div>
+                            <div className={`w-3 h-3 ${rPresence.userPresenceType === 3 ? 'bg-orange-500 shadow-[0_0_10px_#f97316]' : 'bg-[#00b06f] shadow-[0_0_10px_#00b06f]'} rounded-full`}></div>
                           </div>
                           <div className="flex flex-col flex-1 min-w-0">
                             <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
                               {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
                             </span>
                             <span className="text-sm text-white font-bold truncate">
-                              {rPresence.userPresenceType === 3 ? 'Developing on Roblox' : 'Browsing Website'}
+                              {rPresence.userPresenceType === 3 
+                                ? (rPresence.lastLocation || 'Developing on Roblox') 
+                                : (rPresence.lastLocation && rPresence.lastLocation !== 'Website' ? rPresence.lastLocation : 'Active on Roblox')}
                             </span>
                           </div>
                         </div>
