@@ -140,11 +140,16 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
     const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
     const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
 
+    const dData = member.socials?.discordId ? lanyardData[member.socials.discordId] : null;
+    const isDiscordOnline = dData && dData.discord_status !== 'offline';
+    const isRobloxOnline = currentPresence?.userPresenceType > 0;
+    const isOnline = isRobloxOnline || isDiscordOnline;
+
     let matchesStatus = true;
     if (statusFilter === "ONLINE") {
-      matchesStatus = currentPresence?.userPresenceType > 0;
+      matchesStatus = isOnline;
     } else if (statusFilter === "OFFLINE") {
-      matchesStatus = !currentPresence || currentPresence.userPresenceType === 0;
+      matchesStatus = !isOnline;
     }
 
     return matchesFilter && matchesSearch && matchesStatus;
