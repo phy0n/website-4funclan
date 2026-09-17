@@ -359,7 +359,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
       {/* Member Detail Modal (Showcase Style) */}
       {selectedMember && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 md:py-12 bg-black/80 backdrop-blur-md transition-opacity duration-300" onClick={() => setSelectedMember(null)}>
-          <div className="relative w-full max-w-4xl h-full md:h-auto max-h-[850px] overflow-y-auto md:overflow-visible bg-[#111] rounded-3xl flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.8)] custom-scrollbar border border-white/10" onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full max-w-4xl h-full md:h-auto max-h-[850px] overflow-y-auto md:overflow-visible bg-[#111] rounded-3xl flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.8)] scrollbar-hide border border-white/10" onClick={(e) => e.stopPropagation()}>
 
             {/* Close Button */}
             <button
@@ -558,8 +558,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                     widgets.push(
                       <div key="roblox-online" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
                         <div className="flex items-center gap-4">
-                          <div className={`w-14 h-14 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-[#00b06f]/10 border-[#00b06f]/20'} rounded-xl flex items-center justify-center border shrink-0`}>
-                            <SiRoblox size={22} className={`${rPresence.userPresenceType === 3 ? 'text-orange-500 drop-shadow-[0_0_8px_#f97316]' : 'text-[#00b06f] drop-shadow-[0_0_8px_#00b06f]'}`} />
+                          <div className={`w-14 h-14 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-white/5 border-white/10'} rounded-xl flex items-center justify-center border shrink-0`}>
+                            <SiRoblox size={22} className={`${rPresence.userPresenceType === 3 ? 'text-orange-500 drop-shadow-[0_0_8px_#f97316]' : 'text-zinc-200'}`} />
                           </div>
                           <div className="flex flex-col flex-1 min-w-0">
                             <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
