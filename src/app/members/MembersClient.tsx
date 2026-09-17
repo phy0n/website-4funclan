@@ -88,7 +88,7 @@ const SpotifyProgress = ({ start, end, compact = false }: { start: number, end: 
   return (
     <div className={`w-full flex flex-col gap-1 ${compact ? 'mt-1' : 'mt-3'}`}>
       <div className={`w-full bg-white/10 rounded-full overflow-hidden ${compact ? 'h-0.5' : 'h-1'}`}>
-        <div 
+        <div
           className="h-full bg-[#1DB954] rounded-full transition-all duration-1000 ease-linear"
           style={{ width: `${progress}%` }}
         />
@@ -138,7 +138,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
           setLivePresences(newPresences);
         }
       } catch (e) {
-        
+        // Ignore error
       }
     };
 
@@ -168,7 +168,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         }));
         setLanyardData(newData);
       } catch (e) {
-        
+        // ignore
       }
     };
 
@@ -472,26 +472,20 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         )}
       </div>
 
-      
       {selectedMember && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 md:py-12 bg-black/80 backdrop-blur-md transition-opacity duration-300" onClick={() => setSelectedMember(null)}>
           <div className="relative w-full max-w-4xl h-full md:h-auto max-h-[850px] overflow-y-auto md:overflow-visible bg-[#111] rounded-3xl flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.8)] scrollbar-hide border border-white/10" onClick={(e) => e.stopPropagation()}>
 
-            
             <button
               onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors border border-white/5 cursor-pointer"
-            >
+              className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors border border-white/5 cursor-pointer">
               <X size={20} />
             </button>
 
-            
             <div className="relative w-full md:w-[45%] h-[300px] sm:h-[350px] md:h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 shrink-0 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
-              
               <div className={`absolute inset-0 opacity-20 blur-3xl z-0 pointer-events-none ${getRoleBannerColor(getHighestRole(selectedMember.roles))}`}></div>
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
 
-              
               {selectedMember.image && !selectedMember.image.includes('wikipedia') && (
                 <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                   <div className="relative w-[85%] h-[85%]">
@@ -505,7 +499,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 </div>
               )}
 
-              
               {(selectedMember.robloxProfile || selectedMember.socials?.discordId) && (() => {
                 const robloxIdMatch = selectedMember.robloxProfile?.match(/users\/(\d+)/);
                 const rPresence = ((robloxIdMatch && livePresences[parseInt(robloxIdMatch[1])]) || selectedMember.presence);
@@ -522,10 +515,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
               })()}
             </div>
 
-            
             <div className="w-full md:w-[55%] p-5 md:p-10 flex flex-col gap-6 md:gap-8 bg-[#111] rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
 
-              
               <div className="mt-1 md:mt-0">
                 <h2 className="font-black text-3xl md:text-5xl text-white tracking-tighter uppercase mb-2 md:mb-3 leading-none">{selectedMember.name}</h2>
                 <div className="flex flex-wrap items-center gap-3">
@@ -541,7 +532,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 </div>
               </div>
 
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div>
                   <h3 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-3">About</h3>
@@ -582,7 +572,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 </div>
               </div>
 
-              
               {(() => {
                 const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
                 const robloxIdMatch = selectedMember.robloxProfile?.match(/users\/(\d+)/);
@@ -597,7 +586,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                 const widgets = [];
 
-                
                 if (isRobloxPlaying) {
                   widgets.push(
                     <div key="roblox-playing" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
@@ -620,7 +608,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                   );
                 }
 
-                
                 if (dSpotify) {
                   widgets.push(
                     <div key="discord-spotify" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
@@ -641,7 +628,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                   );
                 }
 
-                
                 if (dActivity) {
                   widgets.push(
                     <div key="discord-activity" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
@@ -665,7 +651,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                   );
                 }
 
-                
                 if (isRobloxOnline && !isRobloxPlaying) {
                   widgets.push(
                     <div key="roblox-online" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
@@ -728,7 +713,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 );
               })()}
 
-              
               {selectedMember.robloxProfile && (
                 <div className="mt-4 pt-6 border-t border-white/5">
                   <a href={selectedMember.robloxProfile} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-4 bg-transparent hover:bg-white text-zinc-300 hover:text-black font-black uppercase tracking-widest text-xs rounded-xl transition-all duration-300 border border-white/20 hover:border-white">
