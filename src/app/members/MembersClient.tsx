@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
+import { SiRoblox } from "react-icons/si";
 import { Search, X } from "lucide-react";
 import { Member } from "@/lib/roblox";
 
@@ -553,7 +554,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                       <div key="roblox-online" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
                         <div className="flex items-center gap-4">
                           <div className={`w-14 h-14 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-[#00b06f]/10 border-[#00b06f]/20'} rounded-xl flex items-center justify-center border shrink-0`}>
-                            <div className={`w-3 h-3 ${rPresence.userPresenceType === 3 ? 'bg-orange-500 shadow-[0_0_10px_#f97316]' : 'bg-[#00b06f] shadow-[0_0_10px_#00b06f]'} rounded-full`}></div>
+                            <SiRoblox size={22} className={`${rPresence.userPresenceType === 3 ? 'text-orange-500 drop-shadow-[0_0_8px_#f97316]' : 'text-[#00b06f] drop-shadow-[0_0_8px_#00b06f]'}`} />
                           </div>
                           <div className="flex flex-col flex-1 min-w-0">
                             <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
