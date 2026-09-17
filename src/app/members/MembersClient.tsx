@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
 import { SiRoblox } from "react-icons/si";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
 import { Member } from "@/lib/roblox";
 
 const ROLE_PRIORITY: Record<string, number> = {
@@ -228,50 +228,50 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
       </div>
 
       <div className="w-full px-6 md:px-24">
-        <div className="flex flex-col gap-6 mb-12">
-          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
-            <div className="flex flex-wrap gap-2 flex-1">
-              {ALL_ROLES.map(role => (
-                <button
-                  key={role}
-                  onClick={() => setActiveFilter(role)}
-                  className={`px-4 py-2 text-xs font-bold tracking-widest uppercase rounded-full border transition-all duration-300 ${activeFilter === role
-                    ? "bg-primary text-white border-primary shadow-[0_0_15px_rgba(220,38,38,0.5)]"
-                    : "bg-transparent text-gray-500 border-white/10 hover:border-white/30 hover:text-white"
-                    }`}>
-                  {role}
-                </button>
-              ))}
+        <div className="flex flex-col md:flex-row gap-4 items-center w-full mb-12 bg-[#111] p-2 rounded-2xl border border-white/5 shadow-lg">
+          <div className="relative flex-1 w-full">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <Search className="h-4 w-4 text-zinc-500" />
             </div>
-
-            <div className="relative w-full md:w-64 lg:w-80 shrink-0">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-4 w-4 text-zinc-500" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search member..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#111] border border-white/10 rounded-full py-2.5 pl-10 pr-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all duration-300"
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="Search member..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-transparent border-none py-3 pl-11 pr-4 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-0"
+            />
           </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em] ml-1">Status Filter:</span>
-            {["ALL", "ONLINE", "OFFLINE"].map(status => (
-              <button
-                key={status}
-                onClick={() => setStatusFilter(status)}
-                className={`px-3 py-1.5 text-[9px] font-bold tracking-[0.1em] uppercase rounded-full border transition-all duration-300 ${statusFilter === status
-                  ? "bg-white/10 text-white border-white/20 shadow-lg backdrop-blur-md"
-                  : "bg-transparent text-zinc-600 border-white/5 hover:border-white/10 hover:text-zinc-400"
-                  }`}
+          
+          <div className="flex gap-2 w-full md:w-auto shrink-0 px-2 pb-2 md:pb-0 md:px-0">
+            <div className="relative flex-1 md:w-48">
+              <select
+                value={activeFilter}
+                onChange={(e) => setActiveFilter(e.target.value)}
+                className="w-full appearance-none bg-[#0a0a0a] border border-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase rounded-xl py-3 pl-4 pr-10 focus:outline-none focus:border-white/20 transition-colors cursor-pointer"
               >
-                {status}
-              </button>
-            ))}
+                {ALL_ROLES.map(role => (
+                  <option key={role} value={role}>{role === "ALL" ? "ALL ROLES" : role}</option>
+                ))}
+              </select>
+              <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                <ChevronDown className="h-4 w-4 text-zinc-500" />
+              </div>
+            </div>
+
+            <div className="relative flex-1 md:w-40">
+              <select
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="w-full appearance-none bg-[#0a0a0a] border border-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase rounded-xl py-3 pl-4 pr-10 focus:outline-none focus:border-white/20 transition-colors cursor-pointer"
+              >
+                <option value="ALL">ALL STATUS</option>
+                <option value="ONLINE">ONLINE</option>
+                <option value="OFFLINE">OFFLINE</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                <ChevronDown className="h-4 w-4 text-zinc-500" />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -286,7 +286,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
               const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
 
               return (
-                <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative flex flex-col p-2 rounded-3xl bg-gradient-to-br from-zinc-800/80 via-black to-zinc-900/80 border border-white/10 shadow-2xl cursor-pointer hover:border-white/30 transition-all duration-500">
+                <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative flex flex-col p-2 rounded-3xl bg-black border border-white/10 shadow-2xl cursor-pointer hover:border-white/30 transition-all duration-500">
                   <div className="relative w-full h-full flex flex-col items-center border-[1.5px] border-white/5 rounded-2xl bg-[#0a0a0a] overflow-hidden">
                     <div className={`absolute top-0 inset-x-0 h-48 ${bannerColor} opacity-15 blur-2xl z-0 pointer-events-none rounded-t-2xl`}></div>
                     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
