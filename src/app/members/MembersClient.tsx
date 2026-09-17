@@ -56,6 +56,53 @@ const getRoleBannerColor = (role: string) => {
   }
 };
 
+const SpotifyProgress = ({ start, end, compact = false }: { start: number, end: number, compact?: boolean }) => {
+  const [progress, setProgress] = useState(0);
+  const [now, setNow] = useState(Date.now());
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const currentNow = Date.now();
+      setNow(currentNow);
+      const total = end - start;
+      const current = currentNow - start;
+      const percentage = Math.min(100, Math.max(0, (current / total) * 100));
+      setProgress(percentage);
+    };
+
+    updateProgress();
+    const interval = setInterval(updateProgress, 1000);
+    return () => clearInterval(interval);
+  }, [start, end]);
+
+  const formatTime = (ms: number) => {
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const currentMs = Math.min(end - start, Math.max(0, now - start));
+  const totalMs = end - start;
+
+  return (
+    <div className={`w-full flex flex-col gap-1 ${compact ? 'mt-1' : 'mt-3'}`}>
+      <div className={`w-full bg-white/10 rounded-full overflow-hidden ${compact ? 'h-0.5' : 'h-1'}`}>
+        <div 
+          className="h-full bg-[#1DB954] rounded-full transition-all duration-1000 ease-linear"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+      {!compact && (
+        <div className="flex justify-between items-center w-full">
+          <span className="text-[9px] text-zinc-500 font-medium">{formatTime(currentMs)}</span>
+          <span className="text-[9px] text-zinc-500 font-medium">{formatTime(totalMs)}</span>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function MembersClient({ initialMembers }: { initialMembers: Member[] }) {
   const [activeFilter, setActiveFilter] = useState("ALL");
   const [statusFilter, setStatusFilter] = useState("ALL");
@@ -302,22 +349,27 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                         if (dSpotify) {
                           return (
                             <div className="mb-6 w-full px-2 flex justify-center">
-                              <div className="flex items-center gap-3 w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
-                                <div className="relative w-9 h-9 shrink-0">
-                                  <Image
-                                    src={dSpotify.album_art_url}
-                                    alt="Spotify"
-                                    fill
-                                    sizes="36px"
-                                    className="rounded-md object-cover border border-white/10"
-                                  />
+                              <div className="flex flex-col w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
+                                <div className="flex items-center gap-3">
+                                  <div className="relative w-9 h-9 shrink-0">
+                                    <Image
+                                      src={dSpotify.album_art_url}
+                                      alt="Spotify"
+                                      fill
+                                      sizes="36px"
+                                      className="rounded-md object-cover border border-white/10"
+                                    />
+                                  </div>
+                                  <div className="flex flex-col flex-1 min-w-0">
+                                    <span className="text-[8px] font-bold text-[#1DB954] uppercase tracking-[0.2em] mb-0.5 drop-shadow-md">Listening</span>
+                                    <span className="text-[10px] font-medium text-zinc-200 truncate" title={dSpotify.song}>
+                                      {dSpotify.song}
+                                    </span>
+                                  </div>
                                 </div>
-                                <div className="flex flex-col flex-1 min-w-0">
-                                  <span className="text-[8px] font-bold text-[#1DB954] uppercase tracking-[0.2em] mb-0.5 drop-shadow-md">Listening</span>
-                                  <span className="text-[10px] font-medium text-zinc-200 truncate" title={dSpotify.song}>
-                                    {dSpotify.song}
-                                  </span>
-                                </div>
+                                {dSpotify.timestamps && dSpotify.timestamps.start && dSpotify.timestamps.end && (
+                                  <SpotifyProgress start={dSpotify.timestamps.start} end={dSpotify.timestamps.end} compact={true} />
+                                )}
                               </div>
                             </div>
                           );
@@ -340,6 +392,47 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                   <span className="text-[8px] font-bold text-[#5865F2] uppercase tracking-[0.2em] mb-0.5 drop-shadow-md">Playing</span>
                                   <span className="text-[10px] font-medium text-zinc-200 truncate" title={dActivity.name}>
                                     {dActivity.name}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        if (currentPresence?.userPresenceType === 1 || currentPresence?.userPresenceType === 3) {
+                          return (
+                            <div className="mb-6 w-full px-2 flex justify-center">
+                              <div className="flex items-center gap-3 w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
+                                <div className={`w-9 h-9 shrink-0 ${currentPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-white/5 border-white/10'} rounded-md border flex items-center justify-center`}>
+                                  <SiRoblox size={16} className={`${currentPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-zinc-200'}`} />
+                                </div>
+                                <div className="flex flex-col flex-1 min-w-0">
+                                  <span className={`text-[8px] font-bold ${currentPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-[0.2em] mb-0.5 drop-shadow-md`}>
+                                    {currentPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
+                                  </span>
+                                  <span className="text-[10px] font-medium text-zinc-200 truncate" title={currentPresence.lastLocation || (currentPresence.userPresenceType === 3 ? 'Developing' : 'Active on Roblox')}>
+                                    {currentPresence.lastLocation && currentPresence.lastLocation !== 'Website' ? currentPresence.lastLocation : (currentPresence.userPresenceType === 3 ? 'Developing' : 'Active on Roblox')}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        const dCustomStatus = dData?.activities?.find((a: any) => a.type === 4);
+                        if (isDiscordOnline) {
+                          return (
+                            <div className="mb-6 w-full px-2 flex justify-center">
+                              <div className="flex items-center gap-3 w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
+                                <div className="w-9 h-9 shrink-0 bg-[#5865F2]/10 rounded-md border border-[#5865F2]/20 flex items-center justify-center">
+                                  <FaDiscord size={16} className="text-[#5865F2]" />
+                                </div>
+                                <div className="flex flex-col flex-1 min-w-0">
+                                  <span className="text-[8px] font-bold text-[#5865F2] uppercase tracking-[0.2em] mb-0.5 drop-shadow-md">
+                                    {dData.discord_status === 'dnd' ? 'Busy' : 'Active'}
+                                  </span>
+                                  <span className="text-[10px] font-medium text-zinc-200 truncate" title={dCustomStatus?.state || 'On Discord'}>
+                                    {dCustomStatus?.state || 'On Discord'}
                                   </span>
                                 </div>
                               </div>
@@ -560,6 +653,9 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                           <span className="text-xs text-zinc-400 truncate">by {dSpotify.artist}</span>
                         </div>
                       </div>
+                      {dSpotify.timestamps && dSpotify.timestamps.start && dSpotify.timestamps.end && (
+                        <SpotifyProgress start={dSpotify.timestamps.start} end={dSpotify.timestamps.end} />
+                      )}
                     </div>
                   );
                 }
@@ -612,7 +708,35 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 }
 
                 if (widgets.length === 0) {
-                  return null;
+                  const dCustomStatus = dData?.activities?.find((a: any) => a.type === 4);
+                  const isDiscordOnline = dData && (dData.discord_status === 'online' || dData.discord_status === 'idle' || dData.discord_status === 'dnd');
+
+                  if (isDiscordOnline) {
+                    const discordStatusText =
+                      dData.discord_status === 'online' ? 'Online on Discord' :
+                        dData.discord_status === 'idle' ? 'Idle on Discord' :
+                          'Do Not Disturb';
+
+                    widgets.push(
+                      <div key="discord-status" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          <div className="w-14 h-14 bg-[#5865F2]/10 rounded-xl flex items-center justify-center border border-[#5865F2]/20 shrink-0">
+                            <FaDiscord size={24} className="text-[#5865F2]" />
+                          </div>
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className="text-[10px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">
+                              {dData.discord_status === 'dnd' ? 'Busy' : 'Active'}
+                            </span>
+                            <span className="text-sm text-white font-bold truncate">
+                              {dCustomStatus?.state ? dCustomStatus.state : discordStatusText}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    return null;
+                  }
                 }
 
                 return (
