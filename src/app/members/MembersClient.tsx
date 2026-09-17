@@ -10,11 +10,12 @@ import { Member } from "@/lib/roblox";
 const ROLE_PRIORITY: Record<string, number> = {
   "OWNER": 1,
   "CO OWNER": 2,
-  "STAFF": 3,
-  "ASSESSOR": 4,
-  "DARK SIDE": 5,
-  "CONTENT CREATOR": 6,
-  "MEMBER": 7
+  "ADMIN": 3,
+  "STAFF": 4,
+  "ASSESSOR": 5,
+  "DARK SIDE": 6,
+  "CONTENT CREATOR": 7,
+  "MEMBER": 8
 };
 
 function getHighestRolePriority(roles: string[]) {
@@ -31,6 +32,7 @@ const getRoleStyle = (role: string) => {
   switch (role) {
     case "OWNER": return "bg-[#0a0a0a] text-white border-white/20";
     case "CO OWNER": return "bg-blue-900/80 text-blue-200 border-blue-600/30";
+    case "ADMIN": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
     case "STAFF": return "bg-cyan-500/20 text-cyan-300 border-cyan-500/30";
     case "ASSESSOR": return "bg-green-500/20 text-green-400 border-green-500/30";
     case "DARK SIDE": return "bg-red-600/20 text-red-500 border-red-600/30";
@@ -44,6 +46,7 @@ const getRoleBannerColor = (role: string) => {
   switch (role) {
     case "OWNER": return "bg-white";
     case "CO OWNER": return "bg-blue-600";
+    case "ADMIN": return "bg-purple-500";
     case "STAFF": return "bg-cyan-500";
     case "ASSESSOR": return "bg-green-500";
     case "DARK SIDE": return "bg-primary";
@@ -155,7 +158,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
     return matchesFilter && matchesSearch && matchesStatus;
   });
 
-  const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
+  const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
 
   return (
     <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-10 pt-32 md:pt-40">
@@ -566,8 +569,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                               {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
                             </span>
                             <span className="text-sm text-white font-bold truncate">
-                              {rPresence.userPresenceType === 3 
-                                ? (rPresence.lastLocation || 'Developing on Roblox') 
+                              {rPresence.userPresenceType === 3
+                                ? (rPresence.lastLocation || 'Developing on Roblox')
                                 : (rPresence.lastLocation && rPresence.lastLocation !== 'Website' ? rPresence.lastLocation : 'Active on Roblox')}
                             </span>
                           </div>
