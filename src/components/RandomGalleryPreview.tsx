@@ -23,7 +23,7 @@ export default function RandomGalleryPreview() {
             alt={item.title}
             fill
             unoptimized
-            className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+            className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-700"
           />
         </div>
       ))}

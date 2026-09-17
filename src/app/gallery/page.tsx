@@ -60,11 +60,6 @@ export default function Gallery() {
                   unoptimized
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
-                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter drop-shadow-md">
-                    {item.title}
-                  </h3>
-                </div>
               </div>
             ))}
           </div>
@@ -84,11 +79,6 @@ export default function Gallery() {
                   unoptimized
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
-                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter drop-shadow-md">
-                    {item.title}
-                  </h3>
-                </div>
               </div>
             ))}
           </div>
@@ -108,11 +98,6 @@ export default function Gallery() {
                   unoptimized
                   className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6">
-                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter drop-shadow-md">
-                    {item.title}
-                  </h3>
-                </div>
               </div>
             ))}
           </div>
