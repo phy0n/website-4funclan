@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { Member } from "@/lib/roblox";
 
 const ROLE_PRIORITY: Record<string, number> = {
@@ -57,6 +57,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
   const [statusFilter, setStatusFilter] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [livePresences, setLivePresences] = useState<Record<number, any>>({});
+  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
+  const [lanyardData, setLanyardData] = useState<Record<string, any>>({});
 
   useEffect(() => {
     const robloxIds = initialMembers
@@ -94,6 +96,36 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
     return () => clearInterval(interval);
   }, [initialMembers]);
 
+  useEffect(() => {
+    const discordIds = initialMembers
+      .map(m => m.socials?.discordId)
+      .filter((id): id is string => !!id);
+
+    if (discordIds.length === 0) return;
+
+    const fetchLanyard = async () => {
+      try {
+        const newData: Record<string, any> = {};
+        await Promise.all(discordIds.map(async (id) => {
+          const res = await fetch(`https://api.lanyard.rest/v1/users/${id}`);
+          if (res.ok) {
+            const json = await res.json();
+            if (json.success) {
+              newData[id] = json.data;
+            }
+          }
+        }));
+        setLanyardData(newData);
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    fetchLanyard();
+    const interval = setInterval(fetchLanyard, 15000);
+    return () => clearInterval(interval);
+  }, [initialMembers]);
+
   const sortedMembers = [...initialMembers].sort((a, b) => {
     return getHighestRolePriority(a.roles) - getHighestRolePriority(b.roles);
   });
@@ -101,7 +133,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
   const filteredMembers = sortedMembers.filter(member => {
     const matchesFilter = activeFilter === "ALL" || member.roles.includes(activeFilter);
     const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          (member.username && member.username.toLowerCase().includes(searchQuery.toLowerCase()));
+      (member.username && member.username.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const robloxIdMatch = member.robloxProfile?.match(/users\/(\d+)/);
     const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
@@ -198,7 +230,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
               const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
 
               return (
-                <div key={member.id} className="group relative flex flex-col p-2 rounded-3xl bg-gradient-to-br from-zinc-800/80 via-black to-zinc-900/80 border border-white/10 shadow-2xl">
+                <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative flex flex-col p-2 rounded-3xl bg-gradient-to-br from-zinc-800/80 via-black to-zinc-900/80 border border-white/10 shadow-2xl cursor-pointer hover:border-white/30 transition-all duration-500">
                   <div className="relative w-full h-full flex flex-col items-center border-[1.5px] border-white/5 rounded-2xl bg-[#0a0a0a] overflow-hidden">
                     <div className={`absolute top-0 inset-x-0 h-48 ${bannerColor} opacity-15 blur-2xl z-0 pointer-events-none rounded-t-2xl`}></div>
                     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
@@ -221,49 +253,54 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                         @{member.username}
                       </p>
 
-                      {member.robloxProfile && (
-                        <div className="mb-6 w-full px-2 flex justify-center">
-                          {currentPresence?.userPresenceType === 2 ? (
-                            <div className="flex items-center gap-3 w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
-                              {currentPresence.gameIconUrl ? (
-                                <div className="relative w-9 h-9 shrink-0">
-                                  <Image
-                                    src={currentPresence.gameIconUrl}
-                                    alt="Game Icon"
-                                    fill
-                                    sizes="36px"
-                                    className="rounded-md object-cover border border-white/10"
-                                  />
+                      {(member.robloxProfile || member.socials?.discordId) && (() => {
+                        const dData = member.socials?.discordId ? lanyardData[member.socials.discordId] : null;
+                        const isDiscordOnline = dData && dData.discord_status !== 'offline';
+
+                        return (
+                          <div className="mb-6 w-full px-2 flex justify-center">
+                            {currentPresence?.userPresenceType === 2 ? (
+                              <div className="flex items-center gap-3 w-full bg-white/5 p-2 rounded-xl border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
+                                {currentPresence.gameIconUrl ? (
+                                  <div className="relative w-9 h-9 shrink-0">
+                                    <Image
+                                      src={currentPresence.gameIconUrl}
+                                      alt="Game Icon"
+                                      fill
+                                      sizes="36px"
+                                      className="rounded-md object-cover border border-white/10"
+                                    />
+                                  </div>
+                                ) : (
+                                  <div className="w-9 h-9 bg-zinc-800 rounded-md shrink-0 border border-white/10 flex items-center justify-center">
+                                    <span className="text-[10px] text-zinc-500 font-bold">?</span>
+                                  </div>
+                                )}
+                                <div className="flex flex-col flex-1 min-w-0">
+                                  <span className="text-[8px] font-bold text-green-400 uppercase tracking-[0.2em] mb-0.5 drop-shadow-md">Playing</span>
+                                  <span className="text-[10px] font-medium text-zinc-200 truncate" title={currentPresence.lastLocation || 'A Game'}>
+                                    {currentPresence.lastLocation || 'A Game'}
+                                  </span>
                                 </div>
-                              ) : (
-                                <div className="w-9 h-9 bg-zinc-800 rounded-md shrink-0 border border-white/10 flex items-center justify-center">
-                                  <span className="text-[10px] text-zinc-500 font-bold">?</span>
+                              </div>
+                            ) : (
+                              <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
+                                <div className="relative flex h-2 w-2 shrink-0">
+                                  <span className={`relative inline-flex rounded-full h-2 w-2 ${currentPresence?.userPresenceType === 1 || isDiscordOnline ? 'bg-green-500' :
+                                    currentPresence?.userPresenceType === 3 ? 'bg-orange-500' :
+                                      'bg-zinc-600'
+                                    }`}></span>
                                 </div>
-                              )}
-                              <div className="flex flex-col flex-1 min-w-0">
-                                <span className="text-[8px] font-bold text-green-400 uppercase tracking-[0.2em] mb-0.5 drop-shadow-md">Playing</span>
-                                <span className="text-[10px] font-medium text-zinc-200 truncate" title={currentPresence.lastLocation || 'A Game'}>
-                                  {currentPresence.lastLocation || 'A Game'}
+                                <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase truncate max-w-[120px]">
+                                  {currentPresence?.userPresenceType === 1 || isDiscordOnline ? 'Online' :
+                                    currentPresence?.userPresenceType === 3 ? 'In Studio' :
+                                      'Offline'}
                                 </span>
                               </div>
-                            </div>
-                          ) : (
-                            <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
-                              <div className="relative flex h-2 w-2 shrink-0">
-                                <span className={`relative inline-flex rounded-full h-2 w-2 ${currentPresence?.userPresenceType === 1 ? 'bg-green-500' :
-                                  currentPresence?.userPresenceType === 3 ? 'bg-orange-500' :
-                                    'bg-zinc-600'
-                                  }`}></span>
-                              </div>
-                              <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase truncate max-w-[120px]">
-                                {currentPresence?.userPresenceType === 1 ? 'Online' :
-                                  currentPresence?.userPresenceType === 3 ? 'In Studio' :
-                                    'Offline'}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      )}
+                            )}
+                          </div>
+                        );
+                      })()}
                       <div className="flex flex-wrap justify-center gap-2 mb-4">
                         {member.roles.map((role) => (
                           <span key={role} className={`font-black text-[10px] uppercase tracking-widest px-3 py-1.5 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
@@ -279,6 +316,26 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                           </p>
                         </div>
                       )}
+
+                      {member.socials && (member.socials.discord || member.socials.instagram || member.socials.tiktok) && (
+                        <div onClick={(e) => e.stopPropagation()} className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-white/5 w-full">
+                          {member.socials.instagram && (
+                            <a href={member.socials.instagram.startsWith('http') ? member.socials.instagram : `https://instagram.com/${member.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 hover:drop-shadow-[0_0_12px_rgba(236,72,153,0.8)] transition-all duration-300">
+                              <FaInstagram size={20} />
+                            </a>
+                          )}
+                          {member.socials.tiktok && (
+                            <a href={member.socials.tiktok.startsWith('http') ? member.socials.tiktok : `https://tiktok.com/@${member.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-300">
+                              <FaTiktok size={20} />
+                            </a>
+                          )}
+                          {member.socials.discord && (
+                            <a href={`https://discord.com/users/${member.socials.discord}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] hover:drop-shadow-[0_0_12px_rgba(88,101,242,0.8)] transition-all duration-300" title="Discord">
+                              <FaDiscord size={20} />
+                            </a>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -292,6 +349,286 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
           </div>
         )}
       </div>
+
+      {/* Member Detail Modal (Showcase Style) */}
+      {selectedMember && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 md:py-12 bg-black/80 backdrop-blur-md transition-opacity duration-300" onClick={() => setSelectedMember(null)}>
+          <div className="relative w-full max-w-4xl h-full md:h-auto max-h-[850px] overflow-y-auto md:overflow-visible bg-[#111] rounded-3xl flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.8)] custom-scrollbar border border-white/10" onClick={(e) => e.stopPropagation()}>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedMember(null)}
+              className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors border border-white/5 cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Left Column - Avatar Showcase */}
+            <div className="relative w-full md:w-[45%] h-[350px] md:h-auto min-h-[400px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 shrink-0 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
+              {/* Background Glow */}
+              <div className={`absolute inset-0 opacity-20 blur-3xl z-0 pointer-events-none ${getRoleBannerColor(getHighestRole(selectedMember.roles))}`}></div>
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
+
+              {/* Character Image */}
+              {selectedMember.image && !selectedMember.image.includes('wikipedia') && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                  <div className="relative w-[85%] h-[85%]">
+                    <Image
+                      src={selectedMember.image}
+                      alt={selectedMember.name}
+                      fill
+                      className="object-contain object-center drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Status Indicator */}
+              {(selectedMember.robloxProfile || selectedMember.socials?.discordId) && (() => {
+                const robloxIdMatch = selectedMember.robloxProfile?.match(/users\/(\d+)/);
+                const rPresence = ((robloxIdMatch && livePresences[parseInt(robloxIdMatch[1])]) || selectedMember.presence);
+                const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
+                const isOnline = (rPresence && rPresence.userPresenceType > 0) || (dData && dData.discord_status !== 'offline');
+                return (
+                  <div className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+                    <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-green-500 shadow-[0_0_8px_#22c55e] animate-pulse' : 'bg-zinc-600'}`}></span>
+                    <span className="text-[9px] font-bold tracking-widest text-zinc-300 uppercase">
+                      {isOnline ? 'Online' : 'Offline'}
+                    </span>
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* Right Column - Info & Activity */}
+            <div className="w-full md:w-[55%] p-6 md:p-10 flex flex-col gap-8 bg-[#111] rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
+
+              {/* Header */}
+              <div className="mt-2 md:mt-0">
+                <h2 className="font-black text-4xl md:text-5xl text-white tracking-tighter uppercase mb-3 leading-none">{selectedMember.name}</h2>
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="text-primary font-bold text-sm tracking-widest uppercase">@{selectedMember.username}</p>
+                  <div className="w-1 h-1 rounded-full bg-zinc-600"></div>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedMember.roles.map((role) => (
+                      <span key={role} className={`font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
+                        {role}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio & Socials */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-3">About</h3>
+                  {selectedMember.description ? (
+                    <p className="text-sm text-zinc-300 leading-relaxed font-medium">
+                      {selectedMember.description}
+                    </p>
+                  ) : (
+                    <p className="text-sm text-zinc-600 italic">No description provided.</p>
+                  )}
+                </div>
+
+                <div>
+                  <h3 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-3">Connect</h3>
+                  <div className="flex gap-4">
+                    {selectedMember.socials && Object.keys(selectedMember.socials).length > 0 ? (
+                      <>
+                        {selectedMember.socials.instagram && (
+                          <a href={selectedMember.socials.instagram.startsWith('http') ? selectedMember.socials.instagram : `https://instagram.com/${selectedMember.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 hover:drop-shadow-[0_0_12px_rgba(236,72,153,0.8)] transition-all duration-300">
+                            <FaInstagram size={24} />
+                          </a>
+                        )}
+                        {selectedMember.socials.tiktok && (
+                          <a href={selectedMember.socials.tiktok.startsWith('http') ? selectedMember.socials.tiktok : `https://tiktok.com/@${selectedMember.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-300">
+                            <FaTiktok size={24} />
+                          </a>
+                        )}
+                        {selectedMember.socials.discord && (
+                          <a href={`https://discord.com/users/${selectedMember.socials.discord}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] hover:drop-shadow-[0_0_12px_rgba(88,101,242,0.8)] transition-all duration-300" title="Discord">
+                            <FaDiscord size={24} />
+                          </a>
+                        )}
+                      </>
+                    ) : (
+                      <span className="text-sm text-zinc-600 italic">No connections linked.</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Activity Widget */}
+              <div className="mt-2 flex-1 flex flex-col justify-end gap-3">
+                <h3 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">Live Status</h3>
+
+                {(() => {
+                  const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
+                  const robloxIdMatch = selectedMember.robloxProfile?.match(/users\/(\d+)/);
+                  const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
+                  const rPresence = (robloxId && livePresences[robloxId]) || selectedMember.presence;
+
+                  const isRobloxPlaying = rPresence?.userPresenceType === 2;
+                  const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
+
+                  const dSpotify = dData?.spotify;
+                  const dActivity = dData?.activities?.find((a: any) => a.type === 0);
+                  const dCustomStatus = dData?.activities?.find((a: any) => a.type === 4);
+                  const isDiscordOnline = dData && (dData.discord_status === 'online' || dData.discord_status === 'idle' || dData.discord_status === 'dnd');
+
+                  const hasAnyActivity = isRobloxPlaying || isRobloxOnline || dSpotify || dActivity || isDiscordOnline;
+
+                  const widgets = [];
+
+                  // 1. Roblox Playing
+                  if (isRobloxPlaying) {
+                    widgets.push(
+                      <div key="roblox-playing" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          {rPresence.gameIconUrl ? (
+                            <div className="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden border border-white/10">
+                              <Image src={rPresence.gameIconUrl} alt="Game Icon" fill className="object-cover" />
+                            </div>
+                          ) : (
+                            <div className="w-14 h-14 bg-zinc-800 rounded-xl border border-white/10 flex items-center justify-center shrink-0">
+                              <span className="text-zinc-600 font-bold">?</span>
+                            </div>
+                          )}
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className="text-[10px] font-bold text-green-400 uppercase tracking-widest mb-0.5">Playing Roblox</span>
+                            <span className="text-sm text-white font-bold truncate">{rPresence.lastLocation || 'Hidden Location'}</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // 2. Discord Spotify
+                  if (dSpotify) {
+                    widgets.push(
+                      <div key="discord-spotify" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          <div className="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden border border-white/10">
+                            <Image src={dSpotify.album_art_url} alt="Spotify" fill className="object-cover" />
+                          </div>
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className="text-[10px] font-bold text-[#1DB954] uppercase tracking-widest mb-0.5">Listening to Spotify</span>
+                            <span className="text-sm text-white font-bold truncate">{dSpotify.song}</span>
+                            <span className="text-xs text-zinc-400 truncate">by {dSpotify.artist}</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // 3. Discord Activity (Game)
+                  if (dActivity) {
+                    widgets.push(
+                      <div key="discord-activity" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          <div className="relative w-14 h-14 bg-zinc-800 shrink-0 rounded-xl overflow-hidden border border-white/10 flex items-center justify-center">
+                            {dActivity.assets?.large_image && dActivity.assets.large_image.startsWith('mp:') ? (
+                              <Image src={`https://media.discordapp.net/${dActivity.assets.large_image.replace('mp:', '')}`} alt={dActivity.name} fill className="object-cover" />
+                            ) : dActivity.assets?.large_image ? (
+                              <Image src={`https://cdn.discordapp.com/app-assets/${dActivity.application_id}/${dActivity.assets.large_image}.png`} alt={dActivity.name} fill className="object-cover" />
+                            ) : (
+                              <FaDiscord size={24} className="text-zinc-500" />
+                            )}
+                          </div>
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className="text-[10px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">Playing a Game</span>
+                            <span className="text-sm text-white font-bold truncate">{dActivity.name}</span>
+                            {dActivity.details && <span className="text-xs text-zinc-400 truncate">{dActivity.details}</span>}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // 4. Roblox Online (if not playing)
+                  if (isRobloxOnline && !isRobloxPlaying) {
+                    widgets.push(
+                      <div key="roblox-online" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          <div className={`w-14 h-14 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-[#00b06f]/10 border-[#00b06f]/20'} rounded-xl flex items-center justify-center border shrink-0`}>
+                            <div className={`w-3 h-3 ${rPresence.userPresenceType === 3 ? 'bg-orange-500 shadow-[0_0_10px_#f97316]' : 'bg-[#00b06f] shadow-[0_0_10px_#00b06f]'} rounded-full animate-pulse`}></div>
+                          </div>
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
+                              {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
+                            </span>
+                            <span className="text-sm text-white font-bold truncate">
+                              {rPresence.userPresenceType === 3 ? 'Developing on Roblox' : 'Browsing Website'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // 5. Discord Status (if no rich presence)
+                  if (isDiscordOnline && !dSpotify && !dActivity) {
+                    const discordStatusColor =
+                      dData.discord_status === 'online' ? 'bg-green-500 shadow-[0_0_10px_#22c55e]' :
+                        dData.discord_status === 'idle' ? 'bg-yellow-500 shadow-[0_0_10px_#eab308]' :
+                          'bg-red-500 shadow-[0_0_10px_#ef4444]';
+                    const discordStatusText =
+                      dData.discord_status === 'online' ? 'Online' :
+                        dData.discord_status === 'idle' ? 'Idle' :
+                          'Do Not Disturb';
+
+                    widgets.push(
+                      <div key="discord-status" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          <div className="w-14 h-14 bg-black/50 rounded-xl flex items-center justify-center border border-white/5 shrink-0">
+                            <span className={`w-3 h-3 rounded-full ${discordStatusColor}`}></span>
+                          </div>
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Discord Status</span>
+                            <span className="text-sm text-white font-bold truncate">{discordStatusText}</span>
+                            {dCustomStatus?.state && <span className="text-xs text-zinc-400 truncate">{dCustomStatus.state}</span>}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // 6. Offline (if absolutely nothing else is showing)
+                  if (!hasAnyActivity) {
+                    widgets.push(
+                      <div key="offline" className="bg-[#161616] border border-white/5 rounded-2xl p-4">
+                        <div className="flex items-center gap-4">
+                          <div className="w-14 h-14 bg-black/50 rounded-xl flex items-center justify-center border border-white/5 shrink-0">
+                            <span className="w-2.5 h-2.5 bg-zinc-600 rounded-full"></span>
+                          </div>
+                          <div className="flex flex-col flex-1 min-w-0">
+                            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Offline</span>
+                            <span className="text-sm text-zinc-400 font-medium truncate">Currently resting or busy</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  return widgets;
+                })()}
+              </div>
+
+              {/* Footer Actions */}
+              {selectedMember.robloxProfile && (
+                <div className="mt-4 pt-6 border-t border-white/5">
+                  <a href={selectedMember.robloxProfile} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-4 bg-transparent hover:bg-white text-zinc-300 hover:text-black font-black uppercase tracking-widest text-xs rounded-xl transition-all duration-300 border border-white/20 hover:border-white">
+                    Visit Roblox Profile
+                  </a>
+                </div>
+              )}
+
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

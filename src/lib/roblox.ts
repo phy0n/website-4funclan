@@ -12,6 +12,7 @@ export type Member = {
     discord?: string;
     instagram?: string;
     tiktok?: string;
+    discordId?: string;
   };
   orderPriority: number;
   presence?: {
