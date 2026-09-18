@@ -117,7 +117,7 @@ export default function Home() {
 
             {/* Game 2: Vertical Box (Minecraft) */}
             <div className="md:col-span-1 md:row-span-2 relative flex flex-col h-full p-8 md:p-12 bg-[#111] border border-white/5 transition-all group overflow-hidden order-last md:order-none">
-              <div className="flex flex-col items-start justify-center h-full relative z-10 text-left gap-6">
+              <div className="flex flex-col items-start justify-center h-full relative z-10 text-left gap-4">
                 <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter transition-colors duration-300 w-full">{t("home_game3_title")}</h4>
                 <p className="text-zinc-400 font-medium text-sm md:text-base leading-relaxed">
                   {t("home_game3_desc")}
