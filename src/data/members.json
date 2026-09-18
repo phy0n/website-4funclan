@@ -271,6 +271,7 @@
     "username": "Van901405",
     "description": "",
     "roles": [
+      "DARK SIDE",
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-365A5CDC96656CC0A8412CD5E46171DA-Png/420/420/Avatar/Png/noFilter",
@@ -901,5 +902,44 @@
     "socials": {},
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/11630153209/profile"
+  },
+  {
+    "id": 70,
+    "name": "4ell",
+    "username": "jstk3ithh",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "https://tr.rbxcdn.com/30DAY-Avatar-5A6DFDB49B26224914F8E6553681739C-Png/420/420/Avatar/Png/noFilter",
+    "socials": {},
+    "orderPriority": 8,
+    "robloxProfile": "https://www.roblox.com/users/5785628379/profile"
+  },
+  {
+    "id": 71,
+    "name": "4ca",
+    "username": "fl44weries",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "https://tr.rbxcdn.com/30DAY-Avatar-CBD9E0CDCE0FD0B693722AB11B1A1C3C-Png/420/420/Avatar/Png/noFilter",
+    "socials": {},
+    "orderPriority": 8,
+    "robloxProfile": "https://www.roblox.com/users/5863231743/profile"
+  },
+  {
+    "id": 72,
+    "name": "4wizz",
+    "username": "RappDeClaude",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "https://tr.rbxcdn.com/30DAY-Avatar-44C2A0B680CEDCFA25D7E4FFDE537C20-Png/420/420/Avatar/Png/noFilter",
+    "socials": {},
+    "orderPriority": 8,
+    "robloxProfile": "https://www.roblox.com/users/1058114503/profile"
   }
 ]
