@@ -8,6 +8,16 @@ import { Search, X, ChevronDown } from "lucide-react";
 import { Member } from "@/lib/roblox";
 import { useLanguage } from "@/context/LanguageContext";
 
+const getDiscordAssetUrl = (appId: string, assetId: string) => {
+    if (assetId.startsWith('mp:')) {
+        return `https://media.discordapp.net/${assetId.replace('mp:', '')}`;
+    }
+    if (assetId.startsWith('external/')) {
+        return `https://media.discordapp.net/${assetId}`;
+    }
+    return `https://cdn.discordapp.com/app-assets/${appId}/${assetId}.png`;
+};
+
 const ROLE_PRIORITY: Record<string, number> = {
     "OWNER": 1,
     "CO OWNER": 2,
@@ -391,6 +401,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                                             src={dSpotify.album_art_url}
                                                                             alt="Spotify"
                                                                             fill
+                                                                            unoptimized
                                                                             sizes="36px"
                                                                             className=" object-cover border border-white/10"
                                                                         />
@@ -415,10 +426,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                         <div className="mb-6 w-full px-2 flex justify-center">
                                                             <div className="flex items-center gap-3 w-full bg-white/5 p-2 border border-white/10 backdrop-blur-md max-w-[200px] shadow-lg">
                                                                 <div className="relative w-9 h-9 shrink-0 bg-zinc-800 border border-white/10 flex items-center justify-center overflow-hidden">
-                                                                    {dActivity.assets?.large_image && dActivity.assets.large_image.startsWith('mp:') ? (
-                                                                        <Image src={`https://media.discordapp.net/${dActivity.assets.large_image.replace('mp:', '')}`} alt={dActivity.name} fill className="object-cover" />
-                                                                    ) : dActivity.assets?.large_image ? (
-                                                                        <Image src={`https://cdn.discordapp.com/app-assets/${dActivity.application_id}/${dActivity.assets.large_image}.png`} alt={dActivity.name} fill className="object-cover" />
+                                                                    {dActivity.assets?.large_image ? (
+                                                                        <Image src={getDiscordAssetUrl(dActivity.application_id, dActivity.assets.large_image)} alt={dActivity.name} fill unoptimized className="object-cover" />
                                                                     ) : (
                                                                         <FaDiscord size={16} className="text-zinc-500" />
                                                                     )}
@@ -646,7 +655,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <div key="discord-spotify" className="bg-[#161616] border border-white/5 p-4">
                                                 <div className="flex items-center gap-4">
                                                     <div className="relative w-14 h-14 shrink-0 overflow-hidden border border-white/10">
-                                                        <Image src={dSpotify.album_art_url} alt="Spotify" fill className="object-cover" />
+                                                        <Image src={dSpotify.album_art_url} alt="Spotify" fill unoptimized className="object-cover" />
                                                     </div>
                                                     <div className="flex flex-col flex-1 min-w-0">
                                                         <span className="text-[10px] font-bold text-[#1DB954] uppercase tracking-widest mb-0.5">Listening to Spotify</span>
@@ -666,10 +675,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <div key="discord-activity" className="bg-[#161616] border border-white/5 p-4">
                                                 <div className="flex items-center gap-4">
                                                     <div className="relative w-14 h-14 bg-zinc-800 shrink-0 overflow-hidden border border-white/10 flex items-center justify-center">
-                                                        {dActivity.assets?.large_image && dActivity.assets.large_image.startsWith('mp:') ? (
-                                                            <Image src={`https://media.discordapp.net/${dActivity.assets.large_image.replace('mp:', '')}`} alt={dActivity.name} fill className="object-cover" />
-                                                        ) : dActivity.assets?.large_image ? (
-                                                            <Image src={`https://cdn.discordapp.com/app-assets/${dActivity.application_id}/${dActivity.assets.large_image}.png`} alt={dActivity.name} fill className="object-cover" />
+                                                        {dActivity.assets?.large_image ? (
+                                                            <Image src={getDiscordAssetUrl(dActivity.application_id, dActivity.assets.large_image)} alt={dActivity.name} fill unoptimized className="object-cover" />
                                                         ) : (
                                                             <FaDiscord size={24} className="text-zinc-500" />
                                                         )}
