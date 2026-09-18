@@ -328,7 +328,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             {((robloxId && liveAvatars[robloxId]) || member.image) && !member.image?.includes('wikipedia') && (
                                                 <Image
                                                     src={(robloxId && liveAvatars[robloxId]) || member.image}
-                                                    alt={`${member.name}'s avatar`}
+                                                    alt={`${member.name} avatar`}
                                                     fill
                                                     sizes="(max-width: 768px) 100vw, 300px"
                                                     quality={100}
