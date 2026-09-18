@@ -104,11 +104,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full mt-8">
             {/* Game 1: Large Box */}
             <div className="md:col-span-2 relative flex flex-col h-full p-8 md:p-12 bg-[#111] border border-white/5 transition-all group overflow-hidden">
-              <div className="flex justify-between items-center mb-12 md:mb-16 relative z-10">
+              <div className="flex justify-between items-center mb-4 relative z-10">
                 <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter transition-colors duration-300">{t("home_game1_title")}</h4>
                 <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest bg-white/5 border border-white/10 px-2 py-1 rounded-full">{t("home_game4_tag")}</span>
               </div>
-              <div className="mt-auto relative z-10 max-w-3xl">
+              <div className="relative z-10 max-w-3xl">
                 <p className="text-zinc-400 font-medium text-sm md:text-base leading-relaxed">
                   {t("home_game1_desc")}
                 </p>
