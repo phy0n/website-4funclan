@@ -42,15 +42,9 @@ export default function Navbar() {
               <Link href="https://discord.gg/SrcssWm3xA" target="_blank" className="bg-primary text-white px-6 py-2.5 rounded-none font-black hover:bg-white hover:text-black transition-all">
                 {t("nav_discord")}
               </Link>
-              <button onClick={toggleLanguage} className="flex items-center justify-center w-10 h-10 border border-white/20 text-white font-black hover:bg-white hover:text-black transition-all cursor-pointer">
-                {language === "en" ? "EN" : "ID"}
-              </button>
             </div>
           </div>
           <div className="md:hidden flex items-center gap-4">
-            <button onClick={toggleLanguage} className="flex items-center justify-center w-8 h-8 text-xs border border-white/20 text-white font-black hover:bg-white hover:text-black transition-all cursor-pointer">
-              {language === "en" ? "EN" : "ID"}
-            </button>
             <button
               className="text-white p-1 focus:outline-none"
               onClick={() => setIsOpen(true)}>
