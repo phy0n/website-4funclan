@@ -332,6 +332,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                     fill
                                                     sizes="(max-width: 768px) 100vw, 300px"
                                                     quality={100}
+                                                    unoptimized
                                                     className="object-contain scale-[0.95] drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)] origin-bottom"
                                                 />
                                             )}
@@ -527,6 +528,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                 src={(selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image}
                                                 alt={selectedMember.name}
                                                 fill
+                                                unoptimized
                                                 className="object-contain object-center drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]"
                                             />
                                         </div>
