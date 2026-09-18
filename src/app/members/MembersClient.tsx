@@ -368,6 +368,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                                             src={currentPresence.gameIconUrl}
                                                                             alt="Game Icon"
                                                                             fill
+                                                                            unoptimized
                                                                             sizes="36px"
                                                                             className=" object-cover border border-white/10"
                                                                         />
@@ -634,7 +635,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                 <div className="flex items-center gap-4">
                                                     {rPresence.gameIconUrl ? (
                                                         <div className="relative w-14 h-14 shrink-0 overflow-hidden border border-white/10">
-                                                            <Image src={rPresence.gameIconUrl} alt="Game Icon" fill className="object-cover" />
+                                                            <Image src={rPresence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
                                                         </div>
                                                     ) : (
                                                         <div className="w-14 h-14 bg-zinc-800 border border-white/10 flex items-center justify-center shrink-0">
