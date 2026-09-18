@@ -474,15 +474,15 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
       {selectedMember && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 md:py-12 bg-black/80 backdrop-blur-md transition-opacity duration-300" onClick={() => setSelectedMember(null)}>
-          <div className="relative w-full max-w-4xl h-full md:h-auto max-h-[850px] overflow-y-auto md:overflow-visible bg-[#111] rounded-3xl flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.8)] scrollbar-hide border border-white/10" onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full max-w-4xl h-full md:h-auto max-h-[850px] bg-black p-2 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 flex flex-col" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full h-full flex flex-col md:flex-row overflow-y-auto md:overflow-visible bg-[#111] rounded-[1.5rem] border-[1.5px] border-white/5 scrollbar-hide">
+              <button
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors border border-white/5 cursor-pointer">
+                <X size={20} />
+              </button>
 
-            <button
-              onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors border border-white/5 cursor-pointer">
-              <X size={20} />
-            </button>
-
-            <div className="relative w-full md:w-[45%] h-[300px] sm:h-[350px] md:h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 shrink-0 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
+              <div className="relative w-full md:w-[45%] h-[300px] sm:h-[350px] md:h-auto min-h-[300px] sm:min-h-[350px] md:min-h-[400px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 shrink-0 rounded-t-[1.5rem] md:rounded-l-[1.5rem] md:rounded-tr-none">
               <div className={`absolute inset-0 opacity-20 blur-3xl z-0 pointer-events-none ${getRoleBannerColor(getHighestRole(selectedMember.roles))}`}></div>
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
 
@@ -515,7 +515,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
               })()}
             </div>
 
-            <div className="w-full md:w-[55%] p-5 md:p-10 flex flex-col gap-6 md:gap-8 bg-[#111] rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
+            <div className="w-full md:w-[55%] p-5 md:p-10 flex flex-col gap-6 md:gap-8 bg-[#111] rounded-b-[1.5rem] md:rounded-r-[1.5rem] md:rounded-bl-none">
 
               <div className="mt-1 md:mt-0">
                 <h2 className="font-black text-3xl md:text-5xl text-white tracking-tighter uppercase mb-2 md:mb-3 leading-none">{selectedMember.name}</h2>
@@ -721,6 +721,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 </div>
               )}
 
+            </div>
             </div>
           </div>
         </div>
