@@ -5,9 +5,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, language, toggleLanguage } = useLanguage();
 
   return (
     <>
@@ -21,30 +23,40 @@ export default function Navbar() {
           </Link>
           <div className="hidden md:flex items-center gap-10 text-sm font-bold text-gray-400 tracking-wide uppercase">
             <Link href="/" className="hover:text-white transition-colors relative group py-1">
-              HOME
+              {t("nav_home")}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </Link>
             <Link href="/members" className="hover:text-white transition-colors relative group py-1">
-              MEMBERS
+              {t("nav_members")}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </Link>
             <Link href="/gallery" className="hover:text-white transition-colors relative group py-1">
-              GALLERY
+              {t("nav_gallery")}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </Link>
             <Link href="/rules" className="hover:text-white transition-colors relative group py-1">
-              RULES
+              {t("nav_rules")}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </Link>
-            <Link href="https://discord.gg/SrcssWm3xA" target="_blank" className="ml-4 bg-primary text-white px-6 py-2.5 rounded-none font-black hover:bg-white hover:text-black transition-all">
-              JOIN DISCORD
-            </Link>
+            <div className="flex items-center gap-4 ml-4">
+              <Link href="https://discord.gg/SrcssWm3xA" target="_blank" className="bg-primary text-white px-6 py-2.5 rounded-none font-black hover:bg-white hover:text-black transition-all">
+                {t("nav_discord")}
+              </Link>
+              <button onClick={toggleLanguage} className="flex items-center justify-center w-10 h-10 border border-white/20 text-white font-black hover:bg-white hover:text-black transition-all cursor-pointer">
+                {language === "en" ? "EN" : "ID"}
+              </button>
+            </div>
           </div>
-          <button
-            className="md:hidden text-white p-2 focus:outline-none"
-            onClick={() => setIsOpen(true)}>
-            <Menu className="w-6 h-6" />
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <button onClick={toggleLanguage} className="flex items-center justify-center w-8 h-8 text-xs border border-white/20 text-white font-black hover:bg-white hover:text-black transition-all cursor-pointer">
+              {language === "en" ? "EN" : "ID"}
+            </button>
+            <button
+              className="text-white p-1 focus:outline-none"
+              onClick={() => setIsOpen(true)}>
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </nav>
       <AnimatePresence>
@@ -71,19 +83,19 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-6 p-8 text-sm font-bold text-gray-400 tracking-wide uppercase">
                 <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
-                  HOME
+                  {t("nav_home")}
                 </Link>
                 <Link href="/members" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
-                  MEMBERS
+                  {t("nav_members")}
                 </Link>
                 <Link href="/gallery" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
-                  GALLERY
+                  {t("nav_gallery")}
                 </Link>
                 <Link href="/rules" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
-                  RULES
+                  {t("nav_rules")}
                 </Link>
                 <Link href="https://discord.gg/SrcssWm3xA" target="_blank" onClick={() => setIsOpen(false)} className="mt-8 bg-primary text-white text-center px-6 py-3 rounded-none font-black hover:bg-white hover:text-black transition-all">
-                  JOIN DISCORD
+                  {t("nav_discord")}
                 </Link>
               </div>
             </motion.div>

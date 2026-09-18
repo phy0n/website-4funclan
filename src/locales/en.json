@@ -1,0 +1,88 @@
+{
+  "nav_home": "HOME",
+  "nav_members": "MEMBERS",
+  "nav_gallery": "GALLERY",
+  "nav_rules": "RULES",
+  "nav_discord": "JOIN DISCORD",
+  "home_hero_title1": "Welcome to",
+  "home_hero_title2": "4Fun Clan",
+  "home_hero_desc": "Just a solid community playing and chilling together. We're more than just a clan, we're family.",
+  "home_hero_btn_discord": "JOIN DISCORD",
+  "home_hero_btn_members": "MEET MEMBERS",
+  "home_hero_scroll": "Scroll",
+  "home_feat1_title": "Exclusive",
+  "home_feat1_desc": "Quality over quantity. We carefully select our members to ensure that everyone perfectly fits into our established culture.",
+  "home_feat2_title": "Solidarity",
+  "home_feat2_desc": "We stand together through every victory and defeat. No one gets left behind in the lobby, both in-game and out.",
+  "home_feat3_title": "Pure Fun",
+  "home_feat3_desc": "Whether we're playing competitively or just hanging out in private servers, our main goal is always the same: having fun.",
+  "home_games_title": "GAMES WE PLAY",
+  "home_games_desc": "These are the main arenas where our clan gathers to chill, practice, and dominate.",
+  "home_game1_title": "Evade",
+  "home_game1_tag": "Roblox",
+  "home_game1_desc": "Run, slide, and revive! We spend countless hours dodging nextbots and saving teammates. It's all about speed and teamwork.",
+  "home_game2_title": "Blade Ball",
+  "home_game2_tag": "Roblox",
+  "home_game2_desc": "Reflexes and timing. This is our go-to competitive arena to show off our parry skills and climb the leaderboards.",
+  "home_game3_title": "Minecraft",
+  "home_game3_tag": "",
+  "home_game3_desc": "When we want to take a break from Roblox, we jump into our own survival servers to build massive bases and chill.",
+  "home_game4_title": "Horror Games",
+  "home_game4_tag": "Roblox",
+  "home_game4_desc": "When we want a good scare, we group up and dive into the scariest horror experiences Roblox has to offer. Screams guaranteed.",
+  "home_moments_title": "OUR MOMENTS",
+  "home_moments_desc": "A sneak peek into our best times together. Just vibes, laughs, and pure fun.",
+  "home_moments_btn": "VIEW FULL GALLERY",
+  "home_join_title": "JOIN THE FAMILY",
+  "home_join_desc": "Looking for a solid community to chill and play with? There's always an empty seat for you here.",
+  "home_join_btn_discord": "JOIN DISCORD NOW",
+  "home_join_btn_roblox": "ROBLOX COMMUNITIES",
+  "members_title": "MEMBERS",
+  "members_desc": "Meet the family. The people who make this clan feel like home.",
+  "members_active": "ACTIVE",
+  "members_search": "Search member...",
+  "members_filter_all": "ALL ROLES",
+  "gallery_title": "GALLERY",
+  "gallery_desc": "A collection of our best moments, random screenshots, and memories we've made together.",
+  "rules_title": "RULES",
+  "rules_desc": "Strict rules that must be obeyed by all members of the 4Fun Clan. Violating these rules can result in fatal consequences.",
+  "rules_list": [
+    {
+      "title": "No Racism",
+      "description": "Everyone here is equal, regardless of where they are from. Anyone being racist will get an automatic warning."
+    },
+    {
+      "title": "No NSFW / 18+ Topics",
+      "description": "Do not discuss adult topics, send inappropriate pictures, or weird links. This server is for chilling, not for 'those' things."
+    },
+    {
+      "title": "No Spam",
+      "description": "Do not spam the chat, emojis, Voice Channels, or mention people without reason. Be considerate of others whose messages might get drowned out."
+    },
+    {
+      "title": "Respect Privacy",
+      "description": "Do not pry into or share other people's personal information without permission. Privacy is important, not everything is meant for public consumption."
+    },
+    {
+      "title": "Keep It Friendly & Safe",
+      "description": "Avoid topics that are too personal, sensitive, or could make others uncomfortable. Focus on server related topics so everyone feels at home."
+    },
+    {
+      "title": "Communication",
+      "description": "If there are any problems or important information regarding the clan whether it's an issue with another member, changing your Roblox display name, or wanting to leave, you are required to inform the admins to avoid misunderstandings."
+    },
+    {
+      "title": "No Hode / Gay",
+      "description": "You already know what this means..."
+    },
+    {
+      "title": "No False Accusations",
+      "description": "Do not assume you are being ignored or left out of circles without any solid proof."
+    },
+    {
+      "title": "No Double Clan",
+      "description": "You cannot be in 2 clans simultaneously. (e.g., 4Akeno67clan)."
+    }
+  ],
+  "footer_text": "© 2026 4Fun Clan."
+}

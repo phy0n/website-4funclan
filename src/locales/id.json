@@ -1,0 +1,88 @@
+{
+  "nav_home": "BERANDA",
+  "nav_members": "ANGGOTA",
+  "nav_gallery": "GALERI",
+  "nav_rules": "ATURAN",
+  "nav_discord": "JOIN DISCORD",
+  "home_hero_title1": "Selamat datang di",
+  "home_hero_title2": "4Fun Clan",
+  "home_hero_desc": "Hanya komunitas solid yang bermain dan bersantai bersama. Kami lebih dari sekadar klan, kami adalah keluarga.",
+  "home_hero_btn_discord": "JOIN DISCORD",
+  "home_hero_btn_members": "LIHAT ANGGOTA",
+  "home_hero_scroll": "Gulir",
+  "home_feat1_title": "Eksklusif",
+  "home_feat1_desc": "Kualitas di atas kuantitas. Kami menyeleksi anggota dengan hati-hati untuk memastikan semuanya cocok dengan budaya kami.",
+  "home_feat2_title": "Solidaritas",
+  "home_feat2_desc": "Kami berdiri bersama melalui setiap kemenangan dan kekalahan. Tidak ada yang tertinggal di lobi, baik di dalam maupun di luar game.",
+  "home_feat3_title": "Seru-seruan",
+  "home_feat3_desc": "Entah kami bermain secara kompetitif atau sekadar nongkrong di private server, tujuan utama kami selalu sama: bersenang-senang.",
+  "home_games_title": "GAME KAMI",
+  "home_games_desc": "Ini adalah arena utama tempat klan kami berkumpul untuk bersantai, berlatih, dan mendominasi.",
+  "home_game1_title": "Evade",
+  "home_game1_tag": "Roblox",
+  "home_game1_desc": "Lari, meluncur, dan bangkitkan! Kami menghabiskan banyak waktu untuk menghindari nextbots dan menyelamatkan tim. Semua tentang kecepatan dan kerja sama.",
+  "home_game2_title": "Blade Ball",
+  "home_game2_tag": "Roblox",
+  "home_game2_desc": "Refleks dan timing. Ini adalah arena kompetitif andalan kami untuk memamerkan keahlian parry dan memanjat papan peringkat.",
+  "home_game3_title": "Minecraft",
+  "home_game3_tag": "",
+  "home_game3_desc": "Saat kami ingin rehat dari Roblox, kami masuk ke server survival kami sendiri untuk membangun markas besar dan bersantai.",
+  "home_game4_title": "Game Horor",
+  "home_game4_tag": "Roblox",
+  "home_game4_desc": "Saat ingin uji nyali, kami kumpul dan main game horor paling seram di Roblox. Pasti ada yang teriak ketakutan.",
+  "home_moments_title": "MOMEN KAMI",
+  "home_moments_desc": "Cuplikan singkat dari waktu terbaik kami bersama. Penuh canda, tawa, dan keseruan murni.",
+  "home_moments_btn": "LIHAT GALERI PENUH",
+  "home_join_title": "GABUNG KELUARGA KAMI",
+  "home_join_desc": "Mencari komunitas solid untuk bersantai dan bermain bersama? Selalu ada kursi kosong untukmu di sini.",
+  "home_join_btn_discord": "JOIN DISCORD",
+  "home_join_btn_roblox": "KOMUNITAS ROBLOX",
+  "members_title": "ANGGOTA",
+  "members_desc": "Temui keluarga kami. Orang-orang yang membuat klan ini terasa seperti rumah.",
+  "members_active": "AKTIF",
+  "members_search": "Cari anggota...",
+  "members_filter_all": "SEMUA ROLE",
+  "gallery_title": "GALERI",
+  "gallery_desc": "Kumpulan momen terbaik, tangkapan layar acak, dan kenangan yang kami buat bersama.",
+  "rules_title": "ATURAN MUTLAK",
+  "rules_desc": "Aturan keras yang wajib ditaati oleh semua member 4Fun Clan. Pelanggaran terhadap rules ini bisa berakibat fatal.",
+  "rules_list": [
+    {
+      "title": "No Racist",
+      "description": "Semua orang di sini equal, gak peduli asal mana. Yang rasis langsung auto warning."
+    },
+    {
+      "title": "No NSFW / 18+ Topic",
+      "description": "Jangan bahas hal-hal dewasa, kirim gambar aneh, atau link aneh-aneh. Ini server buat chill, bukan buat hal-hal 'itu'."
+    },
+    {
+      "title": "No Spam",
+      "description": "Jangan spam chat, emoji, VC, atau mention orang tanpa alasan. Kasian yang lain bisa tenggelam chat-nya."
+    },
+    {
+      "title": "Respect Privacy",
+      "description": "Jangan kepo atau nyebar info pribadi orang lain tanpa izin, ya. Privasi itu penting, gak semua hal harus jadi konsumsi publik."
+    },
+    {
+      "title": "Keep It Friendly & Safe",
+      "description": "gak peduli siapa mereka. Tapi hindari bahasan yang terlalu pribadi, sensitif, atau bisa bikin orang lain gak nyaman. Fokus aja ke topik server biar semua betah."
+    },
+    {
+      "title": "Komunikasi",
+      "description": "jika ada masalah atau pun informasi yang penting mengenai clan entah itu problem sesama member, ganti displayname roblox, atau ingin keluar dari clan, maka di wajibkan untuk mengkonfirmasi kepada admin agar tidak ada kesalah pahaman."
+    },
+    {
+      "title": "No HODE/GAY",
+      "description": "yaa tau lahh..."
+    },
+    {
+      "title": "No False Accusations",
+      "description": "jangan asal mikir kalau kalain di kacangin atau di circlein kalau gak ada bukti sama sekali."
+    },
+    {
+      "title": "No Double Clan",
+      "description": "tidak boleh menyandak 2 clan, contohnya ( 4Akeno67clan )."
+    }
+  ],
+  "footer_text": "© 2026 4Fun Clan."
+}

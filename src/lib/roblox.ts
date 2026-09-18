@@ -26,7 +26,7 @@ export async function getEnhancedMembers(): Promise<Member[]> {
   const userIds: number[] = [];
   const memberIdToRobloxIdMap = new Map<number, number>();
 
-  
+
   for (const member of members) {
     if (member.robloxProfile) {
       const match = member.robloxProfile.match(/users\/(\d+)/);
@@ -41,17 +41,17 @@ export async function getEnhancedMembers(): Promise<Member[]> {
   if (userIds.length === 0) return members;
 
   try {
-    
+
     const usersRes = await fetch("https://users.roblox.com/v1/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userIds }),
-      next: { revalidate: 3600 } 
+      next: { revalidate: 3600 }
     });
-    
-    
+
+
     const avatarsRes = await fetch(`https://thumbnails.roblox.com/v1/users/avatar?userIds=${userIds.join(',')}&size=720x720&format=Png&isCircular=false`, {
-      next: { revalidate: 3600 } 
+      next: { revalidate: 3600 }
     });
 
     if (!usersRes.ok || !avatarsRes.ok) {
@@ -62,19 +62,19 @@ export async function getEnhancedMembers(): Promise<Member[]> {
     const usersData = await usersRes.json();
     const avatarsData = await avatarsRes.json();
 
-    
+
     const presencesData: any = { userPresences: [] };
     const chunkSize = 50;
-    
+
     for (let i = 0; i < userIds.length; i += chunkSize) {
       const chunk = userIds.slice(i, i + chunkSize);
       const presenceRes = await fetch("https://presence.roblox.com/v1/presence/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userIds: chunk }),
-        next: { revalidate: 60 } 
+        next: { revalidate: 60 }
       });
-      
+
       if (presenceRes.ok) {
         const data = await presenceRes.json();
         if (data.userPresences) {
@@ -99,14 +99,14 @@ export async function getEnhancedMembers(): Promise<Member[]> {
       }
     });
 
-    
+
     const universeIds = [...new Set(presencesData.userPresences.filter((p: any) => p.userPresenceType === 2 && p.universeId).map((p: any) => p.universeId))];
     const gameIconsMap = new Map<number, string>();
-    
+
     if (universeIds.length > 0) {
       try {
         const iconsRes = await fetch(`https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeIds.join(',')}&size=150x150&format=Png&isCircular=false`, {
-          next: { revalidate: 3600 } 
+          next: { revalidate: 3600 }
         });
         if (iconsRes.ok) {
           const iconsData = await iconsRes.json();
@@ -128,7 +128,7 @@ export async function getEnhancedMembers(): Promise<Member[]> {
       robloxPresences.set(p.userId, p);
     });
 
-    
+
     return members.map(member => {
       const robloxId = memberIdToRobloxIdMap.get(member.id);
       if (!robloxId) return member;
@@ -139,9 +139,9 @@ export async function getEnhancedMembers(): Promise<Member[]> {
 
       return {
         ...member,
-        name: rUser?.displayName || member.name, 
-        username: rUser?.name || member.username, 
-        image: rAvatar || member.image, 
+        name: rUser?.displayName || member.name,
+        username: rUser?.name || member.username,
+        image: rAvatar || member.image,
         presence: rPresence ? { userPresenceType: rPresence.userPresenceType, lastLocation: rPresence.lastLocation } : undefined,
       };
     });

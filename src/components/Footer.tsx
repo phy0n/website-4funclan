@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="w-full border-t border-white/10 bg-black p-8 mt-20">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
@@ -20,7 +25,7 @@ export default function Footer() {
           </a>
         </div>
         <div className="text-sm font-semibold text-gray-500">
-          © {new Date().getFullYear()} 4Fun Clan.
+          {t("footer_text")}
         </div>
       </div>
     </footer>

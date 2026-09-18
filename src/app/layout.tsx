@@ -39,6 +39,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -46,11 +47,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} h-full antialiased font-sans bg-[#0a0a0a] text-white selection:bg-red-600 selection:text-white`}>
       <body className="min-h-full flex flex-col overflow-x-hidden">
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
