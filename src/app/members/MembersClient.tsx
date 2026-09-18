@@ -110,6 +110,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
     const [statusFilter, setStatusFilter] = useState("ALL");
     const [searchQuery, setSearchQuery] = useState("");
     const [livePresences, setLivePresences] = useState<Record<number, any>>({});
+    const [liveAvatars, setLiveAvatars] = useState<Record<number, string>>({});
     const [selectedMember, setSelectedMember] = useState<Member | null>(null);
     const [lanyardData, setLanyardData] = useState<Record<string, any>>({});
 
@@ -144,8 +145,36 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
             }
         };
 
+        const fetchAvatars = async () => {
+            try {
+                const res = await fetch('/api/avatars', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userIds: robloxIds })
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    const newAvatars: Record<number, string> = {};
+                    data.userAvatars?.forEach((a: any) => {
+                        if (a.state === "Completed") {
+                            newAvatars[a.targetId] = a.imageUrl;
+                        }
+                    });
+                    setLiveAvatars(newAvatars);
+                }
+            } catch (e) {
+                // Ignore error
+            }
+        };
+
         fetchPresence();
-        const interval = setInterval(fetchPresence, 15000);
+        fetchAvatars();
+        const interval = setInterval(() => {
+            fetchPresence();
+            // Avatars usually don't change very frequently, but we can fetch them too or just fetch once.
+            // Let's fetch them every interval just to be sure, or we can separate them. 
+            // Since it's every 15s, it might be heavy. Let's just fetch avatars once on mount.
+        }, 15000);
         return () => clearInterval(interval);
     }, [initialMembers]);
 
@@ -208,6 +237,9 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
     });
 
     const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
+
+    const selectedRobloxIdMatch = selectedMember?.robloxProfile?.match(/users\/(\d+)/);
+    const selectedRobloxId = selectedRobloxIdMatch ? parseInt(selectedRobloxIdMatch[1]) : null;
 
     return (
         <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-10 pt-32 md:pt-40">
@@ -293,9 +325,9 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         <div className={`absolute top-0 inset-x-0 h-48 ${bannerColor} opacity-15 blur-2xl z-0 pointer-events-none `}></div>
                                         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
                                         <div className="relative w-full h-64 md:h-72 mt-4 mb-[-1rem] z-20 pointer-events-none flex items-end justify-center">
-                                            {member.image && !member.image.includes('wikipedia') && (
+                                            {((robloxId && liveAvatars[robloxId]) || member.image) && !member.image?.includes('wikipedia') && (
                                                 <Image
-                                                    src={member.image}
+                                                    src={(robloxId && liveAvatars[robloxId]) || member.image}
                                                     alt={`${member.name}'s avatar`}
                                                     fill
                                                     sizes="(max-width: 768px) 100vw, 300px"
@@ -488,11 +520,11 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                 <div className={`absolute inset-0 opacity-20 blur-3xl z-0 pointer-events-none ${getRoleBannerColor(getHighestRole(selectedMember.roles))}`}></div>
                                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none mix-blend-overlay"></div>
 
-                                {selectedMember.image && !selectedMember.image.includes('wikipedia') && (
+                                {((selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image) && !selectedMember.image?.includes('wikipedia') && (
                                     <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                                         <div className="relative w-[85%] h-[85%]">
                                             <Image
-                                                src={selectedMember.image}
+                                                src={(selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image}
                                                 alt={selectedMember.name}
                                                 fill
                                                 className="object-contain object-center drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]"
@@ -502,8 +534,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                 )}
 
                                 {(selectedMember.robloxProfile || selectedMember.socials?.discordId) && (() => {
-                                    const robloxIdMatch = selectedMember.robloxProfile?.match(/users\/(\d+)/);
-                                    const rPresence = ((robloxIdMatch && livePresences[parseInt(robloxIdMatch[1])]) || selectedMember.presence);
+                                    const rPresence = ((selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence);
                                     const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
                                     const isOnline = (rPresence && rPresence.userPresenceType > 0) || (dData && dData.discord_status !== 'offline');
                                     return (
@@ -576,9 +607,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                                 {(() => {
                                     const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
-                                    const robloxIdMatch = selectedMember.robloxProfile?.match(/users\/(\d+)/);
-                                    const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
-                                    const rPresence = (robloxId && livePresences[robloxId]) || selectedMember.presence;
+                                    const rPresence = (selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence;
 
                                     const isRobloxPlaying = rPresence?.userPresenceType === 2;
                                     const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
