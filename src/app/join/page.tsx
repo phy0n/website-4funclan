@@ -3,7 +3,7 @@ import Countdown from '@/components/Countdown';
 import { ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Open Member 4FUN',
+  title: '4FUN Open Member',
   description: '4FUN is a private gaming community. Check the countdown for our next open member phase.',
 };
 
@@ -15,7 +15,7 @@ export default function JoinPage() {
       <div className="container mx-auto px-6 flex flex-col items-center">
         <div className="text-center mb-8 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">
-            OPEN MEMBER 4FUN
+            4FUN OPEN MEMBER
           </h1>
         </div>
 
