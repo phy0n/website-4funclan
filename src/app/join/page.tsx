@@ -38,8 +38,7 @@ export default function JoinPage() {
               href="https://discord.gg/SrcssWm3xA"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-full py-4 bg-primary text-white hover:bg-white hover:text-black font-black uppercase tracking-widest text-xs transition-all"
-            >
+              className="flex items-center justify-center w-full py-4 bg-primary text-white hover:bg-white hover:text-black font-black uppercase tracking-widest text-xs transition-all">
               <span className="flex items-center gap-2">
                 Apply on Discord <ExternalLink size={16} />
               </span>

@@ -43,13 +43,13 @@ export default function Countdown({ targetDate }: CountdownProps) {
   if (!isClient) return null; // Prevent hydration mismatch
 
   return (
-    <div className="flex gap-4 md:gap-6 justify-center items-start pt-4">
+    <div className="flex gap-2 sm:gap-4 md:gap-6 justify-center items-start pt-4 w-full px-2">
       <TimeUnit value={timeLeft.days} label="Days" />
-      <span className="text-4xl md:text-6xl font-black text-white/20 mt-1 md:mt-2">:</span>
+      <span className="text-3xl sm:text-4xl md:text-6xl font-black text-white/20 mt-1 md:mt-2">:</span>
       <TimeUnit value={timeLeft.hours} label="Hours" />
-      <span className="text-4xl md:text-6xl font-black text-white/20 mt-1 md:mt-2">:</span>
+      <span className="text-3xl sm:text-4xl md:text-6xl font-black text-white/20 mt-1 md:mt-2">:</span>
       <TimeUnit value={timeLeft.minutes} label="Mins" />
-      <span className="text-4xl md:text-6xl font-black text-white/20 mt-1 md:mt-2">:</span>
+      <span className="text-3xl sm:text-4xl md:text-6xl font-black text-white/20 mt-1 md:mt-2">:</span>
       <TimeUnit value={timeLeft.seconds} label="Secs" />
     </div>
   );
@@ -58,10 +58,10 @@ export default function Countdown({ targetDate }: CountdownProps) {
 function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="font-black text-6xl md:text-8xl text-white tracking-tighter drop-shadow-lg z-10">
+      <span className="font-black text-4xl sm:text-6xl md:text-8xl text-white tracking-tighter drop-shadow-lg z-10">
         {value.toString().padStart(2, '0')}
       </span>
-      <span className="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] mt-2">
+      <span className="text-[9px] sm:text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] mt-1 sm:mt-2">
         {label}
       </span>
     </div>
