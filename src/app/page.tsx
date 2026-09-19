@@ -103,7 +103,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full mt-8">
             {/* Game 1: Large Box */}
-            <div className="md:col-span-2 relative flex flex-col h-full p-8 md:p-12 bg-[#111] border border-white/5 transition-all group overflow-hidden">
+            <div className="md:col-span-2 relative flex flex-col h-full p-8 bg-[#111] border border-white/5 transition-all group overflow-hidden">
               <div className="flex justify-between items-center mb-4 relative z-10">
                 <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter transition-colors duration-300">{t("home_game1_title")}</h4>
                 <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest bg-white/5 border border-white/10 px-2 py-1 rounded-full">{t("home_game4_tag")}</span>
@@ -116,7 +116,7 @@ export default function Home() {
             </div>
 
             {/* Game 2: Vertical Box (Minecraft) */}
-            <div className="md:col-span-1 md:row-span-2 relative flex flex-col h-full p-8 md:p-12 bg-[#111] border border-white/5 transition-all group overflow-hidden order-last md:order-none">
+            <div className="md:col-span-1 md:row-span-2 relative flex flex-col h-full p-8 bg-[#111] border border-white/5 transition-all group overflow-hidden order-last md:order-none">
               <div className="flex flex-col items-start justify-center h-full relative z-10 text-left gap-4">
                 <h4 className="font-black text-3xl md:text-4xl text-white uppercase tracking-tighter transition-colors duration-300 w-full">{t("home_game3_title")}</h4>
                 <p className="text-zinc-400 font-medium text-sm md:text-base leading-relaxed">
