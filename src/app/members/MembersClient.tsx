@@ -361,8 +361,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <div className="relative w-full h-[220px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b border-white/5 shadow-inner shrink-0">
                                                 {isOnline && (
                                                     <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-black/60 px-2 py-1 rounded-full border border-white/10 backdrop-blur-md">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
-                                                        <span className="text-[7px] font-bold tracking-widest text-zinc-300 uppercase">Live</span>
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                                        <span className="text-[7px] font-bold tracking-widest text-zinc-300 uppercase">ONLINE</span>
                                                     </div>
                                                 )}
 
