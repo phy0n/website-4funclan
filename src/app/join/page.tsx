@@ -17,9 +17,6 @@ export default function JoinPage() {
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-white">
             OPEN MEMBER 4FUN
           </h1>
-          <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed">
-            We only open our doors once a month. Wait for the countdown and submit your application on Discord Community.
-          </p>
         </div>
 
         <div className="w-full max-w-4xl flex flex-col items-center">
