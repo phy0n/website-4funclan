@@ -15,12 +15,13 @@ body {
 
 @layer utilities {
   .text-shadow-sm {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

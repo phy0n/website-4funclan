@@ -3,8 +3,8 @@ import Countdown from '@/components/Countdown';
 import { ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Join 4Fun Clan | Open Recruitment',
-  description: 'Join the 4Fun Clan - A private gaming community. Check the countdown for our next open recruitment phase.',
+  title: 'Open Member 4FUN',
+  description: '4FUN is a private gaming community. Check the countdown for our next open member phase.',
 };
 
 export default function JoinPage() {
@@ -15,7 +15,7 @@ export default function JoinPage() {
       <div className="container mx-auto px-6 flex flex-col items-center">
         <div className="text-center mb-16 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-white">
-            Join 4FUN CLAN
+            OPEN MEMBER 4FUN
           </h1>
           <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed">
             We only open our doors once a month. Wait for the countdown and submit your application on Discord Community.
