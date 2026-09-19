@@ -92,7 +92,7 @@ export default function Navbar() {
                 <Link href="/rules" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
                   {t("nav_rules")}
                 </Link>
-                <Link href="/join" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors text-primary font-black">
+                <Link href="/join" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
                   JOIN US
                 </Link>
                 <Link href="https://discord.gg/SrcssWm3xA" target="_blank" onClick={() => setIsOpen(false)} className="mt-8 bg-primary text-white text-center px-6 py-3 rounded-none font-black hover:bg-white hover:text-black transition-all">
