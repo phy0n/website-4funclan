@@ -336,7 +336,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                 <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative w-full sm:w-auto flex flex-col pt-4 pb-2 px-2 items-center cursor-pointer hover:-translate-y-2 transition-transform duration-500">
                                     {/* The ID Card Body */}
                                     <div className="relative w-full sm:w-[300px] max-w-[300px] bg-black rounded-xl p-1 shadow-[0_15px_35px_rgba(0,0,0,0.8)] border border-white/20 flex flex-col mx-auto">
-                                        
+
                                         {/* Lanyard Hole */}
                                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black border-t border-l border-r border-white/20 rounded-t-xl z-30 flex items-center justify-center">
                                             <div className="w-10 h-2 bg-[#111] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,1)]"></div>
@@ -345,7 +345,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         <div className="relative w-full h-[420px] flex flex-col bg-[#111] rounded-lg border border-white/5 overflow-hidden">
                                             <div className={`absolute top-0 inset-x-0 h-32 ${bannerColor} opacity-20 blur-[40px] z-0 pointer-events-none`}></div>
                                             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
-                                            
+
                                             {/* Header */}
                                             <div className="relative pt-5 pb-3 px-5 flex justify-between items-start border-b border-white/5 z-20">
                                                 <div className="flex flex-col">
@@ -418,11 +418,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                         <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] rounded-xl border-[2px] border-white/5 overflow-y-auto scrollbar-hide">
                             <div className={`absolute top-0 inset-x-0 h-40 ${getRoleBannerColor(getHighestRole(selectedMember.roles))} opacity-20 blur-[60px] z-0 pointer-events-none`}></div>
                             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
-
-                            {/* Left Side: Photo and Barcode */}
                             <div className="w-full md:w-[320px] flex flex-col items-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-white/5 bg-black/20 z-10 shrink-0">
                                 <div className="relative w-[180px] h-[240px] md:w-[250px] md:h-[340px] flex items-end justify-center mb-6 md:mb-8 bg-transparent">
-                                    {/* Removed Online Indicator */}
 
                                     {((selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image) && !selectedMember.image?.includes('wikipedia') && (
                                         <Image
@@ -442,239 +439,235 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                 )}
                             </div>
 
-                            {/* Right Side: Detail KTP */}
                             <div className="flex-1 flex flex-col p-6 md:p-10 z-10 relative">
-                                {/* Header KTP */}
                                 <div className="flex flex-col items-start mb-6 border-b border-white/5 pb-6 shrink-0">
                                     <span className="font-black text-2xl md:text-4xl tracking-tighter text-white uppercase drop-shadow-md leading-none">4FUN CLAN</span>
                                     <span className="text-[10px] md:text-xs tracking-[0.3em] text-zinc-500 uppercase font-bold mt-2">Official Member Identification</span>
                                 </div>
-                                
+
                                 <div className="flex-1 flex flex-col justify-between">
                                     <div className="space-y-5">
-                                    <div className="flex items-center gap-4">
-                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">ID NO.</span>
-                                        <div className="flex flex-1 items-center gap-3">
-                                            <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                            <span className="font-mono font-black text-xl md:text-2xl text-white">4F-{selectedMember.id.toString().padStart(4, '0')}</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Name</span>
-                                        <div className="flex flex-1 items-center gap-3">
-                                            <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                            <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">{selectedMember.name}</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Username</span>
-                                        <div className="flex flex-1 items-center gap-3">
-                                            <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                            <span className="font-bold text-base md:text-lg text-primary uppercase truncate">@{selectedMember.username}</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-4">
-                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase mt-1">Roles</span>
-                                        <div className="flex flex-1 gap-3">
-                                            <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                            <div className="flex flex-wrap gap-2 flex-1 items-start">
-                                                {selectedMember.roles.map((role) => (
-                                                    <span key={role} className={`font-black text-[10px] md:text-xs uppercase tracking-widest px-2.5 py-1 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
-                                                        {role}
-                                                    </span>
-                                                ))}
+                                        <div className="flex items-center gap-4">
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">ID NO.</span>
+                                            <div className="flex flex-1 items-center gap-3">
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
+                                                <span className="font-mono font-black text-xl md:text-2xl text-white">4F-{selectedMember.id.toString().padStart(4, '0')}</span>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    {selectedMember.description && (
-                                        <div className="flex items-start gap-4 mt-2">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase mt-1">About</span>
+                                        <div className="flex items-center gap-4">
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Name</span>
+                                            <div className="flex flex-1 items-center gap-3">
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">{selectedMember.name}</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Username</span>
+                                            <div className="flex flex-1 items-center gap-3">
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
+                                                <span className="font-bold text-base md:text-lg text-primary uppercase truncate">@{selectedMember.username}</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase mt-1">Roles</span>
                                             <div className="flex flex-1 gap-3">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <p className="text-xs md:text-sm text-zinc-400 font-medium leading-relaxed italic mt-1.5 line-clamp-3">
-                                                    "{selectedMember.description}"
-                                                </p>
+                                                <div className="flex flex-wrap gap-2 flex-1 items-start">
+                                                    {selectedMember.roles.map((role) => (
+                                                        <span key={role} className={`font-black text-[10px] md:text-xs uppercase tracking-widest px-2.5 py-1 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
+                                                            {role}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
-                                    )}
 
-                                    {/* Social Connect */}
-                                    {selectedMember.socials && Object.keys(selectedMember.socials).length > 0 && (
-                                        <div className="flex items-center gap-4 mt-2">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Socials</span>
-                                            <div className="flex flex-1 gap-4 items-center">
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase mr-1">:</span>
-                                                {selectedMember.socials.instagram && (
-                                                    <a href={selectedMember.socials.instagram.startsWith('http') ? selectedMember.socials.instagram : `https://instagram.com/${selectedMember.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 transition-all duration-300">
-                                                        <FaInstagram size={24} />
-                                                    </a>
-                                                )}
-                                                {selectedMember.socials.tiktok && (
-                                                    <a href={selectedMember.socials.tiktok.startsWith('http') ? selectedMember.socials.tiktok : `https://tiktok.com/@${selectedMember.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-all duration-300">
-                                                        <FaTiktok size={24} />
-                                                    </a>
-                                                )}
-                                                {selectedMember.socials.discord && (
-                                                    <a href={`https://discord.com/users/${selectedMember.socials.discord}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] transition-all duration-300">
-                                                        <FaDiscord size={24} />
-                                                    </a>
-                                                )}
+                                        {selectedMember.description && (
+                                            <div className="flex items-start gap-4 mt-2">
+                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase mt-1">About</span>
+                                                <div className="flex flex-1 gap-3">
+                                                    <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
+                                                    <p className="text-xs md:text-sm text-zinc-400 font-medium leading-relaxed italic mt-1.5 line-clamp-3">
+                                                        "{selectedMember.description}"
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
-                                </div>
+                                        )}
 
-                                {/* Live Status - Positioned at bottom */}
-                                {(() => {
-                                    const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
-                                    const rPresence = (selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence;
-
-                                    const isRobloxPlaying = rPresence?.userPresenceType === 2;
-                                    const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
-
-                                    const dSpotify = dData?.spotify;
-                                    const dActivity = dData?.activities?.find((a: any) => a.type === 0);
-
-                                    const widgets = [];
-
-                                    if (isRobloxPlaying) {
-                                        widgets.push(
-                                            <div key="roblox-playing" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                <div className="flex items-center gap-4">
-                                                    {rPresence.gameIconUrl ? (
-                                                        <div className="relative w-12 h-12 shrink-0 overflow-hidden border border-white/10">
-                                                            <Image src={rPresence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
-                                                        </div>
-                                                    ) : (
-                                                        <div className="w-12 h-12 bg-zinc-800 border border-white/10 flex items-center justify-center shrink-0">
-                                                            <span className="text-zinc-600 font-bold">?</span>
-                                                        </div>
+                                        {selectedMember.socials && Object.keys(selectedMember.socials).length > 0 && (
+                                            <div className="flex items-center gap-4 mt-2">
+                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Socials</span>
+                                                <div className="flex flex-1 gap-4 items-center">
+                                                    <span className="font-bold text-base md:text-lg text-zinc-200 uppercase mr-1">:</span>
+                                                    {selectedMember.socials.instagram && (
+                                                        <a href={selectedMember.socials.instagram.startsWith('http') ? selectedMember.socials.instagram : `https://instagram.com/${selectedMember.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 transition-all duration-300">
+                                                            <FaInstagram size={24} />
+                                                        </a>
                                                     )}
-                                                    <div className="flex flex-col flex-1 min-w-0">
-                                                        <span className="text-[9px] font-bold text-green-400 uppercase tracking-widest mb-0.5">Playing Roblox</span>
-                                                        <span className="text-sm text-white font-bold truncate">{rPresence.lastLocation || 'Hidden Location'}</span>
-                                                    </div>
+                                                    {selectedMember.socials.tiktok && (
+                                                        <a href={selectedMember.socials.tiktok.startsWith('http') ? selectedMember.socials.tiktok : `https://tiktok.com/@${selectedMember.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-all duration-300">
+                                                            <FaTiktok size={24} />
+                                                        </a>
+                                                    )}
+                                                    {selectedMember.socials.discord && (
+                                                        <a href={`https://discord.com/users/${selectedMember.socials.discord}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] transition-all duration-300">
+                                                            <FaDiscord size={24} />
+                                                        </a>
+                                                    )}
                                                 </div>
                                             </div>
-                                        );
-                                    }
+                                        )}
+                                    </div>
 
-                                    if (dSpotify) {
-                                        widgets.push(
-                                            <div key="discord-spotify" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="relative w-12 h-12 shrink-0 overflow-hidden border border-white/10">
-                                                        <Image src={dSpotify.album_art_url} alt="Spotify" fill unoptimized className="object-cover" />
-                                                    </div>
-                                                    <div className="flex flex-col flex-1 min-w-0">
-                                                        <span className="text-[9px] font-bold text-[#1DB954] uppercase tracking-widest mb-0.5">Listening</span>
-                                                        <span className="text-sm text-white font-bold truncate">{dSpotify.song}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
+                                    {(() => {
+                                        const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
+                                        const rPresence = (selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence;
 
-                                    if (dActivity) {
-                                        widgets.push(
-                                            <div key="discord-activity" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="relative w-12 h-12 bg-zinc-800 shrink-0 overflow-hidden border border-white/10 flex items-center justify-center">
-                                                        {dActivity.assets?.large_image ? (
-                                                            <Image src={getDiscordAssetUrl(dActivity.application_id, dActivity.assets.large_image)} alt={dActivity.name} fill unoptimized className="object-cover" />
+                                        const isRobloxPlaying = rPresence?.userPresenceType === 2;
+                                        const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
+
+                                        const dSpotify = dData?.spotify;
+                                        const dActivity = dData?.activities?.find((a: any) => a.type === 0);
+
+                                        const widgets = [];
+
+                                        if (isRobloxPlaying) {
+                                            widgets.push(
+                                                <div key="roblox-playing" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
+                                                    <div className="flex items-center gap-4">
+                                                        {rPresence.gameIconUrl ? (
+                                                            <div className="relative w-12 h-12 shrink-0 overflow-hidden border border-white/10">
+                                                                <Image src={rPresence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
+                                                            </div>
                                                         ) : (
-                                                            <FaDiscord size={20} className="text-zinc-500" />
+                                                            <div className="w-12 h-12 bg-zinc-800 border border-white/10 flex items-center justify-center shrink-0">
+                                                                <span className="text-zinc-600 font-bold">?</span>
+                                                            </div>
                                                         )}
-                                                    </div>
-                                                    <div className="flex flex-col flex-1 min-w-0">
-                                                        <span className="text-[9px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">Playing a Game</span>
-                                                        <span className="text-sm text-white font-bold truncate">{dActivity.name}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-
-                                    if (isRobloxOnline && !isRobloxPlaying) {
-                                        widgets.push(
-                                            <div key="roblox-online" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                <div className="flex items-center gap-4">
-                                                    <div className={`w-12 h-12 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-white/5 border-white/10'} flex items-center justify-center border shrink-0`}>
-                                                        <SiRoblox size={20} className={`${rPresence.userPresenceType === 3 ? 'text-orange-500 drop-shadow-[0_0_8px_#f97316]' : 'text-zinc-200'}`} />
-                                                    </div>
-                                                    <div className="flex flex-col flex-1 min-w-0">
-                                                        <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
-                                                            {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
-                                                        </span>
-                                                        <span className="text-sm text-white font-bold truncate">
-                                                            {rPresence.userPresenceType === 3
-                                                                ? (rPresence.lastLocation || 'Developing on Roblox')
-                                                                : (rPresence.lastLocation && rPresence.lastLocation !== 'Website' ? rPresence.lastLocation : 'Active on Roblox')}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-
-                                    if (widgets.length === 0) {
-                                        const dCustomStatus = dData?.activities?.find((a: any) => a.type === 4);
-                                        const isDiscordOnline = dData && (dData.discord_status === 'online' || dData.discord_status === 'idle' || dData.discord_status === 'dnd');
-
-                                        if (isDiscordOnline) {
-                                            const discordStatusText =
-                                                dData.discord_status === 'online' ? 'Online on Discord' :
-                                                    dData.discord_status === 'idle' ? 'Idle on Discord' :
-                                                        'Do Not Disturb';
-
-                                            widgets.push(
-                                                <div key="discord-status" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="w-12 h-12 bg-[#5865F2]/10 flex items-center justify-center border border-[#5865F2]/20 shrink-0">
-                                                            <FaDiscord size={20} className="text-[#5865F2]" />
-                                                        </div>
                                                         <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className="text-[9px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">
-                                                                {dData.discord_status === 'dnd' ? 'Busy' : 'Active'}
-                                                            </span>
-                                                            <span className="text-sm text-white font-bold truncate">
-                                                                {dCustomStatus?.state ? dCustomStatus.state : discordStatusText}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        } else {
-                                            widgets.push(
-                                                <div key="offline-status" className="bg-[#161616]/50 border border-white/5 p-4 rounded mt-4 opacity-70">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="w-12 h-12 bg-zinc-800/30 flex items-center justify-center border border-white/5 shrink-0">
-                                                            <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
-                                                        </div>
-                                                        <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Status</span>
-                                                            <span className="text-sm text-zinc-400 font-bold truncate">Currently Offline</span>
+                                                            <span className="text-[9px] font-bold text-green-400 uppercase tracking-widest mb-0.5">Playing Roblox</span>
+                                                            <span className="text-sm text-white font-bold truncate">{rPresence.lastLocation || 'Hidden Location'}</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             );
                                         }
-                                    }
 
-                                    return (
-                                        <div className="mt-6 flex flex-col gap-2 shrink-0">
-                                            <h3 className="text-[9px] font-bold text-zinc-600 uppercase tracking-[0.2em] border-t border-white/5 pt-4">Live Status</h3>
-                                            {widgets}
-                                        </div>
-                                    );
-                                })()}
+                                        if (dSpotify) {
+                                            widgets.push(
+                                                <div key="discord-spotify" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="relative w-12 h-12 shrink-0 overflow-hidden border border-white/10">
+                                                            <Image src={dSpotify.album_art_url} alt="Spotify" fill unoptimized className="object-cover" />
+                                                        </div>
+                                                        <div className="flex flex-col flex-1 min-w-0">
+                                                            <span className="text-[9px] font-bold text-[#1DB954] uppercase tracking-widest mb-0.5">Listening</span>
+                                                            <span className="text-sm text-white font-bold truncate">{dSpotify.song}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
 
-                                {selectedMember.robloxProfile && (
-                                    <a href={selectedMember.robloxProfile} target="_blank" rel="noopener noreferrer" className="md:hidden mt-8 flex items-center justify-center w-full py-3 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-[10px] transition-all rounded shadow-[0_0_15px_rgba(255,255,255,0.2)] shrink-0">
-                                        Roblox Profile
-                                    </a>
-                                )}
+                                        if (dActivity) {
+                                            widgets.push(
+                                                <div key="discord-activity" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="relative w-12 h-12 bg-zinc-800 shrink-0 overflow-hidden border border-white/10 flex items-center justify-center">
+                                                            {dActivity.assets?.large_image ? (
+                                                                <Image src={getDiscordAssetUrl(dActivity.application_id, dActivity.assets.large_image)} alt={dActivity.name} fill unoptimized className="object-cover" />
+                                                            ) : (
+                                                                <FaDiscord size={20} className="text-zinc-500" />
+                                                            )}
+                                                        </div>
+                                                        <div className="flex flex-col flex-1 min-w-0">
+                                                            <span className="text-[9px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">Playing a Game</span>
+                                                            <span className="text-sm text-white font-bold truncate">{dActivity.name}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (isRobloxOnline && !isRobloxPlaying) {
+                                            widgets.push(
+                                                <div key="roblox-online" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className={`w-12 h-12 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-white/5 border-white/10'} flex items-center justify-center border shrink-0`}>
+                                                            <SiRoblox size={20} className={`${rPresence.userPresenceType === 3 ? 'text-orange-500 drop-shadow-[0_0_8px_#f97316]' : 'text-zinc-200'}`} />
+                                                        </div>
+                                                        <div className="flex flex-col flex-1 min-w-0">
+                                                            <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
+                                                                {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
+                                                            </span>
+                                                            <span className="text-sm text-white font-bold truncate">
+                                                                {rPresence.userPresenceType === 3
+                                                                    ? (rPresence.lastLocation || 'Developing on Roblox')
+                                                                    : (rPresence.lastLocation && rPresence.lastLocation !== 'Website' ? rPresence.lastLocation : 'Active on Roblox')}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (widgets.length === 0) {
+                                            const dCustomStatus = dData?.activities?.find((a: any) => a.type === 4);
+                                            const isDiscordOnline = dData && (dData.discord_status === 'online' || dData.discord_status === 'idle' || dData.discord_status === 'dnd');
+
+                                            if (isDiscordOnline) {
+                                                const discordStatusText =
+                                                    dData.discord_status === 'online' ? 'Online on Discord' :
+                                                        dData.discord_status === 'idle' ? 'Idle on Discord' :
+                                                            'Do Not Disturb';
+
+                                                widgets.push(
+                                                    <div key="discord-status" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="w-12 h-12 bg-[#5865F2]/10 flex items-center justify-center border border-[#5865F2]/20 shrink-0">
+                                                                <FaDiscord size={20} className="text-[#5865F2]" />
+                                                            </div>
+                                                            <div className="flex flex-col flex-1 min-w-0">
+                                                                <span className="text-[9px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">
+                                                                    {dData.discord_status === 'dnd' ? 'Busy' : 'Active'}
+                                                                </span>
+                                                                <span className="text-sm text-white font-bold truncate">
+                                                                    {dCustomStatus?.state ? dCustomStatus.state : discordStatusText}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            } else {
+                                                widgets.push(
+                                                    <div key="offline-status" className="bg-[#161616]/50 border border-white/5 p-4 rounded mt-4 opacity-70">
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="w-12 h-12 bg-zinc-800/30 flex items-center justify-center border border-white/5 shrink-0">
+                                                                <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
+                                                            </div>
+                                                            <div className="flex flex-col flex-1 min-w-0">
+                                                                <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Status</span>
+                                                                <span className="text-sm text-zinc-400 font-bold truncate">Currently Offline</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            }
+                                        }
+
+                                        return (
+                                            <div className="mt-6 flex flex-col gap-2 shrink-0">
+                                                <h3 className="text-[9px] font-bold text-zinc-600 uppercase tracking-[0.2em] border-t border-white/5 pt-4">Live Status</h3>
+                                                {widgets}
+                                            </div>
+                                        );
+                                    })()}
+
+                                    {selectedMember.robloxProfile && (
+                                        <a href={selectedMember.robloxProfile} target="_blank" rel="noopener noreferrer" className="md:hidden mt-8 flex items-center justify-center w-full py-3 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-[10px] transition-all rounded shadow-[0_0_15px_rgba(255,255,255,0.2)] shrink-0">
+                                            Roblox Profile
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 

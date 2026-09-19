@@ -8,24 +8,20 @@ export const metadata: Metadata = {
 };
 
 export default function JoinPage() {
-  // Set target date for recruitment
   const targetDate = "2026-10-01T00:00:00";
 
   return (
     <div className="w-full text-white pt-32 pb-20 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
       <div className="container mx-auto px-6 flex flex-col items-center">
-
-        {/* Header Section */}
         <div className="text-center mb-16 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-white">
             Join 4FUN CLAN
           </h1>
           <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed">
-            We only open our doors once a month. Wait for the countdown and submit your application on Discord.
+            We only open our doors once a month. Wait for the countdown and submit your application on Discord Community.
           </p>
         </div>
 
-        {/* Countdown Section */}
         <div className="w-full max-w-4xl flex flex-col items-center">
           <h2 className="text-zinc-500 font-bold tracking-[0.3em] uppercase text-sm md:text-base mb-10 text-center">
             Time Until Next Intake
