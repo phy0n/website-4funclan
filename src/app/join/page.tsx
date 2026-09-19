@@ -13,8 +13,8 @@ export default function JoinPage() {
   return (
     <div className="w-full text-white pt-32 pb-20 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
       <div className="container mx-auto px-6 flex flex-col items-center">
-        <div className="text-center mb-16 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-white">
+        <div className="text-center mb-8 max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">
             OPEN MEMBER 4FUN
           </h1>
         </div>
