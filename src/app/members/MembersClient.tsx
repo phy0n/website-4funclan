@@ -413,9 +413,9 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
             {selectedMember && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 md:py-12 bg-black/80 backdrop-blur-md transition-opacity duration-300" onClick={() => setSelectedMember(null)}>
-                    <div className="relative w-full max-w-4xl bg-black rounded-2xl p-1 shadow-[0_20px_50px_rgba(0,0,0,0.9),_0_0_150px_rgba(255,255,255,0.1)] border border-white/20 flex flex-col mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                    <div className="relative w-full max-w-4xl max-h-full bg-black rounded-2xl p-1 shadow-[0_20px_50px_rgba(0,0,0,0.9),_0_0_150px_rgba(255,255,255,0.1)] border border-white/20 flex flex-col mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
 
-                        <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] rounded-xl border-[2px] border-white/5 overflow-hidden">
+                        <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] rounded-xl border-[2px] border-white/5 overflow-y-auto scrollbar-hide">
                             <div className={`absolute top-0 inset-x-0 h-40 ${getRoleBannerColor(getHighestRole(selectedMember.roles))} opacity-20 blur-[60px] z-0 pointer-events-none`}></div>
                             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
 
