@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
 import { SiRoblox } from "react-icons/si";
-import { Search, X, ChevronDown } from "lucide-react";
+import { Search, X, ChevronDown, Fingerprint, ScanLine } from "lucide-react";
 import { Member } from "@/lib/roblox";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -353,7 +353,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                     <span className="text-[7px] tracking-[0.2em] text-zinc-500 uppercase font-bold mt-0.5">Member Identity</span>
                                                 </div>
                                                 <div className="text-right flex flex-col items-end">
-                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">4F-{member.id.toString().padStart(4, '0')}</span>
+                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">{member.socials?.discordId || 'N/A'}</span>
                                                 </div>
                                             </div>
 
@@ -416,7 +416,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                     <div className="relative w-full max-w-4xl max-h-full bg-black rounded-2xl p-1 shadow-[0_20px_50px_rgba(0,0,0,0.9)] border border-white/20 flex flex-col mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
 
                         <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] rounded-xl border-[2px] border-white/5 overflow-y-auto scrollbar-hide">
-                            <div className={`absolute top-0 inset-x-0 h-40 ${getRoleBannerColor(getHighestRole(selectedMember.roles))} opacity-20 blur-[60px] z-0 pointer-events-none`}></div>
+                            {/* <div className={`absolute top-0 inset-x-0 h-40 ${getRoleBannerColor(getHighestRole(selectedMember.roles))} opacity-20 blur-[60px] z-0 pointer-events-none`}></div> */}
                             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
                             <div className="w-full md:w-[320px] flex flex-col items-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-white/5 bg-black/20 z-10 shrink-0">
                                 <div className="relative w-[180px] h-[240px] md:w-[250px] md:h-[340px] flex items-end justify-center mb-6 md:mb-8 bg-transparent">
@@ -430,6 +430,23 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             className="object-contain object-bottom drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)] scale-[1.15] md:scale-[1.35] origin-bottom"
                                         />
                                     )}
+                                </div>
+
+                                {/* Signature Decorative Element */}
+                                <div className="hidden md:flex flex-col items-center justify-center w-full mb-6 mt-6 pointer-events-none select-none relative">
+                                    <style>{`
+                                        @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+                                    `}</style>
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] blur-[1px]">
+                                        <span className="text-5xl text-white font-black tracking-tighter mix-blend-overlay">AUTHENTIC</span>
+                                    </div>
+                                    <div className="relative z-10 -rotate-12 transform scale-150 opacity-90 mt-4 mb-2">
+                                        <span className="text-5xl text-primary capitalize drop-shadow-md" style={{ fontFamily: '"Mrs Saint Delafield", cursive' }}>
+                                            {selectedMember.name}
+                                        </span>
+                                    </div>
+                                    <div className="w-1/2 h-px bg-white/20 mt-4 rounded-full"></div>
+                                    <span className="text-[7px] font-mono tracking-widest text-zinc-500 uppercase mt-2">Verified Identity</span>
                                 </div>
 
                                 {selectedMember.robloxProfile && (
@@ -448,28 +465,28 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                 <div className="flex-1 flex flex-col justify-between">
                                     <div className="space-y-5">
                                         <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">ID NO.</span>
-                                            <div className="flex flex-1 items-center gap-3">
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">ID NO.</span>
+                                            <div className="flex flex-1 items-center gap-3 overflow-hidden">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-mono font-black text-xl md:text-2xl text-white">4F-{selectedMember.id.toString().padStart(4, '0')}</span>
+                                                <span className="font-mono font-black text-sm sm:text-base md:text-2xl text-white truncate">{selectedMember.socials?.discordId || 'N/A'}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Name</span>
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Name</span>
                                             <div className="flex flex-1 items-center gap-3">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">{selectedMember.name}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Username</span>
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Username</span>
                                             <div className="flex flex-1 items-center gap-3">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
                                                 <span className="font-bold text-base md:text-lg text-primary uppercase truncate">@{selectedMember.username}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-start gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase mt-1">Roles</span>
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase mt-1">Roles</span>
                                             <div className="flex flex-1 gap-3">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
                                                 <div className="flex flex-wrap gap-2 flex-1 items-start">
@@ -484,7 +501,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                                         {selectedMember.description && (
                                             <div className="flex items-start gap-4 mt-2">
-                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase mt-1">About</span>
+                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase mt-1">About</span>
                                                 <div className="flex flex-1 gap-3">
                                                     <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
                                                     <p className="text-xs md:text-sm text-zinc-400 font-medium leading-relaxed italic mt-1.5 line-clamp-3">
@@ -496,7 +513,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                                         {selectedMember.socials && Object.keys(selectedMember.socials).length > 0 && (
                                             <div className="flex items-center gap-4 mt-2">
-                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 tracking-widest uppercase">Socials</span>
+                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Socials</span>
                                                 <div className="flex flex-1 gap-4 items-center">
                                                     <span className="font-bold text-base md:text-lg text-zinc-200 uppercase mr-1">:</span>
                                                     {selectedMember.socials.instagram && (
@@ -510,7 +527,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                         </a>
                                                     )}
                                                     {selectedMember.socials.discord && (
-                                                        <a href={`https://discord.com/users/${selectedMember.socials.discord}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] transition-all duration-300">
+                                                        <a href={`https://discord.com/users/${selectedMember.socials.discordId}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] transition-all duration-300">
                                                             <FaDiscord size={24} />
                                                         </a>
                                                     )}

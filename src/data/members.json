@@ -1,20 +1,6 @@
 [
   {
     "id": 1,
-    "name": "4days",
-    "username": "hyeseou",
-    "description": "",
-    "roles": [
-      "OWNER",
-      "CONTENT CREATOR"
-    ],
-    "image": "https://cdn.discordapp.com/attachments/1350261093884235806/1540064594427379883/image.png?ex=6a88986c&is=6a8746ec&hm=8950d003636fd90f85e223092dc7e23aa4fd6e40bbdf5710d90e88ea6eb7d14c&",
-    "socials": {},
-    "orderPriority": 1,
-    "robloxProfile": "https://www.roblox.com/users/5247825579/profile"
-  },
-  {
-    "id": 2,
     "name": "4Liebe",
     "username": "Meketzury",
     "description": "",
@@ -26,8 +12,28 @@
     ],
     "image": "https://cdn.discordapp.com/attachments/1350261093884235806/1540064512835846314/image.png?ex=6a889858&is=6a8746d8&hm=d0193900d47552c5cfda9e43319d57d5e51e2ee5783d940244ba0fc9316b3b90&",
     "robloxProfile": "https://www.roblox.com/users/3714118206/profile",
-    "socials": {},
+    "socials": {
+      "discordId": "757964808032092312",
+      "discord": "r6uuu"
+    },
     "orderPriority": 1
+  },
+  {
+    "id": 2,
+    "name": "4days",
+    "username": "hyeseou",
+    "description": "",
+    "roles": [
+      "OWNER",
+      "CONTENT CREATOR"
+    ],
+    "image": "https://cdn.discordapp.com/attachments/1350261093884235806/1540064594427379883/image.png?ex=6a88986c&is=6a8746ec&hm=8950d003636fd90f85e223092dc7e23aa4fd6e40bbdf5710d90e88ea6eb7d14c&",
+    "socials": {
+      "discordId": "923593811282767942",
+      "discord": "p1nxi"
+    },
+    "orderPriority": 1,
+    "robloxProfile": "https://www.roblox.com/users/5247825579/profile"
   },
   {
     "id": 3,
@@ -41,7 +47,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://cdn.discordapp.com/avatars/1513230353798795344/02d5fdf4f7708e52c853bd426bf06418.png?size=4096&ignore=true",
-    "socials": {},
+    "socials": {
+      "discordId": "1513230353798795344",
+      "discord": "joellowee"
+    },
     "orderPriority": 2,
     "robloxProfile": "https://www.roblox.com/users/4964296082/profile"
   },
@@ -57,7 +66,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-46136FCEBAA3D59D990C500B7C1AFDA4-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "545912882618171402",
+      "discord": "gerr1y"
+    },
     "orderPriority": 2,
     "robloxProfile": "https://www.roblox.com/users/8881342962/profile"
   },
@@ -70,7 +82,10 @@
       "ADMIN"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-2CAD3C4B5D3694B9A7D913E9FE9E57D5-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "657490639923052545",
+      "discord": ".nekomasetter"
+    },
     "orderPriority": 3,
     "robloxProfile": "https://www.roblox.com/users/3155392376/profile"
   },
@@ -84,7 +99,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1250118088310132821",
+      "discord": "rnndsll"
+    },
     "orderPriority": 4,
     "robloxProfile": "https://www.roblox.com/users/8742882893/profile"
   },
@@ -97,7 +115,10 @@
       "STAFF"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-8F378CDC284F6910C7ACB167527A45F0-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1313494943456821320",
+      "discord": "mocaya"
+    },
     "orderPriority": 4,
     "robloxProfile": "https://www.roblox.com/users/5381239536/profile"
   },
@@ -110,7 +131,10 @@
       "STAFF"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-E4F07E7113FCA1C59DE46163981204E5-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1432004277609435228",
+      "discord": "Palettee"
+    },
     "orderPriority": 4,
     "robloxProfile": "https://www.roblox.com/users/2371627410/profile"
   },
@@ -126,7 +150,8 @@
     "socials": {
       "instagram": "phy0n.me",
       "tiktok": "phy0n",
-      "discordId": "494169184175915019"
+      "discordId": "494169184175915019",
+      "discord": "phy0n"
     },
     "orderPriority": 4,
     "robloxProfile": "https://www.roblox.com/users/8883015179/profile"
@@ -142,7 +167,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A545FC6E3D5E7AF804E78A6188346560-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "824267364069408802",
+      "discord": "signofiko"
+    },
     "orderPriority": 5,
     "robloxProfile": "https://www.roblox.com/users/1445819947/profile"
   },
@@ -155,7 +183,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-BF0505BCC30EAEC23CBE439D1F7D10B0-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1484036453238439998",
+      "discord": "violet7790"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/7881965110/profile"
   },
@@ -168,7 +199,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-277CE0B19B7A872AF74D6F23EAED06A5-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1347600525310431312",
+      "discord": "u2xyh"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/8939131900/profile"
   },
@@ -181,7 +215,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-4B29F55FFFBD0FB7066FAA8629880C5D-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "889031084484997140",
+      "discord": "teenx488"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/7484210368/profile"
   },
@@ -194,7 +231,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-9A70E90A18ABA0947024723BEACE0841-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1327651504823337043",
+      "discord": "ramajer"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/3490532942/profile"
   },
@@ -207,7 +247,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-0F6F5F36B34E9842E11B977018481EFE-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1357089391998271668",
+      "discord": "ikootijii"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/8165343744/profile"
   },
@@ -220,7 +263,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1243685894905397291",
+      "discord": "shinrii."
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/4952591413/profile"
   },
@@ -234,7 +280,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1003588520180457493",
+      "discord": "jojaa1"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/885468398/profile"
   },
@@ -247,7 +296,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "784265990590169109",
+      "discord": "mikaaaella_"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/7717403997/profile"
   },
@@ -260,7 +312,10 @@
       "DARK SIDE"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-AB4384D409146669C50CF898521C23CD-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "824267364069408802",
+      "discord": "signofiko"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/10359990953/profile"
   },
@@ -274,7 +329,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-365A5CDC96656CC0A8412CD5E46171DA-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1258069837612318811",
+      "discord": "taromylove"
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/2711162451/profile"
   },
@@ -288,7 +346,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1220727252388544542",
+      "discord": "4vxz_."
+    },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/11212734295/profile"
   },
@@ -302,7 +363,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-5A63361263B46C014E9337D0D6924050-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "865407317780070502",
+      "discord": "909817368291038"
+    },
     "orderPriority": 7,
     "robloxProfile": "https://www.roblox.com/users/3242646281/profile"
   },
@@ -315,7 +379,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-2F638CF0183B56AF8E0FD86B75D3FA3A-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "748752650216013884",
+      "discord": "hvc_."
+    },
     "orderPriority": 7,
     "robloxProfile": "https://www.roblox.com/users/2064939065/profile"
   },
@@ -328,7 +395,10 @@
       "CONTENT CREATOR"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-205B1395F6B30FB14C146E12E9B04080-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "489740825794969602",
+      "discord": "r1on._"
+    },
     "orderPriority": 7,
     "robloxProfile": "https://www.roblox.com/users/3915028544/profile"
   },
@@ -341,7 +411,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-6D6C9C91E4B0BB2BABEE42DBA73DE832-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "739004143477457056",
+      "discord": "sagab8"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/11422259562/profile"
   },
@@ -354,7 +427,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-C3DB9CDD35E081FFEE5E041ECF9EEA34-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1374047476729774085",
+      "discord": "icheyyiee"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/6195616655/profile"
   },
@@ -367,7 +443,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-08CEB0A7A60D21047027D81900188AA6-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1381488400460152844",
+      "discord": "louiskarasu"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/2946940825/profile"
   },
@@ -380,7 +459,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A3CC3236843CAD6C94C8A30C0F4B1DC1-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1255119554565247006",
+      "discord": "wld4r"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8663264141/profile"
   },
@@ -393,7 +475,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-D6B0C6A2CA7B7A19CABA9884483AB63B-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1483152978595807416",
+      "discord": "vell4fellycia"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/10312761048/profile"
   },
@@ -406,7 +491,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-ED292478AC4C02D9D5056395DDAFD8DE-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "704057439624101888",
+      "discord": "8uczi"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/10144976280/profile"
   },
@@ -419,7 +507,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-8D1EE19B9A318522067BC07C307F59F1-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1532283502190526580",
+      "discord": "mmeowmiaw"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/4431960032/profile"
   },
@@ -432,7 +523,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-B0A71593CB435A2AF24B814EB0B734D3-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1414264699725283500",
+      "discord": "strawbewyshortcake_"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/1319534443/profile"
   },
@@ -445,7 +539,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-F5A0C36DE29C2667570EFCA843C4094D-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "768485748306870304",
+      "discord": "wtf.rli4m"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/10834533106/profile"
   },
@@ -458,7 +555,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-59DC785E05A6F846C62BE575B50C4FEE-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1354511404073484298",
+      "discord": "3njyi"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/10585408978/profile"
   },
@@ -471,7 +571,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-E6A6F34ADF69A099D873DBA7BC17AA3F-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1465269413170253981",
+      "discord": "iprettiest"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/3103050113/profile"
   },
@@ -484,7 +587,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-FA647AD289CECCEF9B509A4CC4DAD445-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "746612630193700904",
+      "discord": "cltynns"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8478618324/profile"
   },
@@ -497,7 +603,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1426587602215239752",
+      "discord": "cailoye"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8998334592/profile"
   },
@@ -510,7 +619,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-98E6FDE0CB09F64B0594DC7DF14568E3-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1449863886286225570",
+      "discord": "Ryllurfaav"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/9484036288/profile"
   },
@@ -523,7 +635,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1425422323414077521",
+      "discord": "tur0835"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/7697261198/profile"
   },
@@ -536,7 +651,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1418247407610630260",
+      "discord": "sennchan7_19118"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/4133847627/profile"
   },
@@ -549,7 +667,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1333055526581305356",
+      "discord": "yoritaa"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/1269962334/profile"
   },
@@ -562,7 +683,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-9AD5A3E1DEFF188678D48C1625972EA4-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1346157068091920577",
+      "discord": "sashiatesushi"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/4472315431/profile"
   },
@@ -575,7 +699,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-DE108912F269C4992B6ECA501D553756-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "924394208943566878",
+      "discord": "ciciaaa"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/1653132836/profile"
   },
@@ -588,7 +715,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-F3218D85079FFFC70E7C9201F474D971-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1255388585985708032",
+      "discord": "lettermj"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/6207070001/profile"
   },
@@ -601,7 +731,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1395143218877956267",
+      "discord": "fiann_p"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8563858631/profile"
   },
@@ -614,7 +747,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "899856732040364062",
+      "discord": "elelellelellel"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/7971425348/profile"
   },
@@ -627,7 +763,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-1024374DFE0D2E45F6E2B12BA9E5D95C-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1107304186019844096",
+      "discord": "windtalker9897"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/6157997105/profile"
   },
@@ -640,7 +779,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "773815637516091392",
+      "discord": "dennnextdo0r"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8520833791/profile"
   },
@@ -653,7 +795,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1409923526311542915",
+      "discord": "elhomesick"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8245822071/profile"
   },
@@ -666,7 +811,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1433822738950127709",
+      "discord": "nasweety"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/9848798125/profile"
   },
@@ -679,7 +827,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1497553835491856446",
+      "discord": "77vip_"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/7858541848/profile"
   },
@@ -692,7 +843,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1363500704261607544",
+      "discord": "novne_"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8087105193/profile"
   },
@@ -705,7 +859,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "924989884182188033",
+      "discord": "unbeatn."
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8428224093/profile"
   },
@@ -718,25 +875,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "865636339025838080",
+      "discord": "aruna2548"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/2557565494/profile"
   },
   {
     "id": 55,
-    "name": "4Ancis",
-    "username": "akwkwkwjfdncncnfn",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/2930759086/profile"
-  },
-  {
-    "id": 56,
     "name": "4Nyx L",
     "username": "LexyorAlex_5",
     "description": "",
@@ -744,12 +891,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1240275076063166553",
+      "discord": "pleasee__"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/4771036938/profile"
   },
   {
-    "id": 57,
+    "id": 56,
     "name": "4Uziik",
     "username": "itsclouddus",
     "description": "",
@@ -757,12 +907,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "703564998793756703",
+      "discord": "itsclouddus"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/9157580704/profile"
   },
   {
-    "id": 58,
+    "id": 57,
     "name": "4mclaran",
     "username": "rawticl",
     "description": "",
@@ -770,12 +923,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1416515792471593053",
+      "discord": "clandollie"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8219612916/profile"
   },
   {
-    "id": 59,
+    "id": 58,
     "name": "4Neran",
     "username": "aliprajajawir",
     "description": "",
@@ -783,25 +939,31 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1084323987796021268",
+      "discord": "nerrrrrr45"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/9821647328/profile"
   },
   {
-    "id": 60,
-    "name": "4nderson",
+    "id": 59,
+    "name": "4Arza",
     "username": "afrizahensem",
     "description": "",
     "roles": [
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1519337114771394681",
+      "discord": "6ndrson"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8717445180/profile"
   },
   {
-    "id": 61,
+    "id": 60,
     "name": "4xi",
     "username": "xzwvgz",
     "description": "",
@@ -809,12 +971,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1247069133443432488",
+      "discord": "xzwqna"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/590788864/profile"
   },
   {
-    "id": 62,
+    "id": 61,
     "name": "4cassie",
     "username": "cassielvui",
     "description": "",
@@ -822,12 +987,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1358863702182461501",
+      "discord": "cassielv."
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/11631171147/profile"
   },
   {
-    "id": 63,
+    "id": 62,
     "name": "4cala",
     "username": "chamberoflyfe",
     "description": "",
@@ -835,12 +1003,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1377806752795332692",
+      "discord": "chamberoflyfe"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8115534528/profile"
   },
   {
-    "id": 64,
+    "id": 63,
     "name": "4jey",
     "username": "L4vyw",
     "description": "",
@@ -848,12 +1019,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-4EBBF2CE26600D9566823D00455B3E57-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1412038524030681201",
+      "discord": "nierakai."
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/603206727/profile"
   },
   {
-    "id": 65,
+    "id": 64,
     "name": "4jane",
     "username": "ultrviolnts",
     "description": "",
@@ -861,12 +1035,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-6FB1463FFCDE2760946C3A2D42FBC91A-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1414560106506616903",
+      "discord": ".jjjjn"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8156304574/profile"
   },
   {
-    "id": 66,
+    "id": 65,
     "name": "4Bae",
     "username": "eepycyaa",
     "description": "",
@@ -874,12 +1051,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-6FDD62B2BA1110DDC26F5BFB64D8EE3F-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1282586583320756278",
+      "discord": "yrczo"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/3840710428/profile"
   },
   {
-    "id": 67,
+    "id": 66,
     "name": "4claree",
     "username": "4claree",
     "description": "",
@@ -887,12 +1067,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-B0668711A2A10C347900FDAA9EF3D7AC-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1535623526822715422",
+      "discord": "likeaftersleep"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/11630153209/profile"
   },
   {
-    "id": 68,
+    "id": 67,
     "name": "4ell",
     "username": "jstk3ithh",
     "description": "",
@@ -900,12 +1083,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-5A6DFDB49B26224914F8E6553681739C-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1080446169538383932",
+      "discord": "xenderxd."
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/5785628379/profile"
   },
   {
-    "id": 69,
+    "id": 68,
     "name": "4ca",
     "username": "fl44weries",
     "description": "",
@@ -913,12 +1099,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-CBD9E0CDCE0FD0B693722AB11B1A1C3C-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1127528516427202611",
+      "discord": "s3xsar"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/5863231743/profile"
   },
   {
-    "id": 70,
+    "id": 69,
     "name": "4wizz",
     "username": "RappDeClaude",
     "description": "",
@@ -926,12 +1115,15 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-44C2A0B680CEDCFA25D7E4FFDE537C20-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1339141698827063326",
+      "discord": "notw1zz_"
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/1058114503/profile"
   },
   {
-    "id": 71,
+    "id": 70,
     "name": "4Shion",
     "username": "Ellan_gamerpaty",
     "description": "",
@@ -939,7 +1131,10 @@
       "MEMBER"
     ],
     "image": "https://tr.rbxcdn.com/30DAY-Avatar-A34D71F360E7EF9E39605613395440F4-Png/420/420/Avatar/Png/noFilter",
-    "socials": {},
+    "socials": {
+      "discordId": "1533343593891365017",
+      "discord": "shyonnna."
+    },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/6132040424/profile"
   }
