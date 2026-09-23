@@ -181,9 +181,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         fetchAvatars();
         const interval = setInterval(() => {
             fetchPresence();
-            // Avatars usually don't change very frequently, but we can fetch them too or just fetch once.
-            // Let's fetch them every interval just to be sure, or we can separate them. 
-            // Since it's every 15s, it might be heavy. Let's just fetch avatars once on mount.
         }, 15000);
         return () => clearInterval(interval);
     }, [initialMembers]);
@@ -291,8 +288,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                             <select
                                 value={activeFilter}
                                 onChange={(e) => setActiveFilter(e.target.value)}
-                                className="w-full appearance-none bg-[#0a0a0a] border border-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase py-3 pl-4 pr-10 focus:outline-none focus:border-white/20 transition-colors cursor-pointer"
-                            >
+                                className="w-full appearance-none bg-[#0a0a0a] border border-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase py-3 pl-4 pr-10 focus:outline-none focus:border-white/20 transition-colors cursor-pointer">
                                 {ALL_ROLES.map(role => (
                                     <option key={role} value={role}>{role === "ALL" ? t("members_filter_all") : role}</option>
                                 ))}
@@ -306,8 +302,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                             <select
                                 value={statusFilter}
                                 onChange={(e) => setStatusFilter(e.target.value)}
-                                className="w-full appearance-none bg-[#0a0a0a] border border-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase py-3 pl-4 pr-10 focus:outline-none focus:border-white/20 transition-colors cursor-pointer"
-                            >
+                                className="w-full appearance-none bg-[#0a0a0a] border border-white/10 text-zinc-300 text-xs font-bold tracking-widest uppercase py-3 pl-4 pr-10 focus:outline-none focus:border-white/20 transition-colors cursor-pointer">
                                 <option value="ALL">ALL STATUS</option>
                                 <option value="ONLINE">ONLINE</option>
                                 <option value="OFFLINE">OFFLINE</option>
@@ -334,10 +329,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                             return (
                                 <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative w-full sm:w-auto flex flex-col pt-4 pb-2 px-2 items-center cursor-pointer hover:-translate-y-2 transition-transform duration-500">
-                                    {/* The ID Card Body */}
                                     <div className="relative w-full sm:w-[300px] max-w-[300px] bg-black rounded-xl p-1 shadow-[0_15px_35px_rgba(0,0,0,0.8)] border border-white/20 flex flex-col mx-auto">
-
-                                        {/* Lanyard Hole */}
                                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black border-t border-l border-r border-white/20 rounded-t-xl z-30 flex items-center justify-center">
                                             <div className="w-10 h-2 bg-[#111] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,1)]"></div>
                                         </div>
@@ -346,7 +338,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <div className={`absolute top-0 inset-x-0 h-32 ${bannerColor} opacity-20 blur-[40px] z-0 pointer-events-none`}></div>
                                             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
 
-                                            {/* Header */}
                                             <div className="relative pt-5 pb-3 px-5 flex justify-between items-start border-b border-white/5 z-20">
                                                 <div className="flex flex-col">
                                                     <span className="font-black text-2xl tracking-tighter text-white uppercase leading-none">4FUN</span>
@@ -357,7 +348,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                 </div>
                                             </div>
 
-                                            {/* Photo Section */}
                                             <div className="relative w-full h-[220px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b border-white/5 shadow-inner shrink-0">
                                                 {isOnline && (
                                                     <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-black/60 px-2 py-1 rounded-full border border-white/10 backdrop-blur-md">
@@ -377,7 +367,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                 )}
                                             </div>
 
-                                            {/* Info Section */}
                                             <div className="relative z-20 flex flex-col items-center flex-1 px-4 py-4 w-full bg-gradient-to-t from-black via-[#111]/80 to-transparent">
                                                 <h3 className="font-black text-xl text-white tracking-tighter drop-shadow-lg leading-none text-center">{member.name}</h3>
                                                 <p className="text-zinc-500 font-bold text-[9px] tracking-[0.2em] uppercase mt-1 mb-3 text-center">
@@ -392,7 +381,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                     ))}
                                                 </div>
 
-                                                {/* Barcode Mock */}
                                                 <div className="w-full h-8 opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/UPC-A-036000291452.svg/2560px-UPC-A-036000291452.svg.png')] bg-contain bg-center bg-no-repeat invert mt-4 mb-1"></div>
                                             </div>
                                         </div>
@@ -432,13 +420,12 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                     )}
                                 </div>
 
-                                {/* Signature Decorative Element */}
                                 <div className="hidden md:flex flex-col items-center justify-center w-full mb-6 mt-6 pointer-events-none select-none relative">
                                     <style>{`
                                         @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
                                     `}</style>
                                     <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] blur-[1px]">
-                                        <span className="text-5xl text-white font-black tracking-tighter mix-blend-overlay">AUTHENTIC</span>
+                                        <span className="text-5xl text-white font-black tracking-tighter mix-blend-overlay">4FUNCLAN</span>
                                     </div>
                                     <div className="relative z-10 -rotate-12 transform scale-150 opacity-90 mt-4 mb-2">
                                         <span className="text-5xl text-primary capitalize drop-shadow-md" style={{ fontFamily: '"Mrs Saint Delafield", cursive' }}>
