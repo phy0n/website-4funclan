@@ -4,8 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join'].includes(pathname);
+  if (!isKnownPage) return null;
 
   return (
     <footer className="w-full border-t border-white/10 bg-black p-8 mt-20">

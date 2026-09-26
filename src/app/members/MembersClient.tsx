@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
 import { SiRoblox } from "react-icons/si";
-import { Search, X, ChevronDown, Fingerprint, ScanLine, Globe } from "lucide-react";
+import { Search, X, ChevronDown, Fingerprint, ScanLine, Globe, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Member } from "@/lib/roblox";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -668,6 +669,14 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         );
                                     })()}
 
+                                    <div className="mt-6 pt-6 border-t border-white/5 w-full flex justify-center">
+                                        <Link 
+                                            href={`/${selectedMember.name.toLowerCase().replace(/\s+/g, "")}`}
+                                            className="flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest"
+                                        >
+                                            Visit Profile Page <ArrowRight size={12} />
+                                        </Link>
+                                    </div>
 
                                 </div>
                             </div>

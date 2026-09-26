@@ -6,10 +6,15 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, toggleLanguage } = useLanguage();
+  const pathname = usePathname();
+
+  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join'].includes(pathname);
+  if (!isKnownPage) return null;
 
   return (
     <>

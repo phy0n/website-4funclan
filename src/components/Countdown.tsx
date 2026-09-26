@@ -13,15 +13,15 @@ export default function Countdown({ targetDate }: CountdownProps) {
     minutes: 0,
     seconds: 0,
   });
-  
+
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    
+
     const calculateTimeLeft = () => {
       const difference = +new Date(targetDate) - +new Date();
-      
+
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
