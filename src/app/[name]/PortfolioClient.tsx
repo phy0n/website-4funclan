@@ -96,17 +96,17 @@ export default function PortfolioClient({ member }: { member: Member }) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-                        <h1 className="text-5xl sm:text-7xl lg:text-[6rem] font-black text-white tracking-tighter uppercase leading-[0.9] drop-shadow-2xl">
+                        <h1 className="text-4xl sm:text-6xl lg:text-[6rem] font-black text-white tracking-tighter uppercase leading-[0.9] drop-shadow-2xl">
                             {member.name}
                         </h1>
-                        <h2 className="text-xl md:text-3xl font-medium text-zinc-400 mt-2 mb-8">
+                        <h2 className="text-lg md:text-3xl font-medium text-zinc-400 mt-2 mb-6 md:mb-8">
                             @{member.username}
                         </h2>
 
                         {member.roles.length > 0 && (
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-8">
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mb-6 md:mb-8">
                                 {member.roles.map((role) => (
-                                    <span key={role} className={`px-4 py-1.5 border text-[10px] sm:text-xs font-black uppercase tracking-widest rounded ${getRoleStyle(role)}`}>
+                                    <span key={role} className={`px-3 py-1 md:px-4 md:py-1.5 border text-[9px] md:text-xs font-black uppercase tracking-widest rounded ${getRoleStyle(role)}`}>
                                         {role}
                                     </span>
                                 ))}
@@ -114,7 +114,7 @@ export default function PortfolioClient({ member }: { member: Member }) {
                         )}
 
                         {member.description && (
-                            <p className="text-base text-zinc-300 font-medium max-w-md leading-relaxed mb-10 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/10 to-transparent py-2">
+                            <p className="text-sm md:text-base text-zinc-300 font-medium max-w-md leading-relaxed mb-8 md:mb-10 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/10 to-transparent py-2 text-left">
                                 {member.description}
                             </p>
                         )}
@@ -124,56 +124,56 @@ export default function PortfolioClient({ member }: { member: Member }) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-full max-w-md flex flex-col gap-4 mb-12 text-left">
+                        className="w-full max-w-md flex flex-col gap-3 md:gap-4 mb-10 md:mb-12 text-left">
                         {member.presence?.userPresenceType === 2 && (
-                            <div className="group w-full bg-black/40 hover:bg-black/60 transition-colors border border-white/5 p-4 rounded-2xl flex items-center gap-5 backdrop-blur-md">
-                                <div className="w-16 h-16 bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative shadow-lg transition-transform border border-white/5 flex items-center justify-center">
+                            <div className="group w-full bg-black/40 hover:bg-black/60 transition-colors border border-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl flex items-center gap-4 md:gap-5 backdrop-blur-md">
+                                <div className="w-12 h-12 md:w-16 md:h-16 bg-zinc-900 rounded-lg md:rounded-xl overflow-hidden shrink-0 relative shadow-lg transition-transform border border-white/5 flex items-center justify-center">
                                     {member.presence.gameIconUrl ? (
                                         <Image src={member.presence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
                                     ) : (
-                                        <SiRoblox size={28} className="text-zinc-500" />
+                                        <SiRoblox size={24} className="text-zinc-500" />
                                     )}
                                 </div>
                                 <div className="flex flex-col min-w-0 flex-1">
-                                    <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-1">Playing Roblox</span>
-                                    <span className="font-bold text-white text-base truncate">{member.presence.lastLocation || 'Hidden Location'}</span>
+                                    <span className="text-[9px] md:text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-0.5 md:mb-1">Playing Roblox</span>
+                                    <span className="font-bold text-white text-sm md:text-base truncate">{member.presence.lastLocation || 'Hidden Location'}</span>
                                 </div>
                             </div>
                         )}
 
                         {playingActivity && (
-                            <div className="group w-full bg-black/40 hover:bg-black/60 transition-colors border border-white/5 p-4 rounded-2xl flex items-center gap-5 backdrop-blur-md">
-                                <div className="w-16 h-16 bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative flex items-center justify-center shadow-lg transition-transform">
+                            <div className="group w-full bg-black/40 hover:bg-black/60 transition-colors border border-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl flex items-center gap-4 md:gap-5 backdrop-blur-md">
+                                <div className="w-12 h-12 md:w-16 md:h-16 bg-zinc-900 rounded-lg md:rounded-xl overflow-hidden shrink-0 relative flex items-center justify-center shadow-lg transition-transform">
                                     {playingActivity.assets?.large_image ? (
                                         <Image src={`https://cdn.discordapp.com/app-assets/${playingActivity.application_id}/${playingActivity.assets.large_image}.png`} alt="Activity" fill unoptimized className="object-cover" />
                                     ) : (
-                                        <Gamepad2 size={28} className="text-zinc-500" />
+                                        <Gamepad2 size={24} className="text-zinc-500" />
                                     )}
                                     {playingActivity.assets?.small_image && (
-                                        <div className="absolute -bottom-1 -right-1 w-6 h-6 border-2 border-[#121212] rounded-full overflow-hidden bg-zinc-800">
+                                        <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 border-2 border-[#121212] rounded-full overflow-hidden bg-zinc-800">
                                             <Image src={`https://cdn.discordapp.com/app-assets/${playingActivity.application_id}/${playingActivity.assets.small_image}.png`} alt="Small" fill unoptimized className="object-cover" />
                                         </div>
                                     )}
                                 </div>
                                 <div className="flex flex-col min-w-0 flex-1">
-                                    <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-1">Playing</span>
-                                    <span className="font-bold text-white text-base truncate">{playingActivity.name}</span>
-                                    {playingActivity.details && <span className="text-sm text-zinc-400 truncate">{playingActivity.details}</span>}
+                                    <span className="text-[9px] md:text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-0.5 md:mb-1">Playing</span>
+                                    <span className="font-bold text-white text-sm md:text-base truncate">{playingActivity.name}</span>
+                                    {playingActivity.details && <span className="text-xs md:text-sm text-zinc-400 truncate">{playingActivity.details}</span>}
                                 </div>
                             </div>
                         )}
 
                         {spotify && (
-                            <div className="group w-full bg-[#1DB954]/5 hover:bg-[#1DB954]/10 transition-colors border border-[#1DB954]/20 p-4 rounded-2xl flex items-center gap-5 backdrop-blur-md">
-                                <div className="w-16 h-16 bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative shadow-lg transition-transform">
+                            <div className="group w-full bg-[#1DB954]/5 hover:bg-[#1DB954]/10 transition-colors border border-[#1DB954]/20 p-3 md:p-4 rounded-xl md:rounded-2xl flex items-center gap-4 md:gap-5 backdrop-blur-md">
+                                <div className="w-12 h-12 md:w-16 md:h-16 bg-zinc-900 rounded-lg md:rounded-xl overflow-hidden shrink-0 relative shadow-lg transition-transform">
                                     <Image src={spotify.album_art_url} alt="Spotify" fill unoptimized className="object-cover" />
                                 </div>
                                 <div className="flex flex-col min-w-0 flex-1">
-                                    <span className="text-[10px] font-black text-[#1DB954] uppercase tracking-[0.2em] mb-1 flex items-center gap-1.5">
-                                        <Music size={12} /> Listening to Spotify
+                                    <span className="text-[9px] md:text-[10px] font-black text-[#1DB954] uppercase tracking-[0.2em] mb-0.5 md:mb-1 flex items-center gap-1.5">
+                                        <Music size={10} className="md:w-3 md:h-3" /> Listening to Spotify
                                     </span>
-                                    <span className="font-bold text-white text-base truncate">{spotify.song}</span>
-                                    <span className="text-sm text-zinc-400 truncate">{spotify.artist}</span>
+                                    <span className="font-bold text-white text-sm md:text-base truncate">{spotify.song}</span>
+                                    <span className="text-xs md:text-sm text-zinc-400 truncate">{spotify.artist}</span>
                                 </div>
                             </div>
                         )}
