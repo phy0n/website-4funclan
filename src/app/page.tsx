@@ -56,8 +56,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-
-
         <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 opacity-50 hidden md:flex">
           <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white rotate-90 mb-6">{t("home_hero_scroll")}</span>
           <div className="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaDiscord, FaInstagram, FaTiktok } from "react-icons/fa6";
 import { SiRoblox } from "react-icons/si";
-import { Search, X, ChevronDown, Fingerprint, ScanLine } from "lucide-react";
+import { Search, X, ChevronDown, Fingerprint, ScanLine, Globe } from "lucide-react";
 import { Member } from "@/lib/roblox";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -514,6 +514,11 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                             <FaDiscord size={24} />
                                                         </a>
                                                     )}
+                                                    {selectedMember.socials.portfolio && (
+                                                        <a href={selectedMember.socials.portfolio.startsWith('http') ? selectedMember.socials.portfolio : `https://${selectedMember.socials.portfolio}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-all duration-300">
+                                                            <Globe size={24} />
+                                                        </a>
+                                                    )}
                                                 </div>
                                             </div>
                                         )}
@@ -663,11 +668,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         );
                                     })()}
 
-                                    {selectedMember.robloxProfile && (
-                                        <a href={selectedMember.robloxProfile} target="_blank" rel="noopener noreferrer" className="md:hidden mt-8 flex items-center justify-center w-full py-3 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-[10px] transition-all rounded shadow-[0_0_15px_rgba(255,255,255,0.2)] shrink-0">
-                                            Roblox Profile
-                                        </a>
-                                    )}
+
                                 </div>
                             </div>
 
