@@ -436,11 +436,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                     <span className="text-[7px] font-mono tracking-widest text-zinc-500 uppercase mt-2">Verified Identity</span>
                                 </div>
 
-                                {selectedMember.robloxProfile && (
-                                    <a href={selectedMember.robloxProfile} target="_blank" rel="noopener noreferrer" className="hidden md:flex mt-auto items-center justify-center w-full py-3 md:py-4 bg-white text-black hover:bg-zinc-200 font-black uppercase tracking-widest text-[10px] md:text-xs transition-all rounded shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                                        Roblox Profile
-                                    </a>
-                                )}
+
                             </div>
 
                             <div className="flex-1 flex flex-col p-6 md:p-10 z-10 relative">
