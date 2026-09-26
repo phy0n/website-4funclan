@@ -19,6 +19,7 @@ export type Member = {
   presence?: {
     userPresenceType: number;
     lastLocation: string;
+    gameIconUrl?: string;
   };
 };
 
@@ -143,7 +144,7 @@ export async function getEnhancedMembers(): Promise<Member[]> {
         name: rUser?.displayName || member.name,
         username: rUser?.name || member.username,
         image: rAvatar || member.image,
-        presence: rPresence ? { userPresenceType: rPresence.userPresenceType, lastLocation: rPresence.lastLocation } : undefined,
+        presence: rPresence ? { userPresenceType: rPresence.userPresenceType, lastLocation: rPresence.lastLocation, gameIconUrl: rPresence.gameIconUrl } : undefined,
       };
     });
 

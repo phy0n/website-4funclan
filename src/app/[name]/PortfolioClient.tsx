@@ -135,8 +135,24 @@ export default function PortfolioClient({ member }: { member: Member }) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-full max-w-md flex flex-col gap-4 mb-12"
+                        className="w-full max-w-md flex flex-col gap-4 mb-12 text-left"
                     >
+                        {member.presence?.userPresenceType === 2 && (
+                            <div className="group w-full bg-[#00b06f]/10 hover:bg-[#00b06f]/20 transition-colors border border-[#00b06f]/20 p-4 rounded-2xl flex items-center gap-5 backdrop-blur-md">
+                                <div className="w-16 h-16 bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative shadow-lg transition-transform border border-white/5 flex items-center justify-center">
+                                    {member.presence.gameIconUrl ? (
+                                        <Image src={member.presence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
+                                    ) : (
+                                        <SiRoblox size={28} className="text-zinc-500" />
+                                    )}
+                                </div>
+                                <div className="flex flex-col min-w-0 flex-1">
+                                    <span className="text-[10px] font-black text-[#00b06f] uppercase tracking-[0.2em] mb-1">Playing Roblox</span>
+                                    <span className="font-bold text-white text-base truncate">{member.presence.lastLocation || 'Hidden Location'}</span>
+                                </div>
+                            </div>
+                        )}
+
                         {playingActivity && (
                             <div className="group w-full bg-black/40 hover:bg-black/60 transition-colors border border-white/5 p-4 rounded-2xl flex items-center gap-5 backdrop-blur-md">
                                 <div className="w-16 h-16 bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative flex items-center justify-center shadow-lg transition-transform">
