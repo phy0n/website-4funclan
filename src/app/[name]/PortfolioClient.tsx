@@ -185,12 +185,12 @@ export default function PortfolioClient({ member }: { member: Member }) {
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="flex flex-wrap items-center justify-center md:justify-start gap-4">
                         {member.socials?.instagram && (
-                            <a href={member.socials.instagram.startsWith('http') ? member.socials.instagram : `https://instagram.com/${member.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-white text-zinc-400 hover:text-black transition-all rounded-2xl border border-white/5">
+                            <a href={member.socials.instagram.startsWith('http') ? member.socials.instagram : `https://instagram.com/${member.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-[#E1306C] hover:border-[#E1306C] text-zinc-400 hover:text-white transition-all rounded-2xl border border-white/5">
                                 <FaInstagram size={22} />
                             </a>
                         )}
                         {member.socials?.tiktok && (
-                            <a href={member.socials.tiktok.startsWith('http') ? member.socials.tiktok : `https://tiktok.com/@${member.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-white text-zinc-400 hover:text-black transition-all rounded-2xl border border-white/5">
+                            <a href={member.socials.tiktok.startsWith('http') ? member.socials.tiktok : `https://tiktok.com/@${member.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-black hover:border-[#25F4EE] hover:shadow-[0_0_15px_#25F4EE] text-zinc-400 hover:text-white transition-all rounded-2xl border border-white/5">
                                 <FaTiktok size={22} />
                             </a>
                         )}
@@ -200,12 +200,12 @@ export default function PortfolioClient({ member }: { member: Member }) {
                             </a>
                         )}
                         {member.robloxProfile && (
-                            <a href={member.robloxProfile} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-white text-zinc-400 hover:text-black transition-all rounded-2xl border border-white/5">
+                            <a href={member.robloxProfile} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-white hover:border-white text-zinc-400 hover:text-black transition-all rounded-2xl border border-white/5">
                                 <SiRoblox size={22} />
                             </a>
                         )}
                         {member.socials?.portfolio && (
-                            <a href={member.socials.portfolio.startsWith('http') ? member.socials.portfolio : `https://${member.socials.portfolio}`} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-white text-zinc-400 hover:text-black transition-all rounded-2xl border border-white/5 flex items-center gap-3">
+                            <a href={member.socials.portfolio.startsWith('http') ? member.socials.portfolio : `https://${member.socials.portfolio}`} target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 hover:bg-emerald-500 hover:border-emerald-500 text-zinc-400 hover:text-white transition-all rounded-2xl border border-white/5 flex items-center gap-3">
                                 <Globe size={22} />
                                 <span className="text-xs font-black uppercase tracking-widest hidden sm:block">Portfolio</span>
                             </a>
