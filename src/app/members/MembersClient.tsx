@@ -670,7 +670,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                     })()}
 
                                     <div className="mt-6 pt-6 border-t border-white/5 w-full flex justify-center">
-                                        <Link 
+                                        <Link
                                             href={`/${selectedMember.name.toLowerCase().replace(/\s+/g, "")}`}
                                             className="flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest"
                                         >
