@@ -56,38 +56,19 @@
   },
   {
     "id": 4,
-    "name": "4Patrice",
-    "username": "172qimay",
-    "description": "",
-    "roles": [
-      "CO OWNER",
-      "ASSESSOR",
-      "DARK SIDE",
-      "CONTENT CREATOR"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-46136FCEBAA3D59D990C500B7C1AFDA4-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "545912882618171402",
-      "discord": "gerr1y"
-    },
-    "orderPriority": 2,
-    "robloxProfile": "https://www.roblox.com/users/8881342962/profile"
-  },
-  {
-    "id": 5,
-    "name": "4vril",
-    "username": "Andrea13JB",
+    "name": "4nana",
+    "username": "polk4cy",
     "description": "",
     "roles": [
       "ADMIN"
     ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-2CAD3C4B5D3694B9A7D913E9FE9E57D5-Png/420/420/Avatar/Png/noFilter",
+    "image": "https://tr.rbxcdn.com/30DAY-Avatar-46136FCEBAA3D59D990C500B7C1AFDA4-Png/420/420/Avatar/Png/noFilter",
     "socials": {
       "discordId": "657490639923052545",
-      "discord": ".nekomasetter"
+      "discord": "nekomasetter"
     },
-    "orderPriority": 3,
-    "robloxProfile": "https://www.roblox.com/users/3155392376/profile"
+    "orderPriority": 2,
+    "robloxProfile": "https://www.roblox.com/users/8881342962/profile"
   },
   {
     "id": 6,
