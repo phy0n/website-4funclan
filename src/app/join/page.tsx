@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function JoinPage() {
-  const targetDate = "2026-10-01T00:00:00";
+  const targetDate = "2026-10-03T00:00:00";
 
   return (
     <div className="w-full text-white pt-32 pb-20 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
