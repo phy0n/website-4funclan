@@ -335,8 +335,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <div className="w-10 h-2 bg-[#111] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,1)]"></div>
                                         </div>
 
-                                        <div className="relative w-full h-[420px] flex flex-col bg-[#111] rounded-lg border border-white/5 overflow-hidden">
-                                            <div className={`absolute top-0 inset-x-0 h-32 ${bannerColor} opacity-20 blur-[40px] z-0 pointer-events-none`}></div>
+                                        <div className="relative w-full h-[420px] flex flex-col bg-black rounded-lg border border-white/5 overflow-hidden">
                                             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
 
                                             <div className="relative pt-5 pb-3 px-5 flex justify-between items-start border-b border-white/5 z-20">
@@ -368,7 +367,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                 )}
                                             </div>
 
-                                            <div className="relative z-20 flex flex-col items-center flex-1 px-4 py-4 w-full bg-gradient-to-t from-black via-[#111]/80 to-transparent">
+                                            <div className="relative z-20 flex flex-col items-center flex-1 px-4 py-4 w-full bg-black">
                                                 <h3 className="font-black text-xl text-white tracking-tighter drop-shadow-lg leading-none text-center">{member.name}</h3>
                                                 <p className="text-zinc-500 font-bold text-[9px] tracking-[0.2em] uppercase mt-1 mb-3 text-center">
                                                     @{member.username}
