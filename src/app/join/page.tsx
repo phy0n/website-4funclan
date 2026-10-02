@@ -11,7 +11,7 @@ export default function JoinPage() {
   const targetDate = "2026-10-03T20:00:00+07:00";
 
   return (
-    <div className="w-full text-white pt-32 pb-20 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
+    <div className="w-full text-white pt-32 pb-20 flex flex-col items-center justify-center min-h-screen">
       <div className="container mx-auto px-6 flex flex-col items-center">
         <div className="text-center mb-8 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">
