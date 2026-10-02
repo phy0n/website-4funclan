@@ -1,24 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "4Liebe",
-    "username": "Meketzury",
-    "description": "",
-    "roles": [
-      "OWNER",
-      "ASSESSOR",
-      "DARK SIDE",
-      "CONTENT CREATOR"
-    ],
-    "image": "https://cdn.discordapp.com/attachments/1350261093884235806/1540064512835846314/image.png?ex=6a889858&is=6a8746d8&hm=d0193900d47552c5cfda9e43319d57d5e51e2ee5783d940244ba0fc9316b3b90&",
-    "robloxProfile": "https://www.roblox.com/users/3714118206/profile",
-    "socials": {
-      "discordId": "757964808032092312",
-      "discord": "r6uuu"
-    },
-    "orderPriority": 1
-  },
-  {
     "id": 2,
     "name": "4hachi",
     "username": "hyeseou",
@@ -172,22 +153,6 @@
     },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/7881965110/profile"
-  },
-  {
-    "id": 12,
-    "name": "4B3lial",
-    "username": "syaakopling",
-    "description": "",
-    "roles": [
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-277CE0B19B7A872AF74D6F23EAED06A5-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1347600525310431312",
-      "discord": "u2xyh"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/8939131900/profile"
   },
   {
     "id": 13,
@@ -353,23 +318,6 @@
     },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/3148115302/profile"
-  },
-  {
-    "id": 23,
-    "name": "4rav",
-    "username": "catkofz2",
-    "description": "",
-    "roles": [
-      "DARK SIDE",
-      "CONTENT CREATOR"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-5A63361263B46C014E9337D0D6924050-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "865407317780070502",
-      "discord": "909817368291038"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/3242646281/profile"
   },
   {
     "id": 24,
@@ -674,22 +622,6 @@
     },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/1269962334/profile"
-  },
-  {
-    "id": 44,
-    "name": "4ci",
-    "username": "CarriSauwu",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-DE108912F269C4992B6ECA501D553756-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "924394208943566878",
-      "discord": "ciciaaa"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/1653132836/profile"
   },
   {
     "id": 45,
