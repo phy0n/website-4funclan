@@ -1,73 +1,5 @@
 [
   {
-    "id": 2,
-    "name": "4hachi",
-    "username": "hyeseou",
-    "description": "",
-    "roles": [
-      "OWNER"
-    ],
-    "image": "https://cdn.discordapp.com/attachments/1350261093884235806/1540064594427379883/image.png?ex=6a88986c&is=6a8746ec&hm=8950d003636fd90f85e223092dc7e23aa4fd6e40bbdf5710d90e88ea6eb7d14c&",
-    "socials": {
-      "discordId": "923593811282767942",
-      "discord": "p1nxi"
-    },
-    "orderPriority": 1,
-    "robloxProfile": "https://www.roblox.com/users/5247825579/profile"
-  },
-  {
-    "id": 3,
-    "name": "4P1stol",
-    "username": "Tii_SNLG",
-    "description": "",
-    "roles": [
-      "CO OWNER",
-      "ASSESSOR",
-      "DARK SIDE",
-      "CONTENT CREATOR"
-    ],
-    "image": "https://cdn.discordapp.com/avatars/1513230353798795344/02d5fdf4f7708e52c853bd426bf06418.png?size=4096&ignore=true",
-    "socials": {
-      "discordId": "1513230353798795344",
-      "discord": "joellowee"
-    },
-    "orderPriority": 2,
-    "robloxProfile": "https://www.roblox.com/users/4964296082/profile"
-  },
-  {
-    "id": 4,
-    "name": "4nana",
-    "username": "polk4cy",
-    "description": "",
-    "roles": [
-      "ADMIN"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-46136FCEBAA3D59D990C500B7C1AFDA4-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "657490639923052545",
-      "discord": "nekomasetter"
-    },
-    "orderPriority": 2,
-    "robloxProfile": "https://www.roblox.com/users/8881342962/profile"
-  },
-  {
-    "id": 6,
-    "name": "4Graciella",
-    "username": "aleayepyep",
-    "description": "",
-    "roles": [
-      "STAFF",
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1250118088310132821",
-      "discord": "rnndsll"
-    },
-    "orderPriority": 4,
-    "robloxProfile": "https://www.roblox.com/users/8742882893/profile"
-  },
-  {
     "id": 7,
     "name": "4cookie",
     "username": "kokaci0",
@@ -83,22 +15,6 @@
     },
     "orderPriority": 4,
     "robloxProfile": "https://www.roblox.com/users/5381239536/profile"
-  },
-  {
-    "id": 8,
-    "name": "4Bubbles",
-    "username": "faculaeee",
-    "description": "",
-    "roles": [
-      "STAFF"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-E4F07E7113FCA1C59DE46163981204E5-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1432004277609435228",
-      "discord": "Palettee"
-    },
-    "orderPriority": 4,
-    "robloxProfile": "https://www.roblox.com/users/2371627410/profile"
   },
   {
     "id": 9,
@@ -154,22 +70,6 @@
     "robloxProfile": "https://www.roblox.com/users/7881965110/profile"
   },
   {
-    "id": 13,
-    "name": "4tenx",
-    "username": "Hxvrxzhel",
-    "description": "",
-    "roles": [
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-4B29F55FFFBD0FB7066FAA8629880C5D-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "889031084484997140",
-      "discord": "teenx488"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/7484210368/profile"
-  },
-  {
     "id": 14,
     "name": "4Lucifer",
     "username": "NemoGrab",
@@ -200,22 +100,6 @@
     },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/8165343744/profile"
-  },
-  {
-    "id": 16,
-    "name": "4Shinrii",
-    "username": "LALISA_MANOBAL188",
-    "description": "",
-    "roles": [
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1243685894905397291",
-      "discord": "shinrii."
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/4952591413/profile"
   },
   {
     "id": 17,
@@ -251,22 +135,6 @@
     "robloxProfile": "https://www.roblox.com/users/7717403997/profile"
   },
   {
-    "id": 19,
-    "name": "4Sn4iL",
-    "username": "Akenojima",
-    "description": "",
-    "roles": [
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-AB4384D409146669C50CF898521C23CD-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "824267364069408802",
-      "discord": "signofiko"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/10359990953/profile"
-  },
-  {
     "id": 20,
     "name": "4Exan",
     "username": "Van901405",
@@ -299,40 +167,6 @@
     },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/11212734295/profile"
-  },
-  {
-    "id": 22,
-    "name": "4Loyd",
-    "username": "yabusaHZ",
-    "description": "",
-    "roles": [
-      "DARK SIDE",
-      "CONTENT CREATOR"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-767BB9324E94C6E83DF85124E768996F-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1388153406668935231",
-      "discord": "fl0flyd",
-      "tiktok": "Anotherfloyd"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/3148115302/profile"
-  },
-  {
-    "id": 24,
-    "name": "4vanta",
-    "username": "vocsvx",
-    "description": "",
-    "roles": [
-      "CONTENT CREATOR"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-2F638CF0183B56AF8E0FD86B75D3FA3A-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "748752650216013884",
-      "discord": "hvc_."
-    },
-    "orderPriority": 7,
-    "robloxProfile": "https://www.roblox.com/users/2064939065/profile"
   },
   {
     "id": 25,
@@ -447,22 +281,6 @@
     "robloxProfile": "https://www.roblox.com/users/4431960032/profile"
   },
   {
-    "id": 33,
-    "name": "4jjuu",
-    "username": "CaramelCookies_Yeet",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-B0A71593CB435A2AF24B814EB0B734D3-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1414264699725283500",
-      "discord": "strawbewyshortcake_"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/1319534443/profile"
-  },
-  {
     "id": 34,
     "name": "4til",
     "username": "atilantic4",
@@ -557,22 +375,6 @@
     },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/4133847627/profile"
-  },
-  {
-    "id": 42,
-    "name": "4Rain",
-    "username": "RopToxic",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1333055526581305356",
-      "discord": "yoritaa"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/1269962334/profile"
   },
   {
     "id": 45,
