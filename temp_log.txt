@@ -1,0 +1,87 @@
+commit 3fbca8eee17bcff02c98558d389919735d57cd3a
+Author: phy0n <phionutsss@proton.me>
+Date:   Sat Oct 3 02:02:00 2026 +0700
+
+    update
+
+diff --git a/src/data/members.json b/src/data/members.json
+index b7bf865..97604b9 100644
+--- a/src/data/members.json
++++ b/src/data/members.json
+@@ -217,23 +217,6 @@
+     "orderPriority": 6,
+     "robloxProfile": "https://www.roblox.com/users/4952591413/profile"
+   },
+-  {
+-    "id": 17,
+-    "name": "4JX",
+-    "username": "fall1ngintohell",
+-    "description": "",
+-    "roles": [
+-      "DARK SIDE",
+-      "CONTENT CREATOR"
+-    ],
+-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
+-    "socials": {
+-      "discordId": "1003588520180457493",
+-      "discord": "jojaa1"
+-    },
+-    "orderPriority": 6,
+-    "robloxProfile": "https://www.roblox.com/users/885468398/profile"
+-  },
+   {
+     "id": 18,
+     "name": "4Mika",
+@@ -398,22 +381,6 @@
+     "orderPriority": 8,
+     "robloxProfile": "https://www.roblox.com/users/2946940825/profile"
+   },
+-  {
+-    "id": 29,
+-    "name": "4Lucie",
+-    "username": "MeltingVanilla_9",
+-    "description": "",
+-    "roles": [
+-      "MEMBER"
+-    ],
+-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A3CC3236843CAD6C94C8A30C0F4B1DC1-Png/420/420/Avatar/Png/noFilter",
+-    "socials": {
+-      "discordId": "1255119554565247006",
+-      "discord": "wld4r"
+-    },
+-    "orderPriority": 8,
+-    "robloxProfile": "https://www.roblox.com/users/8663264141/profile"
+-  },
+   {
+     "id": 30,
+     "name": "4Lucia",
+@@ -526,22 +493,6 @@
+     "orderPriority": 8,
+     "robloxProfile": "https://www.roblox.com/users/3103050113/profile"
+   },
+-  {
+-    "id": 37,
+-    "name": "4Vv",
+-    "username": "chocobuttrr",
+-    "description": "",
+-    "roles": [
+-      "MEMBER"
+-    ],
+-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-FA647AD289CECCEF9B509A4CC4DAD445-Png/420/420/Avatar/Png/noFilter",
+-    "socials": {
+-      "discordId": "746612630193700904",
+-      "discord": "cltynns"
+-    },
+-    "orderPriority": 8,
+-    "robloxProfile": "https://www.roblox.com/users/8478618324/profile"
+-  },
+   {
+     "id": 38,
+     "name": "4evr",
+@@ -975,4 +926,4 @@
+     "orderPriority": 8,
+     "robloxProfile": "https://www.roblox.com/users/1058114503/profile"
+   }
+-]
+\ No newline at end of file
++]
