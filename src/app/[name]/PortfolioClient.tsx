@@ -13,6 +13,7 @@ const getRoleStyle = (role: string) => {
     switch (role) {
         case "OWNER": return "bg-[#0a0a0a] text-white border-white/20";
         case "CO OWNER": return "bg-blue-900/80 text-blue-200 border-blue-600/30";
+        case "EXECUTIVE": return "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30";
         case "ADMIN": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
         case "STAFF": return "bg-cyan-500/20 text-cyan-300 border-cyan-500/30";
         case "ASSESSOR": return "bg-green-500/20 text-green-400 border-green-500/30";

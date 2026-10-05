@@ -22,6 +22,7 @@ const getDiscordAssetUrl = (appId: string, assetId: string) => {
 const ROLE_PRIORITY: Record<string, number> = {
     "OWNER": 1,
     "CO OWNER": 2,
+    "EXECUTIVE": 2.5,
     "ADMIN": 3,
     "STAFF": 4,
     "ASSESSOR": 5,
@@ -45,6 +46,7 @@ const getRoleStyle = (role: string) => {
     switch (role) {
         case "OWNER": return "bg-[#0a0a0a] text-white border-white/20";
         case "CO OWNER": return "bg-blue-900/80 text-blue-200 border-blue-600/30";
+        case "EXECUTIVE": return "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30";
         case "ADMIN": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
         case "STAFF": return "bg-cyan-500/20 text-cyan-300 border-cyan-500/30";
         case "ASSESSOR": return "bg-green-500/20 text-green-400 border-green-500/30";
@@ -60,6 +62,7 @@ const getRoleBannerColor = (role: string) => {
     switch (role) {
         case "OWNER": return "bg-white";
         case "CO OWNER": return "bg-blue-600";
+        case "EXECUTIVE": return "bg-fuchsia-500";
         case "ADMIN": return "bg-purple-500";
         case "STAFF": return "bg-cyan-500";
         case "ASSESSOR": return "bg-green-500";
@@ -247,7 +250,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         return matchesFilter && matchesSearch && matchesStatus;
     });
 
-    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER", "NEW"];
+    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER", "NEW"];
 
     const selectedRobloxIdMatch = selectedMember?.robloxProfile?.match(/users\/(\d+)/);
     const selectedRobloxId = selectedRobloxIdMatch ? parseInt(selectedRobloxIdMatch[1]) : null;
