@@ -45,44 +45,81 @@
   "gallery_title": "GALERI",
   "gallery_desc": "Kumpulan momen seru, screenshot random, dan kenangan yang udah kita bikin bareng-bareng.",
   "rules_title": "ATURAN MUTLAK",
-  "rules_desc": "Aturan mutlak yang wajib ditaati sama semua member 4Fun Clan. Pelanggaran aturan ini bisa berakibat fatal.",
+  "rules_desc": "Peraturan yang wajib dipatuhi seluruh member 4FUN. Dengan bergabung, kamu dianggap telah membaca dan memahami seluruh rules yang berlaku.",
   "rules_list": [
     {
-      "title": "No Racist",
-      "description": "Semua orang di sini equal, gak peduli asal mana. Yang rasis langsung auto warning."
+      "title": "No Racism",
+      "description": "Dilarang melakukan ucapan, candaan, atau tindakan yang mengandung unsur rasisme terhadap ras, suku, warna kulit, maupun asal seseorang."
     },
     {
-      "title": "No NSFW / 18+ Topic",
-      "description": "Jangan bahas hal-hal dewasa, kirim gambar aneh, atau link aneh-aneh. Ini server buat chill, bukan buat hal-hal 'itu'."
+      "title": "No NSFW",
+      "description": "Dilarang mengirim, membahas, atau menyebarkan konten NSFW, seksual, pornografi, maupun link yang tidak pantas."
     },
     {
       "title": "No Spam",
-      "description": "Jangan spam chat, emoji, VC, atau mention orang tanpa alasan. Kasian yang lain bisa tenggelam chat-nya."
+      "description": "Jangan spam chat, emoji, sticker, mention, reaction, maupun VC secara berlebihan dan mengganggu member lain."
     },
     {
       "title": "Respect Privacy",
-      "description": "Jangan kepo atau nyebar info pribadi orang lain tanpa izin, ya. Privasi itu penting, gak semua hal harus jadi konsumsi publik."
+      "description": "Jangan menyebarkan informasi pribadi, foto, rekaman, atau percakapan milik orang lain tanpa izin."
     },
     {
-      "title": "Keep It Friendly & Safe",
-      "description": "gak peduli siapa mereka. Tapi hindari bahasan yang terlalu pribadi, sensitif, atau bisa bikin orang lain gak nyaman. Fokus aja ke topik server biar semua betah."
+      "title": "Keep It Friendly",
+      "description": "Saling menghargai dan jaga batas saat bercanda. Roasting diperbolehkan selama tidak membuat orang lain merasa terganggu atau direndahkan."
     },
     {
-      "title": "Komunikasi",
-      "description": "jika ada masalah atau pun informasi yang penting mengenai clan entah itu problem sesama member, ganti displayname roblox, atau ingin keluar dari clan, maka di wajibkan untuk mengkonfirmasi kepada admin agar tidak ada kesalah pahaman."
+      "title": "No Circle",
+      "description": "Jangan sengaja mengucilkan, membatasi, atau membuat member lain merasa tidak diterima dalam clan. Berteman dengan siapa pun itu bebas, tapi jangan sampai membentuk circle yang membuat member lain dijauhi atau diperlakukan berbeda."
     },
     {
-      "title": "No HODE/GAY",
-      "description": "yaa tau lahh..."
+      "title": "No Harassment",
+      "description": "Dilarang mengganggu, mengejek, mempermalukan, mengintimidasi, atau terus mengusik seseorang setelah diminta berhenti."
     },
     {
-      "title": "No False Accusations",
-      "description": "jangan asal mikir kalau kalain di kacangin atau di circlein kalau gak ada bukti sama sekali."
+      "title": "No Unnecessary Drama",
+      "description": "Hindari drama, konflik pribadi, atau masalah antar-member yang tidak perlu. Jika ada masalah, selesaikan dengan baik atau hubungi admin."
+    },
+    {
+      "title": "Communication",
+      "description": "Segala urusan yang berkaitan dengan clan, seperti masalah antar-member, perubahan Display Name, masalah akun, maupun hal penting lainnya wajib dikomunikasikan kepada admin."
+    },
+    {
+      "title": "Report Problems",
+      "description": "Jika menemukan masalah atau pelanggaran rules, laporkan kepada admin. Jangan memperbesar masalah atau mengambil tindakan sendiri."
+    },
+    {
+      "title": "Leaving the Clan",
+      "description": "Jika ingin keluar dari clan, harap konfirmasi kepada admin terlebih dahulu agar tidak terjadi kesalahpahaman."
+    },
+    {
+      "title": "No False Assumptions",
+      "description": "Jangan langsung menganggap seseorang mengabaikan, menjauhi, atau mengucilkan kamu tanpa bukti yang jelas. Jika ada masalah, komunikasikan terlebih dahulu."
+    },
+    {
+      "title": "No HODE",
+      "description": "Dilarang menggunakan identitas palsu atau berpura-pura menjadi orang lain untuk menipu, mempermainkan, atau mendapatkan keuntungan dari member lain."
     },
     {
       "title": "No Double Clan",
-      "description": "tidak boleh menyandak 2 clan, contohnya ( 4Akeno67clan )."
+      "description": "Tidak diperbolehkan menjadi bagian dari dua clan secara bersamaan apabila bertentangan dengan ketentuan 4FUN. Contoh: 4neo67clan."
+    },
+    {
+      "title": "Clan Identity",
+      "description": "Jangan menggunakan nama, tag, atau identitas 4FUN untuk hal yang dapat merusak nama baik clan. Jaga sikap ketika membawa nama 4FUN."
+    },
+    {
+      "title": "No Abuse",
+      "description": "Dilarang menyalahgunakan role, jabatan, akses, maupun kepercayaan yang diberikan oleh clan."
+    },
+    {
+      "title": "Keep It Private",
+      "description": "Masalah dan urusan internal clan sebaiknya diselesaikan secara internal. Jangan menyebarkan konflik atau percakapan internal tanpa alasan yang jelas."
+    },
+    {
+      "title": "Common Sense",
+      "description": "Gunakan akal sehat, tahu batas dalam bercanda, dan pikirkan dampak dari tindakan sebelum melakukannya."
     }
   ],
-  "footer_text": "© 2026 4Fun Clan."
+  "footer_text": "© 2026 4Fun Clan.",
+  "rules_warning": "⚠️ Pelanggaran terhadap rules dapat dikenakan tindakan sesuai tingkat pelanggarannya."
 }

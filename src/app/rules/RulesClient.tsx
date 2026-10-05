@@ -23,12 +23,12 @@ export default function RulesClient() {
       </div>
 
       <div className="w-full px-6 md:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 w-full pt-10 border-t border-white/10">
+        <div className="columns-1 lg:columns-2 gap-x-16 w-full pt-10 border-t border-white/10">
           {Array.isArray(rules) && rules.map((rule, index) => (
-            <div key={index} className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+            <div key={index} className="flex flex-col md:flex-row items-start gap-4 md:gap-8 mb-16 break-inside-avoid">
               <div className="w-full md:w-28 shrink-0">
                 <span className="text-7xl md:text-[6rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-transparent">
-                  0{index + 1}
+                  {(index + 1).toString().padStart(2, '0')}
                 </span>
               </div>
               <div className="flex flex-col gap-3 md:mt-3">
@@ -41,6 +41,14 @@ export default function RulesClient() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="w-full px-6 md:px-24 mt-20 mb-10">
+        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center max-w-4xl mx-auto">
+          <p className="text-red-400 font-medium md:text-lg">
+            {t("rules_warning")}
+          </p>
         </div>
       </div>
     </div>
