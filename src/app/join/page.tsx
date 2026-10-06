@@ -28,7 +28,7 @@ export default function JoinPage() {
 
           <div className="mt-16 w-full max-w-sm">
             <a
-              href="https://discord.gg/SrcssWm3xA"
+              href="https://discord.gg/dhDyagJhsw"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-full py-4 bg-primary text-white hover:bg-white hover:text-black font-black uppercase tracking-widest text-xs transition-all">

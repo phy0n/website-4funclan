@@ -48,7 +48,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
-            <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
+            <a href="https://discord.gg/dhDyagJhsw" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">
               {t("home_hero_btn_discord")}
             </a>
             <a href="/members" className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-black text-sm md:text-base uppercase tracking-widest hover:bg-white/10 transition-all text-center backdrop-blur-sm">
@@ -188,7 +188,7 @@ export default function Home() {
               {t("home_join_desc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto">
-              <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto relative z-10 bg-primary text-white font-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+              <a href="https://discord.gg/dhDyagJhsw" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto relative z-10 bg-primary text-white font-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">
                 {t("home_join_btn_discord")}
               </a>
               <a href="https://www.roblox.com/communities/144778500/4F-COMMUNITY" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto relative z-10 bg-transparent border-2 border-white/20 text-white font-black px-8 md:px-12 py-3.5 md:py-[18px] text-lg md:text-2xl uppercase tracking-widest hover:bg-white hover:text-black transition-all">

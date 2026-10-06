@@ -20,7 +20,7 @@ export default function Footer() {
           <Image src="/img/4F.webp" alt="4Fun Logo" width={44} height={44} className="rounded-sm object-cover" />
         </Link>
         <div className="flex flex-wrap items-center justify-center gap-6">
-          <a href="https://discord.gg/SrcssWm3xA" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
+          <a href="https://discord.gg/dhDyagJhsw" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
             Discord
           </a>
           <a href="https://www.roblox.com/communities/144778500/4F-COMMUNITY" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
