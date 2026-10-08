@@ -99,7 +99,7 @@ export default function StaffClient() {
       ],
       head: [],
       staff: [
-        { name: "4cookie", discordId: "1313494943456821320", description: "Moderator" }
+        { name: "4moca", discordId: "1313494943456821320", description: "Moderator" }
       ]
     },
     {
@@ -161,7 +161,7 @@ export default function StaffClient() {
             desc="Pemilik dan pengambil keputusan tertinggi di clan."
             icon={<Crown className="w-6 h-6 text-white mb-2" />}
             delay={0.1}
-            members={[{ name: "4Vo1d", discordId: "123456789012345678", description: "The Founder" }]}
+            members={[{ name: "4Vo1d", discordId: "877885373152362528", description: "The Founder" }]}
           />
 
           <TreeLine />
