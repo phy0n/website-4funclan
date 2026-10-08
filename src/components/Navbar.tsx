@@ -13,7 +13,7 @@ export default function Navbar() {
   const { t, language, toggleLanguage } = useLanguage();
   const pathname = usePathname();
 
-  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join'].includes(pathname);
+  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join', '/staff'].includes(pathname);
   if (!isKnownPage) return null;
 
   return (
@@ -41,6 +41,10 @@ export default function Navbar() {
             </Link>
             <Link href="/rules" className="hover:text-white transition-colors relative group py-1">
               {t("nav_rules")}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
+            </Link>
+            <Link href="/staff" className="hover:text-white transition-colors relative group py-1">
+              STAFF
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </Link>
             <Link href="/join" className="hover:text-white transition-colors relative group py-1">
@@ -96,6 +100,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="/rules" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
                   {t("nav_rules")}
+                </Link>
+                <Link href="/staff" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
+                  STAFF
                 </Link>
                 <Link href="/join" onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
                   JOIN US

@@ -28,8 +28,7 @@ const ROLE_PRIORITY: Record<string, number> = {
     "ASSESSOR": 5,
     "DARK SIDE": 6,
     "CONTENT CREATOR": 7,
-    "MEMBER": 8,
-    "NEW": 9
+    "MEMBER": 8
 };
 
 function getHighestRolePriority(roles: string[]) {
@@ -53,7 +52,6 @@ const getRoleStyle = (role: string) => {
         case "DARK SIDE": return "bg-red-600/20 text-red-500 border-red-600/30";
         case "CONTENT CREATOR": return "bg-yellow-500/20 text-yellow-500 border-yellow-500/30";
         case "MEMBER": return "bg-pink-500/20 text-pink-400 border-pink-500/30";
-        case "NEW": return "bg-orange-500/20 text-orange-400 border-orange-500/30";
         default: return "bg-white/5 text-gray-400 border-white/10";
     }
 };
@@ -69,7 +67,6 @@ const getRoleBannerColor = (role: string) => {
         case "DARK SIDE": return "bg-primary";
         case "CONTENT CREATOR": return "bg-yellow-500";
         case "MEMBER": return "bg-pink-500";
-        case "NEW": return "bg-orange-500";
         default: return "bg-gray-600";
     }
 };
@@ -250,7 +247,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         return matchesFilter && matchesSearch && matchesStatus;
     });
 
-    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER", "NEW"];
+    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
 
     const selectedRobloxIdMatch = selectedMember?.robloxProfile?.match(/users\/(\d+)/);
     const selectedRobloxId = selectedRobloxIdMatch ? parseInt(selectedRobloxIdMatch[1]) : null;
