@@ -79,7 +79,7 @@ const StaffProfile = ({ name, discordId, description, showRoleDesc, horizontal =
       </div>
       <h4 className="text-lg md:text-xl font-bold text-white tracking-wide mb-1">{displayName}</h4>
       {description && <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-3">{description}</p>}
-      {showRoleDesc && <p className="text-xs md:text-sm text-zinc-400 max-w-[280px] leading-relaxed mt-2">{showRoleDesc}</p>}
+      {showRoleDesc && <p className="text-xs md:text-sm text-zinc-400 max-w-[280px] md:max-w-md leading-relaxed mt-2">{showRoleDesc}</p>}
     </div>
   );
 };
@@ -202,8 +202,7 @@ export default function StaffClient() {
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 + (i * 0.1), duration: 0.6, ease: "easeOut" }}
               className="flex flex-col relative items-center text-center"
             >
@@ -253,6 +252,37 @@ export default function StaffClient() {
           ))}
         </div>
 
+        {/* SEPARATOR */}
+        <div className="w-full h-px bg-white/5 my-24 md:my-32"></div>
+
+        {/* DARKSIDE MANAGEMENT */}
+        <div className="mb-16 md:mb-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-zinc-500 font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-4">
+              Specialized Units
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter uppercase mb-6">
+              Darkside Management
+            </h2>
+            <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-2xl mx-auto px-4">
+              Non-staff specialized roles dedicated to testing and managing the DARKSIDE roster, our elite division for movement and evasion players.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="flex flex-col items-center gap-8 w-full mx-auto relative mb-12">
+          <RoleCard
+            title="DARKSIDE HANDLER"
+            desc="Handling DARKSIDE operations, organizing practice sessions, and managing related recordings."
+            delay={0.1}
+            members={[]}
+          />
+        </div>
+
       </div>
     </div>
   );
@@ -262,8 +292,7 @@ function RoleCard({ title, desc, delay, members }: { title: string, desc: string
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.6, ease: "easeOut" }}
       className="relative z-10 flex flex-col items-center text-center py-6 px-2 md:p-8 w-full max-w-lg mx-auto"
     >
@@ -276,11 +305,11 @@ function RoleCard({ title, desc, delay, members }: { title: string, desc: string
           ))}
         </div>
       ) : (
-        <div className="w-full flex flex-col items-center">
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-dashed border-white/20 flex items-center justify-center bg-white/[0.02] mb-2 md:mb-3">
-            <User className="w-6 h-6 md:w-8 md:h-8 text-white/20" strokeWidth={1.5} />
+        <div className="w-full flex flex-col items-center opacity-50">
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-dashed border-white/30 flex items-center justify-center bg-white/[0.02] mb-4">
+            <User className="w-8 h-8 md:w-10 md:h-10 text-white/30" strokeWidth={1.5} />
           </div>
-          <p className="text-xs md:text-sm text-zinc-500 max-w-[250px] leading-relaxed">{desc}</p>
+          <p className="text-xs md:text-sm text-zinc-500 max-w-[280px] md:max-w-md leading-relaxed">{desc}</p>
         </div>
       )}
     </motion.div>
@@ -291,8 +320,7 @@ function TreeLine() {
   return (
     <motion.div
       initial={{ height: 0, opacity: 0 }}
-      whileInView={{ height: 56, opacity: 1 }}
-      viewport={{ once: true }}
+      animate={{ height: 56, opacity: 1 }}
       className="w-[1px] h-14 bg-white/10"
     />
   );

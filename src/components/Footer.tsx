@@ -10,7 +10,7 @@ export default function Footer() {
   const { t } = useLanguage();
   const pathname = usePathname();
 
-  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join'].includes(pathname);
+  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join', '/staff'].includes(pathname);
   if (!isKnownPage) return null;
 
   return (
