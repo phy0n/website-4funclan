@@ -18,7 +18,7 @@ interface StaffMemberProps {
   description?: string;
 }
 
-const StaffProfile = ({ name, discordId, description }: StaffMemberProps) => {
+function useDiscordUser(discordId: string) {
   const [user, setUser] = useState<DiscordUser | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -27,9 +27,7 @@ const StaffProfile = ({ name, discordId, description }: StaffMemberProps) => {
       setLoading(false);
       return;
     }
-    
     const apiUrl = process.env.NEXT_PUBLIC_BOT_API_URL || "http://localhost:8080";
-    // Fetch from Rust Bot API
     fetch(`${apiUrl}/api/user/${discordId}`)
       .then(res => res.json())
       .then(data => {
@@ -42,22 +40,26 @@ const StaffProfile = ({ name, discordId, description }: StaffMemberProps) => {
       });
   }, [discordId]);
 
+  return { user, loading };
+}
+
+const StaffProfile = ({ name, discordId, description, showRoleDesc }: StaffMemberProps & { showRoleDesc?: string }) => {
+  const { user, loading } = useDiscordUser(discordId);
   const displayName = user?.global_name || user?.username || name;
   const avatarUrl = user?.avatar_url || "/img/default-avatar.png";
 
   return (
-    <div className="flex flex-col items-center mt-6 gap-3 group">
-      <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-white/10 overflow-hidden bg-white/5 transition-transform duration-300 group-hover:scale-105 group-hover:border-white/30">
+    <div className="flex flex-col items-center w-full">
+      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border border-white/10 overflow-hidden bg-white/5 mb-4">
         {!loading && avatarUrl !== "/img/default-avatar.png" ? (
           <Image src={avatarUrl} alt={displayName} fill className="object-cover" />
         ) : (
-          <UserCircle2 className="w-full h-full text-white/20 p-2" />
+          <UserCircle2 className="w-full h-full text-white/10 p-4" />
         )}
       </div>
-      <div className="text-center">
-        <h4 className="text-sm md:text-base font-bold text-white tracking-wide">{displayName}</h4>
-        {description && <p className="text-xs text-gray-400 mt-1 max-w-[150px] mx-auto">{description}</p>}
-      </div>
+      <h4 className="text-lg md:text-xl font-bold text-white tracking-wide mb-1">{displayName}</h4>
+      {description && <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-3">{description}</p>}
+      {showRoleDesc && <p className="text-sm text-gray-400 max-w-[280px] leading-relaxed mt-2">{showRoleDesc}</p>}
     </div>
   );
 };
@@ -73,29 +75,29 @@ interface Division {
 export default function StaffClient() {
   const divisions: Division[] = [
     {
-      title: "Member Relation",
-      icon: <Users className="w-6 h-6 mb-3 text-white" />,
+      title: "Member Relations",
+      icon: <Users className="w-6 h-6 text-white" />,
       tasks: [
-        "Menyambut member baru",
-        "Membantu member beradaptasi",
-        "Berbaur dengan member",
-        "Mengajak member bermain bersama",
-        "Mendengarkan feedback",
-        "Menciptakan interaksi aktif antar-member"
+        "Welcoming new members",
+        "Helping members adapt",
+        "Mingling with members",
+        "Inviting members to play",
+        "Listening to feedback",
+        "Creating active interactions"
       ],
       head: [],
       staff: []
     },
     {
       title: "Moderation",
-      icon: <ShieldAlert className="w-6 h-6 mb-3 text-white" />,
+      icon: <ShieldAlert className="w-6 h-6 text-white" />,
       tasks: [
-        "Mengelola member ticket",
-        "Membantu member bermasalah",
-        "Menjawab pertanyaan member",
-        "Membantu menangani konflik",
-        "Memastikan rules dijalankan",
-        "Melaporkan masalah serius ke Head"
+        "Managing member tickets",
+        "Assisting members with issues",
+        "Answering member questions",
+        "Resolving conflicts",
+        "Enforcing rules",
+        "Reporting serious issues to Head"
       ],
       head: [],
       staff: [
@@ -104,28 +106,28 @@ export default function StaffClient() {
     },
     {
       title: "Recording",
-      icon: <Video className="w-6 h-6 mb-3 text-white" />,
+      icon: <Video className="w-6 h-6 text-white" />,
       tasks: [
-        "Record gameplay",
-        "Edit video/clip",
-        "Membuat short content",
-        "Mengambil footage clan",
-        "Mencari ide konten",
-        "Mengelola konten media sosial"
+        "Recording gameplay",
+        "Editing videos/clips",
+        "Creating short content",
+        "Capturing clan activities",
+        "Brainstorming content ideas",
+        "Managing social media content"
       ],
       head: [],
       staff: []
     },
     {
       title: "Event Organizer",
-      icon: <Calendar className="w-6 h-6 mb-3 text-white" />,
+      icon: <Calendar className="w-6 h-6 text-white" />,
       tasks: [
-        "Membantu persiapan event",
-        "Mengatur peserta",
-        "Menjalankan event",
-        "Membuat mini-games",
-        "Dokumentasi event",
-        "Ide kegiatan baru"
+        "Assisting with event prep",
+        "Managing participants",
+        "Running events",
+        "Creating mini-games",
+        "Documenting events",
+        "Proposing new activities"
       ],
       head: [],
       staff: []
@@ -141,13 +143,13 @@ export default function StaffClient() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-zinc-500 font-medium tracking-[0.2em] text-xs uppercase mb-4">
-            4Fun Clan / Struktur Organisasi
+            4Fun Clan / Organization Chart
           </p>
           <h1 className="text-white font-black text-5xl md:text-7xl tracking-tighter mb-6 leading-none uppercase">
             Staff <span className="text-white/50">Structure</span>
           </h1>
           <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Struktur organisasi dan pembagian tugas untuk menjaga agar clan 4Fun terus berkembang dan tetap terorganisir.
+            The organizational structure and division of responsibilities to ensure the 4Fun clan continues to grow and stays organized.
           </p>
         </motion.div>
       </div>
@@ -158,8 +160,8 @@ export default function StaffClient() {
           
           <RoleCard 
             title="OWNER" 
-            desc="Pemilik dan pengambil keputusan tertinggi di clan."
-            icon={<Crown className="w-6 h-6 text-white mb-2" />}
+            desc="The highest decision maker and founder of the clan."
+            icon={<Crown className="w-5 h-5 text-white" />}
             delay={0.1}
             members={[{ name: "4Vo1d", discordId: "877885373152362528", description: "The Founder" }]}
           />
@@ -168,8 +170,8 @@ export default function StaffClient() {
 
           <RoleCard 
             title="CO-OWNER" 
-            desc="Membantu Owner dalam mengambil keputusan dan mengatur arah clan."
-            icon={<Star className="w-6 h-6 text-white mb-2" />}
+            desc="Assists the Owner in making decisions and directing the clan."
+            icon={<Star className="w-5 h-5 text-white" />}
             delay={0.2}
             members={[]}
           />
@@ -178,8 +180,8 @@ export default function StaffClient() {
 
           <RoleCard 
             title="EXECUTIVE" 
-            desc="Mengatur semua hal yang ada di clan di bawah persetujuan Owner / Co-Owner."
-            icon={<Ribbon className="w-6 h-6 text-white mb-2" />}
+            desc="Manages all aspects of the clan under the approval of the Owner/Co-Owner."
+            icon={<Ribbon className="w-5 h-5 text-white" />}
             delay={0.3}
             members={[{ name: "4phy", discordId: "494169184175915019", description: "Executive" }]}
           />
@@ -188,8 +190,8 @@ export default function StaffClient() {
 
           <RoleCard 
             title="MANAGER" 
-            desc="Mengatur internal clan, memastikan clan berjalan sesuai arahan Executive."
-            icon={<Users className="w-6 h-6 text-white mb-2" />}
+            desc="Manages internal operations, ensuring the clan runs according to the Executive's directives."
+            icon={<Users className="w-5 h-5 text-white" />}
             delay={0.4}
             members={[]}
           />
@@ -218,49 +220,50 @@ export default function StaffClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
-              className="flex flex-col items-center p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md relative hover:bg-white/[0.04] transition-colors"
+              className="flex flex-col items-center p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md relative"
             >
-              <div className="flex flex-col items-center text-center mb-6 w-full border-b border-white/5 pb-6">
-                {div.icon}
-                <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest text-white">{div.title}</h3>
+              <div className="flex items-center justify-center gap-3 mb-8 w-full">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  {div.icon}
+                </div>
+                <h3 className="text-base md:text-lg font-bold uppercase tracking-widest text-white leading-tight">{div.title}</h3>
               </div>
               
-              <div className="w-full flex flex-col gap-3 relative mb-8">
-                <div className="text-center relative z-10">
-                  <p className="font-bold text-xs text-white/50 tracking-[0.2em]">HEAD DIVISION</p>
+              <div className="w-full flex flex-col gap-8 relative mb-8 flex-grow">
+                <div className="text-center relative z-10 w-full flex flex-col items-center">
+                  <p className="font-bold text-[10px] text-white/30 tracking-[0.2em] mb-4 uppercase">Head of Division</p>
                   {div.head.length > 0 ? (
-                    <div className="flex justify-center gap-4 flex-wrap">
+                    <div className="flex justify-center gap-6 flex-wrap">
                       {div.head.map((member, idx) => <StaffProfile key={idx} {...member} />)}
                     </div>
                   ) : (
-                    <p className="text-xs text-white/20 mt-4 italic">Vacant</p>
+                    <div className="flex flex-col items-center opacity-50">
+                      <UserCircle2 className="w-12 h-12 text-white/10 mb-2" />
+                      <p className="text-[10px] text-white/30 uppercase tracking-wider">Vacant</p>
+                    </div>
                   )}
                 </div>
-                
-                <div className="w-[1px] h-8 bg-white/10 mx-auto mt-2"></div>
 
-                <div className="text-center relative z-10 mt-2">
-                  <p className="font-bold text-xs text-white/50 tracking-[0.2em]">STAFF DIVISION</p>
+                <div className="text-center relative z-10 w-full flex flex-col items-center pt-8 border-t border-white/5">
+                  <p className="font-bold text-[10px] text-white/30 tracking-[0.2em] mb-4 uppercase">Staff Members</p>
                   {div.staff.length > 0 ? (
-                    <div className="flex justify-center gap-4 flex-wrap">
+                    <div className="flex justify-center gap-6 flex-wrap">
                       {div.staff.map((member, idx) => <StaffProfile key={idx} {...member} />)}
                     </div>
                   ) : (
-                    <p className="text-xs text-white/20 mt-4 italic">Vacant</p>
+                    <div className="flex flex-col items-center opacity-50">
+                      <UserCircle2 className="w-12 h-12 text-white/10 mb-2" />
+                      <p className="text-[10px] text-white/30 uppercase tracking-wider">Vacant</p>
+                    </div>
                   )}
                 </div>
               </div>
 
-              <div className="w-full mt-auto pt-6 border-t border-white/5">
-                <p className="text-[10px] font-bold text-white/40 mb-4 uppercase tracking-widest text-center">Responsibilities</p>
-                <ul className="text-sm text-gray-400 space-y-3">
-                  {div.tasks.map((task, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="w-1 h-1 rounded-full bg-white/30 mt-2 shrink-0"></span>
-                      <span className="leading-relaxed text-xs">{task}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="w-full pt-6 border-t border-white/5 mt-auto">
+                <p className="text-[10px] font-bold text-white/30 mb-3 uppercase tracking-[0.2em] text-center">Responsibilities</p>
+                <p className="text-xs text-gray-400 leading-relaxed text-center">
+                  {div.tasks.join(" • ")}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -278,23 +281,26 @@ function RoleCard({ title, desc, icon, delay, members }: { title: string, desc: 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
-      className="relative z-10 flex flex-col items-center text-center p-8 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md w-full max-w-lg mx-auto hover:bg-white/[0.04] transition-colors"
+      className="relative z-10 flex flex-col items-center text-center p-8 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md w-full max-w-lg mx-auto"
     >
-      <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-        {icon}
+      <div className="flex items-center justify-center gap-3 mb-8 w-full border-b border-white/5 pb-6">
+        <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+          {icon}
+        </div>
+        <h2 className="text-lg md:text-xl font-bold uppercase tracking-[0.15em] text-white m-0">{title}</h2>
       </div>
-      <h2 className="text-xl md:text-2xl font-bold uppercase tracking-[0.15em] mb-3 text-white">{title}</h2>
-      <p className="text-xs md:text-sm font-medium text-gray-400 leading-relaxed mb-6">{desc}</p>
       
       {members.length > 0 ? (
-        <div className="flex flex-wrap justify-center gap-6 mt-2 pt-6 border-t border-white/5 w-full">
+        <div className="flex flex-col gap-6 w-full">
           {members.map((member, i) => (
-            <StaffProfile key={i} {...member} />
+            <StaffProfile key={i} {...member} showRoleDesc={desc} />
           ))}
         </div>
       ) : (
-        <div className="mt-2 pt-6 border-t border-white/5 w-full">
-          <p className="text-xs text-white/20 italic">Vacant</p>
+        <div className="w-full flex flex-col items-center opacity-50">
+          <UserCircle2 className="w-16 h-16 text-white/10 mb-4" />
+          <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-2">Vacant</p>
+          <p className="text-xs text-gray-500 max-w-[250px] leading-relaxed">{desc}</p>
         </div>
       )}
     </motion.div>
