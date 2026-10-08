@@ -260,8 +260,7 @@ export default function StaffClient() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
             <p className="text-zinc-500 font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-4">
               Specialized Units
             </p>
@@ -269,7 +268,7 @@ export default function StaffClient() {
               Darkside Management
             </h2>
             <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-2xl mx-auto px-4">
-              Non-staff specialized roles dedicated to testing and managing the DARKSIDE roster, our elite division for movement and evasion players.
+              Non-staff specialized roles dedicated to testing and managing the Darkside, our elite division for evade movement.
             </p>
           </motion.div>
         </div>
@@ -277,7 +276,7 @@ export default function StaffClient() {
         <div className="flex flex-col items-center gap-8 w-full mx-auto relative mb-12">
           <RoleCard
             title="DARKSIDE HANDLER"
-            desc="Handling DARKSIDE operations, organizing practice sessions, and managing related recordings."
+            desc="Handling Darkside operations, organizing practice sessions, and managing related recordings."
             delay={0.1}
             members={[]}
           />
@@ -294,8 +293,7 @@ function RoleCard({ title, desc, delay, members }: { title: string, desc: string
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.6, ease: "easeOut" }}
-      className="relative z-10 flex flex-col items-center text-center py-6 px-2 md:p-8 w-full max-w-lg mx-auto"
-    >
+      className="relative z-10 flex flex-col items-center text-center py-6 px-2 md:p-8 w-full max-w-lg mx-auto">
       <h2 className="text-lg md:text-2xl font-bold uppercase tracking-[0.2em] text-white mb-6 md:mb-10">{title}</h2>
 
       {members.length > 0 ? (
