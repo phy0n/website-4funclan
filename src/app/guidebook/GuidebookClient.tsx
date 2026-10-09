@@ -51,7 +51,8 @@ export default function GuidebookClient() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 100;
+      const offset = window.innerWidth < 768 ? 220 : 100;
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
     setIsMobileMenuOpen(false);
@@ -125,7 +126,7 @@ export default function GuidebookClient() {
         {/* Content */}
         <div className="flex-1 max-w-4xl pb-24">
           
-          <section id="introduction" className="mb-20 scroll-mt-32">
+          <section id="introduction" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">4FUN Official Guidebook</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
               Welcome to 4FUN, a dedicated gaming clan focused primarily on Evade on Roblox. This guidebook is the central documentation hub designed to ensure clarity and consistency across our ranks.
@@ -135,7 +136,7 @@ export default function GuidebookClient() {
             </p>
           </section>
 
-          <section id="about" className="mb-20 scroll-mt-32">
+          <section id="about" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">About 4FUN</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
               4FUN is an Evade-focused clan where players come together to improve their gameplay, compete, cooperate, and build lasting friendships through shared experiences in Roblox. Rather than being a generic multi-game community, we dedicate our efforts to mastering Evade while fostering a strong, connected identity.
@@ -148,7 +149,7 @@ export default function GuidebookClient() {
             </p>
           </section>
 
-          <section id="organization" className="mb-20 scroll-mt-32">
+          <section id="organization" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-8">Organization Structure</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-8">
               The official hierarchy of 4FUN is structured to maintain order and provide clear leadership. Each position has a distinct scope of authority. Holding a title does not automatically grant unrestricted permissions.
@@ -193,7 +194,7 @@ export default function GuidebookClient() {
             </div>
           </section>
 
-          <section id="staff" className="mb-20 scroll-mt-32">
+          <section id="staff" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Staff & Division System</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-8">
               Staff positions represent responsibilities rather than status symbols. All staff members are expected to be fair, reliable, respectful, accountable, and professional. They must follow applicable rules, respect the limits of their permissions, protect confidential information, communicate with their supervisors, and avoid abusing their authority.
@@ -227,7 +228,7 @@ export default function GuidebookClient() {
             </div>
           </section>
 
-          <section id="membership" className="mb-20 scroll-mt-32">
+          <section id="membership" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Membership System</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-6">
               The 4FUN clan categorizes individuals based on their involvement and recruitment status.
@@ -266,7 +267,7 @@ export default function GuidebookClient() {
             </ul>
           </section>
 
-          <section id="progression" className="mb-20 scroll-mt-32">
+          <section id="progression" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Member Progression & Privileges</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-8">
               Membership progression distinguishes between membership recognition and administrative authority. These are membership progression roles, not staff positions, and the order of progression does not automatically grant administrative authority.
@@ -321,22 +322,51 @@ export default function GuidebookClient() {
               </p>
             </div>
 
-            <h3 id="invitation-privilege" className="font-black text-2xl text-white uppercase tracking-tighter mb-4 scroll-mt-32">Recruitment-Closed Invitation Privilege</h3>
+            <h3 id="invitation-privilege" className="font-black text-2xl text-white uppercase tracking-tighter mb-4 scroll-mt-56 lg:scroll-mt-32">Recruitment-Closed Invitation Privilege</h3>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
               When the general recruitment period is closed, ordinary recruitment applications may no longer be open. However, eligible members who possess this specific privilege may still invite friends or potential members to join through the clan's designated invitation procedure.
             </p>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
               This is a special privilege rather than an unrestricted reopening of public recruitment. People invited through this privilege must still follow any applicable joining, verification, ticket, or onboarding procedures required by 4FUN. An invitation does not automatically guarantee Official Member status, bypass clan requirements, or grant the invitee immediate membership privileges. The purpose is to let trusted or eligible members introduce potential recruits to the clan outside the normal public recruitment period while maintaining control over membership quality and capacity.
             </p>
-            <div className="bg-white/5 border border-white/10 p-4 inline-block w-full text-sm">
+            <div className="bg-white/5 border border-white/10 p-4 inline-block w-full text-sm mb-12">
               <span className="text-yellow-500 font-bold uppercase tracking-wider block mb-1">Status Note</span>
               <span className="text-zinc-300">
                 Eligibility for this privilege requires confirmation from official documentation. Currently pending clarification on whether this specific privilege applies to Active Members, Veterans, or both.
               </span>
             </div>
+
+            <h3 id="custom-role-privilege" className="font-black text-2xl text-white uppercase tracking-tighter mb-4 scroll-mt-56 lg:scroll-mt-32">Custom Role Privilege</h3>
+            <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
+              Official Members are entitled to request a personalized Custom Role on the server, provided they meet specific requirements. This privilege allows members to express their identity within the clan while maintaining server organization.
+            </p>
+            <ul className="flex flex-col gap-3 mb-6 bg-white/5 p-6 border border-white/10">
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="text-zinc-300 text-base"><strong>Level Requirement:</strong> Must have reached Level 10 on the Arcane Bot.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="text-zinc-300 text-base"><strong>Name Limit:</strong> The role name can be a maximum of 7 characters long.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="text-zinc-300 text-base"><strong>No Custom Color:</strong> Custom colors are not permitted (No color).</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="text-zinc-300 text-base"><strong>Custom Icon:</strong> You are free to choose any appropriate role icon.</span>
+              </li>
+            </ul>
+            <div className="bg-[#111] border-l-4 border-primary p-4 inline-block w-full text-sm mb-4">
+              <span className="text-white font-bold uppercase tracking-wider block mb-1">How to Request</span>
+              <span className="text-zinc-300">
+                If you meet all the requirements and wish to claim your custom role, please open a ticket in the Support Center and provide your requested role name and icon.
+              </span>
+            </div>
           </section>
 
-          <section id="darkside" className="mb-20 scroll-mt-32">
+          <section id="darkside" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <div className="flex items-center gap-4 mb-6">
               <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter m-0 leading-none">DARKSIDE</h2>
               <span className="text-[10px] font-bold tracking-[0.2em] text-white bg-primary px-3 py-1 uppercase rounded-sm">Competitive</span>
@@ -352,7 +382,7 @@ export default function GuidebookClient() {
             </p>
           </section>
 
-          <section id="goodside" className="mb-20 scroll-mt-32">
+          <section id="goodside" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <div className="flex items-center gap-4 mb-6">
               <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter m-0 leading-none">GOODSIDE</h2>
               <span className="text-[10px] font-bold tracking-[0.2em] text-black bg-white px-3 py-1 uppercase rounded-sm">Casual</span>
@@ -365,14 +395,14 @@ export default function GuidebookClient() {
             </p>
           </section>
 
-          <section id="guests" className="mb-20 scroll-mt-32">
+          <section id="guests" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Guest System</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed">
               The GUEST role is for those who are close to the clan but are not recognized as Official Members. Guest status grants access to socialize and play alongside the clan but does not automatically grant official membership or member-only privileges. Individuals who wish to become Official Members must follow the designated recruitment procedure rather than relying on Guest access.
             </p>
           </section>
 
-          <section id="recruitment" className="mb-20 scroll-mt-32">
+          <section id="recruitment" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Open Member & Recruitment</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
               4FUN maintains a separate Open Member server and a main clan server. Users who want to join must follow the relevant ticket and application procedure, provide accurate information, and wait for the recruitment decision. 
@@ -388,7 +418,7 @@ export default function GuidebookClient() {
             </div>
           </section>
 
-          <section id="rules" className="mb-20 scroll-mt-32">
+          <section id="rules" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Rules & Clan Standards</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-6">
               Members are expected to uphold the clan's principles at all times:
@@ -420,7 +450,7 @@ export default function GuidebookClient() {
             </p>
           </section>
 
-          <section id="support" className="mb-20 scroll-mt-32">
+          <section id="support" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-6">Support Center</h2>
             <p className="text-zinc-400 font-medium text-base md:text-lg leading-relaxed mb-4">
               Members should contact staff or open a ticket for matters including asking questions, requesting clarification about clan systems, reporting rule violations, raising complaints, providing feedback, requesting membership assistance, or discussing a private clan matter. A support voice channel may also be used when available and appropriate.
@@ -430,7 +460,7 @@ export default function GuidebookClient() {
             </p>
           </section>
 
-          <section id="faq" className="mb-24 scroll-mt-32">
+          <section id="faq" className="mb-24 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-3xl md:text-5xl text-white uppercase tracking-tighter mb-8">Frequently Asked Questions</h2>
             
             <div className="flex flex-col gap-6">
@@ -446,11 +476,11 @@ export default function GuidebookClient() {
                 <h3 className="font-black text-lg text-white mb-2">What is the difference between an Official Member, an Active Member, and a Veteran?</h3>
                 <p className="text-zinc-400 text-base">An Official Member is the standard status given upon joining. Active Member is the next step recognizing advancement and specific privileges. Veteran is the highest progression recognizing long-term commitment. Higher roles receive certain exemptions, but none automatically grant staff authority.</p>
               </div>
-              <div className="bg-[#111] p-6 border-l-4 border-primary">
+              <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">Do Active Members need to submit monthly attendance?</h3>
                 <p className="text-zinc-400 text-base">No. Active Members are exempt from the ordinary monthly attendance-based kick requirement.</p>
               </div>
-              <div className="bg-[#111] p-6 border-l-4 border-yellow-500">
+              <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">Do Veterans need to submit monthly attendance?</h3>
                 <p className="text-zinc-400 text-base">No. Veterans are also exempt from the ordinary monthly attendance-based kick requirement.</p>
               </div>
