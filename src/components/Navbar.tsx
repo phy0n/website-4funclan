@@ -13,7 +13,7 @@ export default function Navbar() {
   const { t, language, toggleLanguage } = useLanguage();
   const pathname = usePathname();
 
-  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join', '/staff'].includes(pathname);
+  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join', '/staff', '/guidebook'].includes(pathname);
   if (!isKnownPage) return null;
 
   return (

@@ -10,7 +10,7 @@ export default function Footer() {
   const { t } = useLanguage();
   const pathname = usePathname();
 
-  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join', '/staff'].includes(pathname);
+  const isKnownPage = ['/', '/gallery', '/members', '/rules', '/join', '/staff', '/guidebook'].includes(pathname);
   if (!isKnownPage) return null;
 
   return (
@@ -29,6 +29,9 @@ export default function Footer() {
           <a href="https://www.tiktok.com/@4fun.clan" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
             TikTok
           </a>
+          <Link href="/guidebook" className="text-gray-500 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider">
+            Guidebook
+          </Link>
         </div>
         <div className="text-sm font-semibold text-gray-500">
           {t("footer_text")}
