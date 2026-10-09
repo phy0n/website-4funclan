@@ -240,6 +240,12 @@ export default function GuidebookClient() {
                 </p>
               </li>
               <li className="bg-[#111] p-6 border border-white/10">
+                <h3 className="font-black text-xl text-white uppercase tracking-wider mb-2">Prospect</h3>
+                <p className="text-zinc-400 text-sm md:text-base">
+                  A 1-week trial role for new recruits designed to test their activity. Prospects are not Official Members yet and must remain active during this evaluation period.
+                </p>
+              </li>
+              <li className="bg-[#111] p-6 border border-white/10">
                 <h3 className="font-black text-xl text-white uppercase tracking-wider mb-2">Guests</h3>
                 <p className="text-zinc-400 text-sm md:text-base mb-2">
                   Individuals who want to hang out, socialize, and play with 4FUN members without being recognized as Official Members.
@@ -273,23 +279,31 @@ export default function GuidebookClient() {
               
               <div className="flex-1 relative z-10 flex flex-col md:items-center text-left md:text-center p-4 md:p-6 bg-[#111] border border-white/10 mx-0 md:mx-2 group">
                 <div className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center font-black mb-3 hidden md:flex border border-white/20">1</div>
-                <h4 className="font-black text-lg text-white uppercase tracking-wide mb-2">Official Member</h4>
-                <p className="text-zinc-400 text-sm">The standard status granted after successfully joining through the official recruitment process. Expected to follow rules and the monthly attendance system.</p>
+                <h4 className="font-black text-base md:text-sm lg:text-base xl:text-lg text-white uppercase tracking-wide mb-2 whitespace-nowrap">Prospect</h4>
+                <p className="text-zinc-400 text-sm">A 1-week trial phase for new recruits to test their activity. Not yet an Official Member.</p>
+              </div>
+
+              <div className="flex md:hidden justify-center text-white/30">↓</div>
+
+              <div className="flex-1 relative z-10 flex flex-col md:items-center text-left md:text-center p-4 md:p-6 bg-[#111] border border-white/10 mx-0 md:mx-2 group">
+                <div className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center font-black mb-3 hidden md:flex border border-white/20">2</div>
+                <h4 className="font-black text-base md:text-sm lg:text-base xl:text-lg text-white uppercase tracking-wide mb-2 whitespace-nowrap">Official Member</h4>
+                <p className="text-zinc-400 text-sm">The standard status granted after passing the Prospect phase. Expected to follow rules and the monthly attendance system.</p>
               </div>
 
               <div className="flex md:hidden justify-center text-white/30">↓</div>
 
               <div className="flex-1 relative z-10 flex flex-col md:items-center text-left md:text-center p-4 md:p-6 bg-[#111] border border-primary/30 mx-0 md:mx-2 shadow-[0_0_15px_rgba(229,9,20,0.1)] group">
-                <div className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-black mb-3 hidden md:flex border border-primary/50">2</div>
-                <h4 className="font-black text-lg text-primary uppercase tracking-wide mb-2">Active Member</h4>
+                <div className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-black mb-3 hidden md:flex border border-primary/50">3</div>
+                <h4 className="font-black text-base md:text-sm lg:text-base xl:text-lg text-primary uppercase tracking-wide mb-2 whitespace-nowrap">Active Member</h4>
                 <p className="text-zinc-400 text-sm">The next progression level representing a recognized member who has advanced beyond standard status and earned specific privileges.</p>
               </div>
 
               <div className="flex md:hidden justify-center text-white/30">↓</div>
 
               <div className="flex-1 relative z-10 flex flex-col md:items-center text-left md:text-center p-4 md:p-6 bg-[#111] border border-yellow-500/30 mx-0 md:mx-2 shadow-[0_0_15px_rgba(234,179,8,0.1)] group">
-                <div className="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-500 flex items-center justify-center font-black mb-3 hidden md:flex border border-yellow-500/50">3</div>
-                <h4 className="font-black text-lg text-yellow-500 uppercase tracking-wide mb-2">Veteran</h4>
+                <div className="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-500 flex items-center justify-center font-black mb-3 hidden md:flex border border-yellow-500/50">4</div>
+                <h4 className="font-black text-base md:text-sm lg:text-base xl:text-lg text-yellow-500 uppercase tracking-wide mb-2 whitespace-nowrap">Veteran</h4>
                 <p className="text-zinc-400 text-sm">The higher progression level, recognizing long-term commitment and established Veteran standing within the clan.</p>
               </div>
             </div>
@@ -422,7 +436,11 @@ export default function GuidebookClient() {
             <div className="flex flex-col gap-6">
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">What is the membership progression order in 4FUN?</h3>
-                <p className="text-zinc-400 text-base">The official progression is <strong>Official Member → Active Member → Veteran</strong>.</p>
+                <p className="text-zinc-400 text-base">The official progression is <strong>Prospect → Official Member → Active Member → Veteran</strong>.</p>
+              </div>
+              <div className="bg-[#111] p-6 border-l-4 border-white/20">
+                <h3 className="font-black text-lg text-white mb-2">What is a Prospect?</h3>
+                <p className="text-zinc-400 text-base">Prospect is a 1-week trial role designed to test a new recruit's activity. Prospects are not Official Members yet.</p>
               </div>
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">What is the difference between an Official Member, an Active Member, and a Veteran?</h3>
