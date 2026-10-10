@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ChevronRight, Menu, X } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const SECTIONS = [
@@ -22,7 +22,6 @@ const SECTIONS = [
 
 export default function GuidebookClient() {
   const [activeSection, setActiveSection] = useState("introduction");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -55,7 +54,6 @@ export default function GuidebookClient() {
       const y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -76,33 +74,6 @@ export default function GuidebookClient() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-        {/* Mobile Nav Toggle */}
-        <div className="md:hidden w-full bg-[#111] border border-white/10 p-4 sticky top-28 z-40 rounded-sm mb-4 shadow-lg shadow-black/50">
-          <button 
-            className="flex items-center justify-between w-full font-bold uppercase tracking-widest text-sm"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <span>Navigate Guidebook</span>
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-          
-          {isMobileMenuOpen && (
-            <div className="mt-4 flex flex-col gap-2 max-h-60 overflow-y-auto scrollbar-hide border-t border-white/10 pt-4">
-              {SECTIONS.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className={`text-left text-sm font-semibold uppercase tracking-wider p-2 transition-colors ${
-                    activeSection === section.id ? "text-primary bg-white/5" : "text-zinc-500 hover:text-white"
-                  }`}
-                >
-                  {section.title}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
         {/* Desktop Sidebar */}
         <aside className="hidden md:flex flex-col w-64 shrink-0 sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto scrollbar-hide border-r border-white/10 pr-6 pb-12">
           <span className="text-xs font-black tracking-[0.2em] text-zinc-600 uppercase mb-6">Contents</span>
