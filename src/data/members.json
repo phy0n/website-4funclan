@@ -182,22 +182,6 @@
     "robloxProfile": "https://www.roblox.com/users/6195616655/profile"
   },
   {
-    "id": 12,
-    "name": "4Louis",
-    "username": "vvvaaaaannn",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-08CEB0A7A60D21047027D81900188AA6-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1381488400460152844",
-      "discord": "louiskarasu"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/2946940825/profile"
-  },
-  {
     "id": 13,
     "name": "4Sea",
     "username": "MeltingVanilla_9",
@@ -231,7 +215,7 @@
   },
   {
     "id": 15,
-    "name": "4jx0",
+    "name": "4kimi",
     "username": "fgjbnbdvk",
     "description": "",
     "roles": [
@@ -372,22 +356,6 @@
     },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/8520833791/profile"
-  },
-  {
-    "id": 24,
-    "name": "4Noel",
-    "username": "nayyaww10",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1409923526311542915",
-      "discord": "elhomesick"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/8245822071/profile"
   },
   {
     "id": 25,
@@ -778,7 +746,7 @@
     "username": "NnatPienot",
     "description": "",
     "roles": [
-      "NEW"
+      "MEMBER"
     ],
     "image": "",
     "socials": {
@@ -793,7 +761,7 @@
     "username": "sasacintamingyu1233",
     "description": "",
     "roles": [
-      "NEW"
+      "MEMBER"
     ],
     "image": "",
     "socials": {
@@ -809,7 +777,7 @@
     "username": "keriting3",
     "description": "",
     "roles": [
-      "NEW"
+      "MEMBER"
     ],
     "image": "",
     "socials": {
@@ -825,7 +793,7 @@
     "username": "Alamak05",
     "description": "",
     "roles": [
-      "NEW"
+      "MEMBER"
     ],
     "image": "",
     "socials": {
@@ -841,7 +809,7 @@
     "username": "Sarahbeww",
     "description": "",
     "roles": [
-      "NEW"
+      "MEMBER"
     ],
     "image": "",
     "socials": {
@@ -856,7 +824,7 @@
     "username": "lindabridgeeedm",
     "description": "",
     "roles": [
-      "NEW"
+      "MEMBER"
     ],
     "image": "",
     "socials": {
@@ -865,5 +833,68 @@
     },
     "orderPriority": 9,
     "robloxProfile": "https://www.roblox.com/users/5796393652/profile"
+  },
+  {
+    "id": 57,
+    "name": "4HiCassie",
+    "username": "Azazelllll1L",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "",
+    "socials": {
+      "discordId": "528078558682284062",
+      "tiktok": "1dlecassie"
+    },
+    "orderPriority": 9,
+    "robloxProfile": "https://www.roblox.com/users/8904252269/profile"
+  },
+  {
+    "id": 58,
+    "name": "4Keid",
+    "username": "xcd1ek",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "",
+    "socials": {
+      "discordId": "908962666175946773",
+      "tiktok": "lojdft"
+    },
+    "orderPriority": 9,
+    "robloxProfile": "https://www.roblox.com/users/4316351007/profile"
+  },
+  {
+    "id": 59,
+    "name": "4Pami",
+    "username": "axsyih",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "",
+    "socials": {
+      "discordId": "1483444829957394565",
+      "tiktok": "fawystyy"
+    },
+    "orderPriority": 9,
+    "robloxProfile": "https://www.roblox.com/users/1260179755/profile"
+  },
+  {
+    "id": 60,
+    "name": "4cko",
+    "username": "urckoz",
+    "description": "",
+    "roles": [
+      "MEMBER"
+    ],
+    "image": "",
+    "socials": {
+      "discordId": "1331316117867859972"
+    },
+    "orderPriority": 9,
+    "robloxProfile": "https://www.roblox.com/users/1908661281/profile"
   }
 ]
