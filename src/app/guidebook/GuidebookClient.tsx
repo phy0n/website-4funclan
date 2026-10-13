@@ -303,30 +303,81 @@ export default function GuidebookClient() {
 
             <h3 id="custom-role-privilege" className="font-black text-xl md:text-2xl text-white uppercase tracking-tighter mb-4 scroll-mt-56 lg:scroll-mt-32">Custom Role Privilege</h3>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
-              Official Members are entitled to request a personalized Custom Role on the server, provided they meet specific requirements. This privilege allows members to express their identity within the clan while maintaining server organization.
+              Official Members who meet the requirements can claim a personalized Custom Role as a special privilege to showcase their unique identity and style within the clan.
             </p>
             <ul className="flex flex-col gap-3 mb-6 bg-white/5 p-6 border border-white/10">
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
                 <span className="text-zinc-300 text-base"><strong>Level Requirement:</strong> Must have reached Level 10 on the Arcane Bot.</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
                 <span className="text-zinc-300 text-base"><strong>Name Limit:</strong> The role name can be a maximum of 7 characters long.</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
+                <span className="text-zinc-300 text-base"><strong>No Duplicate Names:</strong> Custom role names must be unique. If a custom role name already exists (e.g., "SWAG"), you cannot create or request another custom role with that same name.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
+                <span className="text-zinc-300 text-base"><strong>No Staff Role Impersonation:</strong> Role names must not resemble, copy, or imitate staff or leadership roles (e.g., Owner, Founder, Executive, etc.).</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
                 <span className="text-zinc-300 text-base"><strong>No Custom Color:</strong> Custom colors are not permitted (No color).</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1 shrink-0">■</span>
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
                 <span className="text-zinc-300 text-base"><strong>Custom Icon:</strong> You are free to choose any appropriate role icon.</span>
               </li>
             </ul>
-            <div className="bg-[#111] border-l-4 border-primary p-4 inline-block w-full text-sm mb-4">
+            <div className="bg-[#111] border-l-4 border-primary p-4 inline-block w-full text-sm mb-12">
               <span className="text-white font-bold uppercase tracking-wider block mb-1">How to Request</span>
               <span className="text-zinc-300">
                 If you meet all the requirements and wish to claim your custom role, please open a ticket in the Support Center and provide your requested role name and icon.
+              </span>
+            </div>
+
+            <h3 id="content-creator-role" className="font-black text-xl md:text-2xl text-white uppercase tracking-tighter mb-4 scroll-mt-56 lg:scroll-mt-32">Content Creator Role</h3>
+            <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
+              The Content Creator role is granted to recognized members who actively showcase 4FUN and create engaging content for the community, primarily on TikTok.
+            </p>
+            <ul className="flex flex-col gap-3 mb-6 bg-white/5 p-6 border border-white/10">
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
+                <span className="text-zinc-300 text-base"><strong>Active TikTok Account:</strong> Must maintain an active TikTok profile with regular uploads and engagement.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
+                <span className="text-zinc-300 text-base"><strong>Evade Content:</strong> Must consistently produce plenty of video content (VT) specifically focused on Roblox Evade gameplay.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center h-6 shrink-0" aria-hidden="true">
+                  <span className="w-2 h-2 bg-primary" />
+                </span>
+                <span className="text-zinc-300 text-base"><strong>Live Streaming:</strong> Occasionally host live streams playing Evade or interacting with the clan community.</span>
+              </li>
+            </ul>
+            <div className="bg-[#111] border-l-4 border-primary p-4 inline-block w-full text-sm mb-4">
+              <span className="text-white font-bold uppercase tracking-wider block mb-1">How to Apply</span>
+              <span className="text-zinc-300">
+                If you fulfill these qualifications and want to receive the Content Creator role, please open a ticket in the Support Center and submit your TikTok profile link along with your recent Evade content for review.
               </span>
             </div>
           </section>
@@ -505,6 +556,14 @@ export default function GuidebookClient() {
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">Does Veteran status automatically grant staff authority?</h3>
                 <p className="text-zinc-400 text-base">No. It is a membership progression role recognizing commitment, not an administrative staff position.</p>
+              </div>
+              <div className="bg-[#111] p-6 border-l-4 border-white/20">
+                <h3 className="font-black text-lg text-white mb-2">Can I request a custom role name that is already in use or resembles staff roles?</h3>
+                <p className="text-zinc-400 text-base">No. Custom role names must be unique (duplicate names such as an already existing role like "SWAG" are prohibited) and strictly cannot imitate or resemble staff titles like Owner, Founder, Executive, etc.</p>
+              </div>
+              <div className="bg-[#111] p-6 border-l-4 border-white/20">
+                <h3 className="font-black text-lg text-white mb-2">What are the requirements for the Content Creator role?</h3>
+                <p className="text-zinc-400 text-base">To receive the Content Creator role, you must have an active TikTok account, regularly create video content (VT) about Roblox Evade, and occasionally host live streams. You can apply by opening a ticket in the Support Center.</p>
               </div>
             </div>
           </section>
