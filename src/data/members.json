@@ -36,22 +36,6 @@
     "robloxProfile": "https://www.roblox.com/users/5381239536/profile"
   },
   {
-    "id": 3,
-    "name": "4Lyn",
-    "username": "Ex_VYN",
-    "description": "",
-    "roles": [
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-BF0505BCC30EAEC23CBE439D1F7D10B0-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1484036453238439998",
-      "discord": "violet7790"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/7881965110/profile"
-  },
-  {
     "id": 4,
     "name": "4Lucifer",
     "username": "NemoGrab",
@@ -66,22 +50,6 @@
     },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/3490532942/profile"
-  },
-  {
-    "id": 6,
-    "name": "4Mika",
-    "username": "Who3vrr",
-    "description": "",
-    "roles": [
-      "DARK SIDE"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "784265990590169109",
-      "discord": "mikaaaella_"
-    },
-    "orderPriority": 6,
-    "robloxProfile": "https://www.roblox.com/users/7717403997/profile"
   },
   {
     "id": 7,
@@ -116,22 +84,6 @@
     },
     "orderPriority": 6,
     "robloxProfile": "https://www.roblox.com/users/11212734295/profile"
-  },
-  {
-    "id": 9,
-    "name": "4yang",
-    "username": "valenoirs",
-    "description": "",
-    "roles": [
-      "CONTENT CREATOR"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-205B1395F6B30FB14C146E12E9B04080-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "489740825794969602",
-      "discord": "r1on._"
-    },
-    "orderPriority": 7,
-    "robloxProfile": "https://www.roblox.com/users/7670239776/profile"
   },
   {
     "id": 10,
@@ -390,22 +342,6 @@
     "robloxProfile": "https://www.roblox.com/users/8087105193/profile"
   },
   {
-    "id": 28,
-    "name": "4Flay",
-    "username": "Xbeelze0",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "924989884182188033",
-      "discord": "unbeatn."
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/8428224093/profile"
-  },
-  {
     "id": 29,
     "name": "4manaphy",
     "username": "Aruna_PM",
@@ -438,22 +374,6 @@
     "robloxProfile": "https://www.roblox.com/users/4771036938/profile"
   },
   {
-    "id": 32,
-    "name": "4xi",
-    "username": "xzwvgz",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1247069133443432488",
-      "discord": "xzwqna"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/590788864/profile"
-  },
-  {
     "id": 33,
     "name": "4reyn",
     "username": "cyaa_ajaaaa",
@@ -468,22 +388,6 @@
     },
     "orderPriority": 8,
     "robloxProfile": "https://www.roblox.com/users/5307752710/profile"
-  },
-  {
-    "id": 34,
-    "name": "4cala",
-    "username": "chamberoflyfe",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "https://tr.rbxcdn.com/30DAY-Avatar-A46A70AF92FE2AD1701BE0E8946CA7B8-Png/420/420/Avatar/Png/noFilter",
-    "socials": {
-      "discordId": "1377806752795332692",
-      "discord": "chamberoflyfe"
-    },
-    "orderPriority": 8,
-    "robloxProfile": "https://www.roblox.com/users/8115534528/profile"
   },
   {
     "id": 35,
@@ -725,21 +629,6 @@
     "robloxProfile": "https://www.roblox.com/users/3730598518/profile"
   },
   {
-    "id": 51,
-    "name": "4enaa",
-    "username": "NnatPienot",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "",
-    "socials": {
-      "discordId": "1034829481942204506"
-    },
-    "orderPriority": 9,
-    "robloxProfile": "https://www.roblox.com/users/7532097445/profile"
-  },
-  {
     "id": 52,
     "name": "4sasa",
     "username": "sasacintamingyu1233",
@@ -801,22 +690,6 @@
     },
     "orderPriority": 9,
     "robloxProfile": "https://www.roblox.com/users/4377903869/profile"
-  },
-  {
-    "id": 56,
-    "name": "4marcell",
-    "username": "lindabridgeeedm",
-    "description": "",
-    "roles": [
-      "MEMBER"
-    ],
-    "image": "",
-    "socials": {
-      "discordId": "1479552542605180928",
-      "tiktok": "cellzy99"
-    },
-    "orderPriority": 9,
-    "robloxProfile": "https://www.roblox.com/users/5796393652/profile"
   },
   {
     "id": 57,
