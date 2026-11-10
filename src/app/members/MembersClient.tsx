@@ -126,7 +126,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
     const [livePresences, setLivePresences] = useState<Record<number, any>>({});
     const [liveAvatars, setLiveAvatars] = useState<Record<number, string>>({});
     const [selectedMember, setSelectedMember] = useState<Member | null>(null);
-    const [lanyardData, setLanyardData] = useState<Record<string, any>>({});
 
     useEffect(() => {
         const robloxIds = initialMembers
@@ -189,36 +188,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         return () => clearInterval(interval);
     }, [initialMembers]);
 
-    useEffect(() => {
-        const discordIds = initialMembers
-            .map(m => m.socials?.discordId)
-            .filter((id): id is string => !!id);
-
-        if (discordIds.length === 0) return;
-
-        const fetchLanyard = async () => {
-            try {
-                const newData: Record<string, any> = {};
-                await Promise.all(discordIds.map(async (id) => {
-                    const res = await fetch(`https://api.lanyard.rest/v1/users/${id}`);
-                    if (res.ok) {
-                        const json = await res.json();
-                        if (json.success) {
-                            newData[id] = json.data;
-                        }
-                    }
-                }));
-                setLanyardData(newData);
-            } catch (e) {
-                // ignore
-            }
-        };
-
-        fetchLanyard();
-        const interval = setInterval(fetchLanyard, 15000);
-        return () => clearInterval(interval);
-    }, [initialMembers]);
-
     const sortedMembers = [...initialMembers].sort((a, b) => {
         return getHighestRolePriority(a.roles) - getHighestRolePriority(b.roles);
     });
@@ -232,10 +201,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
         const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
 
-        const dData = member.socials?.discordId ? lanyardData[member.socials.discordId] : null;
-        const isDiscordOnline = dData && dData.discord_status !== 'offline';
-        const isRobloxOnline = currentPresence?.userPresenceType > 0;
-        const isOnline = isRobloxOnline || isDiscordOnline;
+        const isOnline = currentPresence && currentPresence.userPresenceType > 0;
 
         let matchesStatus = true;
         if (statusFilter === "ONLINE") {
@@ -327,9 +293,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                             const robloxIdMatch = member.robloxProfile?.match(/users\/(\d+)/);
                             const robloxId = robloxIdMatch ? parseInt(robloxIdMatch[1]) : null;
                             const currentPresence = (robloxId && livePresences[robloxId]) || member.presence;
-
-                            const dData = member.socials?.discordId ? lanyardData[member.socials.discordId] : null;
-                            const isOnline = (currentPresence && currentPresence.userPresenceType > 0) || (dData && dData.discord_status !== 'offline');
+                            const isOnline = currentPresence && currentPresence.userPresenceType > 0;
 
                             return (
                                 <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative w-full sm:w-auto flex flex-col pt-4 pb-2 px-2 items-center cursor-pointer hover:-translate-y-2 transition-transform duration-500">
@@ -347,7 +311,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                     <span className="text-[7px] tracking-[0.2em] text-zinc-500 uppercase font-bold mt-0.5">Member Identity</span>
                                                 </div>
                                                 <div className="text-right flex flex-col items-end">
-                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">{member.socials?.discordId || 'N/A'}</span>
+                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">#{member.socials?.discordId || member.id}</span>
                                                 </div>
                                             </div>
 
@@ -451,10 +415,10 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                 <div className="flex-1 flex flex-col justify-between">
                                     <div className="space-y-5">
                                         <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">ID NO.</span>
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">MEMBER ID</span>
                                             <div className="flex flex-1 items-center gap-3 overflow-hidden">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-mono font-black text-sm sm:text-base md:text-2xl text-white truncate">{selectedMember.socials?.discordId || 'N/A'}</span>
+                                                <span className="font-mono font-black text-sm sm:text-base md:text-2xl text-white truncate">#{selectedMember.socials?.discordId || selectedMember.id}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
@@ -468,7 +432,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Username</span>
                                             <div className="flex flex-1 items-center gap-3">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-bold text-base md:text-lg text-primary uppercase truncate">@{selectedMember.username}</span>
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">@{selectedMember.username}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-start gap-4">
@@ -496,46 +460,13 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                 </div>
                                             </div>
                                         )}
-
-                                        {selectedMember.socials && Object.keys(selectedMember.socials).length > 0 && (
-                                            <div className="flex items-center gap-4 mt-2">
-                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Socials</span>
-                                                <div className="flex flex-1 gap-4 items-center">
-                                                    <span className="font-bold text-base md:text-lg text-zinc-200 uppercase mr-1">:</span>
-                                                    {selectedMember.socials.instagram && (
-                                                        <a href={selectedMember.socials.instagram.startsWith('http') ? selectedMember.socials.instagram : `https://instagram.com/${selectedMember.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 transition-all duration-300">
-                                                            <FaInstagram size={24} />
-                                                        </a>
-                                                    )}
-                                                    {selectedMember.socials.tiktok && (
-                                                        <a href={selectedMember.socials.tiktok.startsWith('http') ? selectedMember.socials.tiktok : `https://tiktok.com/@${selectedMember.socials.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-all duration-300">
-                                                            <FaTiktok size={24} />
-                                                        </a>
-                                                    )}
-                                                    {selectedMember.socials.discord && (
-                                                        <a href={`https://discord.com/users/${selectedMember.socials.discordId}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#5865F2] transition-all duration-300">
-                                                            <FaDiscord size={24} />
-                                                        </a>
-                                                    )}
-                                                    {selectedMember.socials.portfolio && (
-                                                        <a href={selectedMember.socials.portfolio.startsWith('http') ? selectedMember.socials.portfolio : `https://${selectedMember.socials.portfolio}`} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-all duration-300">
-                                                            <Globe size={24} />
-                                                        </a>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        )}
                                     </div>
 
                                     {(() => {
-                                        const dData = selectedMember.socials?.discordId ? lanyardData[selectedMember.socials.discordId] : null;
                                         const rPresence = (selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence;
 
                                         const isRobloxPlaying = rPresence?.userPresenceType === 2;
                                         const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
-
-                                        const dSpotify = dData?.spotify;
-                                        const dActivity = dData?.activities?.find((a: any) => a.type === 0);
 
                                         const widgets = [];
 
@@ -555,42 +486,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                         <div className="flex flex-col flex-1 min-w-0">
                                                             <span className="text-[9px] font-bold text-green-400 uppercase tracking-widest mb-0.5">Playing Roblox</span>
                                                             <span className="text-sm text-white font-bold truncate">{rPresence.lastLocation || 'Hidden Location'}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        }
-
-                                        if (dSpotify) {
-                                            widgets.push(
-                                                <div key="discord-spotify" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="relative w-12 h-12 shrink-0 overflow-hidden border border-white/10">
-                                                            <Image src={dSpotify.album_art_url} alt="Spotify" fill unoptimized className="object-cover" />
-                                                        </div>
-                                                        <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className="text-[9px] font-bold text-[#1DB954] uppercase tracking-widest mb-0.5">Listening</span>
-                                                            <span className="text-sm text-white font-bold truncate">{dSpotify.song}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        }
-
-                                        if (dActivity) {
-                                            widgets.push(
-                                                <div key="discord-activity" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="relative w-12 h-12 bg-zinc-800 shrink-0 overflow-hidden border border-white/10 flex items-center justify-center">
-                                                            {dActivity.assets?.large_image ? (
-                                                                <Image src={getDiscordAssetUrl(dActivity.application_id, dActivity.assets.large_image)} alt={dActivity.name} fill unoptimized className="object-cover" />
-                                                            ) : (
-                                                                <FaDiscord size={20} className="text-zinc-500" />
-                                                            )}
-                                                        </div>
-                                                        <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className="text-[9px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">Playing a Game</span>
-                                                            <span className="text-sm text-white font-bold truncate">{dActivity.name}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -620,47 +515,19 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         }
 
                                         if (widgets.length === 0) {
-                                            const dCustomStatus = dData?.activities?.find((a: any) => a.type === 4);
-                                            const isDiscordOnline = dData && (dData.discord_status === 'online' || dData.discord_status === 'idle' || dData.discord_status === 'dnd');
-
-                                            if (isDiscordOnline) {
-                                                const discordStatusText =
-                                                    dData.discord_status === 'online' ? 'Online on Discord' :
-                                                        dData.discord_status === 'idle' ? 'Idle on Discord' :
-                                                            'Do Not Disturb';
-
-                                                widgets.push(
-                                                    <div key="discord-status" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                        <div className="flex items-center gap-4">
-                                                            <div className="w-12 h-12 bg-[#5865F2]/10 flex items-center justify-center border border-[#5865F2]/20 shrink-0">
-                                                                <FaDiscord size={20} className="text-[#5865F2]" />
-                                                            </div>
-                                                            <div className="flex flex-col flex-1 min-w-0">
-                                                                <span className="text-[9px] font-bold text-[#5865F2] uppercase tracking-widest mb-0.5">
-                                                                    {dData.discord_status === 'dnd' ? 'Busy' : 'Active'}
-                                                                </span>
-                                                                <span className="text-sm text-white font-bold truncate">
-                                                                    {dCustomStatus?.state ? dCustomStatus.state : discordStatusText}
-                                                                </span>
-                                                            </div>
+                                            widgets.push(
+                                                <div key="offline-status" className="bg-[#161616]/50 border border-white/5 p-4 rounded mt-4 opacity-70">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-12 h-12 bg-zinc-800/30 flex items-center justify-center border border-white/5 shrink-0">
+                                                            <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
+                                                        </div>
+                                                        <div className="flex flex-col flex-1 min-w-0">
+                                                            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Status</span>
+                                                            <span className="text-sm text-zinc-400 font-bold truncate">Currently Offline</span>
                                                         </div>
                                                     </div>
-                                                );
-                                            } else {
-                                                widgets.push(
-                                                    <div key="offline-status" className="bg-[#161616]/50 border border-white/5 p-4 rounded mt-4 opacity-70">
-                                                        <div className="flex items-center gap-4">
-                                                            <div className="w-12 h-12 bg-zinc-800/30 flex items-center justify-center border border-white/5 shrink-0">
-                                                                <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
-                                                            </div>
-                                                            <div className="flex flex-col flex-1 min-w-0">
-                                                                <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Status</span>
-                                                                <span className="text-sm text-zinc-400 font-bold truncate">Currently Offline</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                );
-                                            }
+                                                </div>
+                                            );
                                         }
 
                                         return (
