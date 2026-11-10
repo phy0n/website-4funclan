@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { User } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -125,11 +124,7 @@ export default function StaffClient() {
     <div className="relative w-full bg-[#0a0a0a] min-h-screen pb-32 pt-28 md:pt-40 text-white font-sans overflow-hidden">
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-12 mb-20 md:mb-32 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+        <div>
           <p className="text-zinc-500 font-bold tracking-[0.3em] text-xs uppercase mb-6">
             Organization Chart
           </p>
@@ -139,7 +134,7 @@ export default function StaffClient() {
           <p className="text-zinc-400 font-medium text-xs md:text-sm lg:text-lg leading-relaxed max-w-2xl mx-auto px-4 md:px-0">
             The organizational structure and division of responsibilities to ensure the 4Fun clan continues to grow and stays organized.
           </p>
-        </motion.div>
+        </div>
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-8">
@@ -150,7 +145,6 @@ export default function StaffClient() {
           <RoleCard
             title="OWNER"
             desc="The highest decision maker and founder of the clan."
-            delay={0.1}
             members={[{ name: "4Vo1d", discordId: "877885373152362528", description: "The Founder" }]}
           />
 
@@ -159,7 +153,6 @@ export default function StaffClient() {
           <RoleCard
             title="CO-OWNER"
             desc="Assists the Owner in making decisions and directing the clan."
-            delay={0.2}
             members={[]}
           />
 
@@ -168,7 +161,6 @@ export default function StaffClient() {
           <RoleCard
             title="EXECUTIVE"
             desc="Manages all aspects of the clan under the approval of the Owner/Co-Owner."
-            delay={0.3}
             members={[{ name: "4phy", discordId: "494169184175915019", description: "Executive" }]}
           />
 
@@ -177,7 +169,6 @@ export default function StaffClient() {
           <RoleCard
             title="MANAGER"
             desc="Manages internal operations, ensuring the clan runs according to the Executive's directives."
-            delay={0.4}
             members={[]}
           />
 
@@ -199,11 +190,8 @@ export default function StaffClient() {
         {/* DIVISIONS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 relative">
           {divisions.map((div, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + (i * 0.1), duration: 0.6, ease: "easeOut" }}
               className="flex flex-col relative items-center text-center"
             >
               <div className="pt-6 pb-4 relative z-10 flex flex-col items-center min-h-[130px] md:min-h-[140px] lg:min-h-[160px]">
@@ -248,7 +236,7 @@ export default function StaffClient() {
                 </div>
 
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -257,10 +245,7 @@ export default function StaffClient() {
 
         {/* DARKSIDE MANAGEMENT */}
         <div className="mb-16 md:mb-20 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}>
+          <div>
             <p className="text-zinc-500 font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-4">
               Specialized Units
             </p>
@@ -270,14 +255,13 @@ export default function StaffClient() {
             <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-2xl mx-auto px-4">
               Non-staff specialized roles dedicated to testing and managing the Darkside, our elite division for evade movement.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         <div className="flex flex-col items-center gap-8 w-full mx-auto relative mb-12">
           <RoleCard
             title="DARKSIDE HANDLER"
             desc="Handling Darkside operations, organizing practice sessions, and managing related recordings."
-            delay={0.1}
             members={[]}
           />
         </div>
@@ -287,13 +271,9 @@ export default function StaffClient() {
   );
 }
 
-function RoleCard({ title, desc, delay, members }: { title: string, desc: string, delay: number, members: StaffMemberProps[] }) {
+function RoleCard({ title, desc, members }: { title: string, desc: string, members: StaffMemberProps[] }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.6, ease: "easeOut" }}
-      className="relative z-10 flex flex-col items-center text-center py-6 px-2 md:p-8 w-full max-w-lg mx-auto">
+    <div className="relative z-10 flex flex-col items-center text-center py-6 px-2 md:p-8 w-full max-w-lg mx-auto">
       <h2 className="text-lg md:text-2xl font-bold uppercase tracking-[0.2em] text-white mb-6 md:mb-10">{title}</h2>
 
       {members.length > 0 ? (
@@ -310,16 +290,12 @@ function RoleCard({ title, desc, delay, members }: { title: string, desc: string
           <p className="text-xs md:text-sm text-zinc-500 max-w-[280px] md:max-w-md leading-relaxed">{desc}</p>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 }
 
 function TreeLine() {
   return (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: 56, opacity: 1 }}
-      className="w-[1px] h-14 bg-white/10"
-    />
+    <div className="w-[1px] h-14 bg-white/10" />
   );
 }

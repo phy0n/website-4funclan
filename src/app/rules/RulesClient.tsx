@@ -43,14 +43,6 @@ export default function RulesClient() {
           ))}
         </div>
       </div>
-
-      <div className="w-full px-6 md:px-24 mt-20 mb-10">
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center max-w-4xl mx-auto">
-          <p className="text-red-400 font-medium md:text-lg">
-            {t("rules_warning")}
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
