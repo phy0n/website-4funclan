@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import Countdown from '@/components/Countdown';
-import { ExternalLink } from 'lucide-react';
+import JoinClient from './JoinClient';
 
 export const metadata: Metadata = {
   title: '4FUN Open Member',
@@ -10,36 +9,5 @@ export const metadata: Metadata = {
 export default function JoinPage() {
   const targetDate = "2026-11-05T15:00:00+07:00";
 
-  return (
-    <div className="w-full text-white pt-32 pb-20 flex flex-col items-center justify-center min-h-screen">
-      <div className="container mx-auto px-6 flex flex-col items-center">
-        <div className="text-center mb-8 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">
-            4FUN OPEN MEMBER
-          </h1>
-        </div>
-
-        <div className="w-full max-w-4xl flex flex-col items-center">
-          <h2 className="text-zinc-500 font-bold tracking-[0.3em] uppercase text-sm md:text-base mb-10 text-center">
-            Time Until Next Intake
-          </h2>
-
-          <Countdown targetDate={targetDate} />
-
-          <div className="mt-16 w-full max-w-sm">
-            <a
-              href="https://discord.gg/dhDyagJhsw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-full py-4 bg-primary text-white hover:bg-white hover:text-black font-black uppercase tracking-widest text-xs transition-all">
-              <span className="flex items-center gap-2">
-                Apply on Discord <ExternalLink size={16} />
-              </span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
+  return <JoinClient targetDate={targetDate} />;
 }

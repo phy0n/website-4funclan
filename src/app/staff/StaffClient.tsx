@@ -243,26 +243,31 @@ export default function StaffClient() {
         {/* SEPARATOR */}
         <div className="w-full h-px bg-white/5 my-24 md:my-32"></div>
 
-        {/* DARKSIDE MANAGEMENT */}
+        {/* DIVISION MANAGEMENT */}
         <div className="mb-16 md:mb-20 text-center">
           <div>
             <p className="text-zinc-500 font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-4">
               Specialized Units
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter uppercase mb-6">
-              Darkside Management
+              Division Management
             </h2>
             <p className="text-zinc-400 font-medium text-xs md:text-sm leading-relaxed max-w-2xl mx-auto px-4">
-              Non-staff specialized roles dedicated to testing and managing the Darkside, our elite division for evade movement.
+              Non-staff specialized roles dedicated to organizing, testing, and managing our competitive divisions (Darkside & Fearless).
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-8 w-full mx-auto relative mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full max-w-4xl mx-auto relative mb-12">
           <RoleCard
             title="DARKSIDE HANDLER"
             desc="Handling Darkside operations, organizing practice sessions, and managing related recordings."
             members={[]}
+          />
+          <RoleCard
+            title="FEARLESS HANDLER"
+            desc="Handling Fearless operations, organizing Bladeball practice sessions, competitive matches, and division recruitment."
+            members={[{ name: "4phy", discordId: "494169184175915019", description: "Fearless Handler" }]}
           />
         </div>
 

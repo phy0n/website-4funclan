@@ -13,6 +13,7 @@ const SECTIONS = [
   { id: "progression", title: "Progression & Privileges" },
   { id: "darkside", title: "DARKSIDE" },
   { id: "goodside", title: "GOODSIDE" },
+  { id: "fearless", title: "FEARLESS" },
   { id: "guests", title: "Guest System" },
   { id: "recruitment", title: "Recruitment System" },
   { id: "rules", title: "Rules & Standards" },
@@ -113,7 +114,7 @@ export default function GuidebookClient() {
               4FUN is an Evade-focused clan where players come together to improve their gameplay, compete, cooperate, and build lasting friendships through shared experiences in Roblox. Rather than being a generic multi-game community, we dedicate our efforts to mastering Evade while fostering a strong, connected identity.
             </p>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
-              We accommodate different playstyles through two distinct sides of the clan: <strong className="text-white">DARKSIDE</strong> and <strong className="text-white">GOODSIDE</strong>. DARKSIDE focuses on competitive Evade gameplay, structured practice sessions, recording, and high-level teamwork. GOODSIDE serves as the casual side for members who want to enjoy Evade, socialize, and play together without mandatory competitive expectations. Both sides are essential parts of 4FUN, and neither is inherently superior to the other.
+              We accommodate different playstyles through two distinct sides for Evade: <strong className="text-white">DARKSIDE</strong> (competitive) and <strong className="text-white">GOODSIDE</strong> (casual), as well as <strong className="text-white">FEARLESS</strong>, our specialized competitive division for Bladeball. DARKSIDE focuses on competitive Evade gameplay, structured practice sessions, recording, and high-level teamwork. GOODSIDE serves as the casual side for members who want to enjoy Evade, socialize, and play together without mandatory competitive expectations. FEARLESS provides a dedicated competitive home and recruitment pathway for Bladeball players.
             </p>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed">
               To support our members, 4FUN operates with a defined organizational structure, clear membership progression, and dedicated staff divisions. These systems exist to maintain our clan standards, recognize member commitment, and keep the environment structured without being unnecessarily restrictive. Every rule and role is designed to serve a purpose for the clan.
@@ -411,10 +412,32 @@ export default function GuidebookClient() {
             </p>
           </section>
 
+          <section id="fearless" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
+            <div className="flex items-center gap-4 mb-6">
+              <h2 className="font-black text-2xl md:text-5xl text-white uppercase tracking-tighter m-0 leading-none">FEARLESS</h2>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-white bg-blue-600 px-3 py-1 uppercase rounded-sm">Bladeball Competitive</span>
+            </div>
+            <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
+              <strong className="text-white">FEARLESS</strong> is the competitive Bladeball division of 4FUN, created for players who want to join our clan through Bladeball. While Evade remains our main focus, FEARLESS offers a place for Bladeball players to compete, sharpen their skills, and grow together as a team. We focus on teamwork, precision, quick reflexes, and building a strong competitive spirit.
+            </p>
+            <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
+              Just like DARKSIDE acts as our competitive wing for Evade, FEARLESS represents our dedicated competitive branch in Bladeball. It provides guests and aspiring recruits with a dedicated pathway to join 4FUN as official members through Bladeball, especially if they do not actively play Evade.
+            </p>
+            <div className="bg-white/5 border border-white/10 p-4 md:p-6 inline-block w-full">
+              <h4 className="text-white font-bold tracking-widest text-sm uppercase mb-2">Bladeball Division & Handling</h4>
+              <p className="text-zinc-400 text-sm md:text-base">
+                FEARLESS operations, training sessions, roster management, and clan matches are organized and overseen by the <strong>Fearless Handler</strong>.
+              </p>
+            </div>
+          </section>
+
           <section id="guests" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-2xl md:text-5xl text-white uppercase tracking-tighter mb-6">Guest System</h2>
-            <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed">
+            <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
               The GUEST role is for those who are close to the clan but are not recognized as Official Members. Guest status grants access to socialize and play alongside the clan but does not automatically grant official membership or member-only privileges. Individuals who wish to become Official Members must follow the designated recruitment procedure rather than relying on Guest access.
+            </p>
+            <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed">
+              Guests who do not play Evade can also apply to become Official Members through our competitive Bladeball division, <strong className="text-white">FEARLESS</strong>, by demonstrating their dedication and skills in Bladeball.
             </p>
           </section>
 
@@ -528,6 +551,10 @@ export default function GuidebookClient() {
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">Does attendance exemption mean immunity from all rules?</h3>
                 <p className="text-zinc-400 text-base">No. It does not grant immunity from rules, grant staff permissions, or prevent consequences for serious violations.</p>
+              </div>
+              <div className="bg-[#111] p-6 border-l-4 border-white/20">
+                <h3 className="font-black text-lg text-white mb-2">Can guests or recruits join 4FUN through Bladeball instead of Evade?</h3>
+                <p className="text-zinc-400 text-base">Yes. While Evade remains our primary focus, players can join 4FUN through our competitive Bladeball division, <strong>FEARLESS</strong>, even if they do not actively play Evade.</p>
               </div>
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">Must GOODSIDE members follow DARKSIDE's recording and practice requirements?</h3>

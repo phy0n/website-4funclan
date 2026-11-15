@@ -13,7 +13,7 @@ export default function Countdown({ targetDate }: CountdownProps) {
     minutes: 0,
     seconds: 0,
   });
-
+  const [isExpired, setIsExpired] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function Countdown({ targetDate }: CountdownProps) {
       const difference = +new Date(targetDate) - +new Date();
 
       if (difference > 0) {
+        setIsExpired(false);
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -30,6 +31,7 @@ export default function Countdown({ targetDate }: CountdownProps) {
           seconds: Math.floor((difference / 1000) % 60),
         });
       } else {
+        setIsExpired(true);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
@@ -41,6 +43,20 @@ export default function Countdown({ targetDate }: CountdownProps) {
   }, [targetDate]);
 
   if (!isClient) return null; // Prevent hydration mismatch
+
+  if (isExpired) {
+    return (
+      <div className="flex flex-col items-center justify-center py-2">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase mb-4">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          Applications Live
+        </div>
+        <span className="font-black text-6xl sm:text-7xl md:text-9xl text-white tracking-tighter uppercase drop-shadow-2xl">
+          OPEN
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="flex gap-2 sm:gap-4 md:gap-6 justify-center items-start pt-4 w-full px-2">
