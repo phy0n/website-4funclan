@@ -83,11 +83,10 @@ export default function GuidebookClient() {
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`text-left text-xs font-bold uppercase tracking-widest transition-all duration-300 border-l-2 pl-4 py-1.5 ${
-                  activeSection === section.id 
-                    ? "border-primary text-white" 
+                className={`text-left text-xs font-bold uppercase tracking-widest transition-all duration-300 border-l-2 pl-4 py-1.5 ${activeSection === section.id
+                    ? "border-primary text-white"
                     : "border-transparent text-zinc-500 hover:text-white hover:border-white/30"
-                }`}
+                  }`}
               >
                 {section.title}
               </button>
@@ -97,7 +96,7 @@ export default function GuidebookClient() {
 
         {/* Content */}
         <div className="flex-1 max-w-4xl pb-24">
-          
+
           <section id="introduction" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-2xl md:text-5xl text-white uppercase tracking-tighter mb-6">4FUN Official Guidebook</h2>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
@@ -126,7 +125,7 @@ export default function GuidebookClient() {
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-8">
               The official hierarchy of 4FUN is structured to maintain order and provide clear leadership. Each position has a distinct scope of authority. Holding a title does not automatically grant unrestricted permissions.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-[#111] border border-white/5 p-6 hover:border-primary/50 transition-colors">
                 <h3 className="font-black text-lg md:text-xl text-white uppercase tracking-wider mb-2 flex items-center gap-2">
@@ -246,10 +245,10 @@ export default function GuidebookClient() {
             </p>
 
             <h3 className="font-black text-xl md:text-2xl text-white uppercase tracking-tighter mb-4">Progression Order</h3>
-            
+
             <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-0 mb-10 w-full relative">
               <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-white/10 -translate-y-1/2 z-0"></div>
-              
+
               <div className="flex-1 relative z-10 flex flex-col md:items-center text-left md:text-center p-4 md:p-6 bg-[#111] border border-white/10 mx-0 md:mx-2 group">
                 <div className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center font-black mb-3 hidden md:flex border border-white/20">1</div>
                 <h4 className="font-black text-base md:text-sm lg:text-base xl:text-lg text-white uppercase tracking-wide mb-2 whitespace-nowrap">Prospect</h4>
@@ -283,7 +282,7 @@ export default function GuidebookClient() {
 
             <h3 className="font-black text-xl md:text-2xl text-white uppercase tracking-tighter mb-4">Monthly Attendance & Exemptions</h3>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-6">
-              Ordinary Official Members who have not reached an exempt progression role must follow the monthly attendance procedure announced by 4FUN. Failure to submit attendance may result in removal under the clan's established attendance policy. 
+              Ordinary Official Members who have not reached an exempt progression role must follow the monthly attendance procedure announced by 4FUN. Failure to submit attendance may result in removal under the clan's established attendance policy.
             </p>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-6">
               <strong>Active Members</strong> and <strong>Veterans</strong> share a specific privilege: they are exempt from the ordinary monthly attendance-based kick requirement. They must not be kicked simply because they failed to submit their monthly attendance check-in. This exemption recognizes their membership standing and provides greater flexibility.
@@ -389,7 +388,7 @@ export default function GuidebookClient() {
               <span className="text-[10px] font-bold tracking-[0.2em] text-white bg-primary px-3 py-1 uppercase rounded-sm">Competitive</span>
             </div>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
-              DARKSIDE represents the competitive-oriented side of 4FUN, particularly focused on Evade gameplay, organized practice, recording, and coordination. 
+              DARKSIDE represents the competitive-oriented side of 4FUN, particularly focused on Evade gameplay, organized practice, recording, and coordination.
             </p>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
               Members are expected to fulfill approximately <strong>one to two recording sessions per week</strong> and <strong>two to three practice sessions per week</strong>. Members must coordinate with their teammates, make reasonable efforts to participate, and communicate when they cannot attend.
@@ -444,7 +443,7 @@ export default function GuidebookClient() {
           <section id="recruitment" className="mb-20 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-2xl md:text-5xl text-white uppercase tracking-tighter mb-6">Open Member & Recruitment</h2>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
-              4FUN maintains a separate Open Member server and a main clan server. Users who want to join must follow the relevant ticket and application procedure, provide accurate information, and wait for the recruitment decision. 
+              4FUN maintains a separate Open Member server and a main clan server. Users who want to join must follow the relevant ticket and application procedure, provide accurate information, and wait for the recruitment decision.
             </p>
             <p className="text-zinc-400 font-medium text-sm md:text-lg leading-relaxed mb-4">
               Applications may be accepted or denied according to current requirements and available membership capacity. If denied, applicants may wait for a future recruitment period where permitted by the applicable policy.
@@ -485,7 +484,7 @@ export default function GuidebookClient() {
               </li>
             </ul>
             <p className="text-zinc-500 text-sm italic border-t border-white/10 pt-4">
-              Note: The complete and current rules published through 4FUN's official rules channel or verified rules documentation remain the authoritative source for detailed violations and enforcement procedures.
+              Note: The complete and current rules published through 4FUN official rules channel or verified rules documentation remain the authoritative source for detailed violations and enforcement procedures.
             </p>
           </section>
 
@@ -501,7 +500,7 @@ export default function GuidebookClient() {
 
           <section id="faq" className="mb-24 scroll-mt-56 lg:scroll-mt-32">
             <h2 className="font-black text-2xl md:text-5xl text-white uppercase tracking-tighter mb-8">Frequently Asked Questions</h2>
-            
+
             <div className="flex flex-col gap-6">
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">What is the membership progression order in 4FUN?</h3>
@@ -543,7 +542,7 @@ export default function GuidebookClient() {
                 <h3 className="font-black text-lg text-white mb-2">Does the invitation privilege mean public recruitment is open again?</h3>
                 <p className="text-zinc-400 text-base">No. It is a special privilege for eligible members to introduce potential recruits, separate from general public recruitment.</p>
               </div>
-              
+
               <div className="bg-[#111] p-6 border-l-4 border-white/20">
                 <h3 className="font-black text-lg text-white mb-2">Are Guests Official Members?</h3>
                 <p className="text-zinc-400 text-base">No. GUEST is not an Official Member of 4FUN. They are individuals socializing and playing with the clan.</p>
@@ -598,7 +597,7 @@ export default function GuidebookClient() {
           {/* Closing Statement */}
           <div className="border-t border-white/10 pt-16 text-center">
             <h3 className="text-white font-black text-lg md:text-3xl leading-relaxed md:leading-normal uppercase tracking-widest mb-4">
-              We grow through teamwork.<br/>We remain strong through respect.<br/>We move forward as one clan.
+              We grow through teamwork.<br />We remain strong through respect.<br />We move forward as one clan.
             </h3>
             <span className="text-primary font-black text-sm md:text-xl tracking-[0.2em] uppercase">#stayWith4Fun</span>
           </div>
