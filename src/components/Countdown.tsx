@@ -47,10 +47,6 @@ export default function Countdown({ targetDate }: CountdownProps) {
   if (isExpired) {
     return (
       <div className="flex flex-col items-center justify-center py-2">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-widest uppercase mb-4">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          Applications Live
-        </div>
         <span className="font-black text-6xl sm:text-7xl md:text-9xl text-white tracking-tighter uppercase drop-shadow-2xl">
           OPEN
         </span>
