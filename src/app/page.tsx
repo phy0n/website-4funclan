@@ -214,7 +214,7 @@ export default function Home() {
                     {t("home_fearless_tag")}
                   </span>
                   <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
-                    Roblox Blade Ball
+                    Roblox Bladeball
                   </span>
                 </div>
 
