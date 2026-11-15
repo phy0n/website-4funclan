@@ -147,6 +147,89 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SPECIALIZED DIVISIONS: DARKSIDE & FEARLESS */}
+        <section className="w-full px-6 md:px-24 py-12 md:py-16 mb-8">
+          {/* Header (Mentok Kiri di HP, Center di Desktop) */}
+          <div className="mb-10 md:mb-14 text-left md:text-center max-w-3xl md:mx-auto flex flex-col items-start md:items-center">
+            <h2 className="font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tighter uppercase mb-4 leading-none">
+              {renderTitle(t("home_divisions_title"))}
+            </h2>
+            <p className="text-zinc-400 text-sm md:text-lg font-medium leading-relaxed max-w-2xl md:mx-auto">
+              {t("home_divisions_desc")}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6 md:gap-0 w-full max-w-5xl mx-auto">
+            {/* DARKSIDE ROW (Atas - Image di Kiri, Teks di Kanan) */}
+            <div className="relative w-full bg-transparent flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 lg:gap-14 pb-8 md:pb-0 border-b md:border-b-0 border-white/5">
+              {/* Karakter (Hanya tampil di desktop/tablet, sembunyikan di HP) */}
+              <div className="hidden md:flex relative w-56 sm:w-64 md:w-72 lg:w-80 xl:w-[340px] aspect-[1115/1410] shrink-0">
+                <Image
+                  src="/img/Darkside.png"
+                  alt="4FUN Darkside"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 768px) 0px, 340px"
+                />
+              </div>
+
+              {/* Teks Singkat (Mentok Kiri di HP & Desktop) */}
+              <div className="flex-1 flex flex-col items-start text-left w-full">
+                <div className="flex items-center gap-3 mb-3 justify-start">
+                  <span className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-white bg-primary px-3 py-1 uppercase rounded-sm">
+                    {t("home_darkside_tag")}
+                  </span>
+                  <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
+                    Roblox Evade
+                  </span>
+                </div>
+
+                <h3 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tighter mb-4 leading-none">
+                  {t("home_darkside_title")}
+                </h3>
+
+                <p className="text-zinc-400 text-sm md:text-base lg:text-lg font-medium leading-relaxed max-w-xl">
+                  {t("home_darkside_desc")}
+                </p>
+              </div>
+            </div>
+
+            {/* FEARLESS ROW (Bawah - Teks di Kiri, Image di Kanan) */}
+            <div className="relative w-full bg-transparent flex flex-col md:flex-row-reverse items-start md:items-center gap-6 md:gap-10 lg:gap-14 md:-mt-10 lg:-mt-16">
+              {/* Karakter (Hanya tampil di desktop/tablet, sembunyikan di HP) */}
+              <div className="hidden md:flex relative w-56 sm:w-64 md:w-72 lg:w-80 xl:w-[340px] aspect-[1071/1469] shrink-0">
+                <Image
+                  src="/img/Fearless.png"
+                  alt="4FUN Fearless"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 768px) 0px, 340px"
+                />
+              </div>
+
+              {/* Teks Singkat (Mentok Kiri di HP & Desktop) */}
+              <div className="flex-1 flex flex-col items-start text-left w-full">
+                <div className="flex items-center gap-3 mb-3 justify-start">
+                  <span className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-white bg-blue-600 px-3 py-1 uppercase rounded-sm">
+                    {t("home_fearless_tag")}
+                  </span>
+                  <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
+                    Roblox Blade Ball
+                  </span>
+                </div>
+
+                <h3 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tighter mb-4 leading-none">
+                  {t("home_fearless_title")}
+                </h3>
+
+                <p className="text-zinc-400 text-sm md:text-base lg:text-lg font-medium leading-relaxed max-w-xl">
+                  {t("home_fearless_desc")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="w-full px-6 md:px-24 py-20 mb-10 text-left">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
@@ -172,7 +255,7 @@ export default function Home() {
 
           <div className="absolute -right-4 sm:right-0 md:right-5 lg:right-10 -bottom-8 sm:-bottom-12 md:-bottom-16 lg:-bottom-24 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-[26rem] lg:h-[26rem] z-20 pointer-events-none">
             <Image
-              src="/img/mascot1.webp"
+              src="/img/mascot.png"
               alt="4Fun Mascot"
               fill
               unoptimized
