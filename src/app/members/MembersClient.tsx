@@ -311,7 +311,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                                     <span className="text-[7px] tracking-[0.2em] text-zinc-500 uppercase font-bold mt-0.5">Member Identity</span>
                                                 </div>
                                                 <div className="text-right flex flex-col items-end">
-                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">#{member.socials?.discordId || member.id}</span>
+                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">#{String(member.id).padStart(3, '0')}</span>
                                                 </div>
                                             </div>
 
@@ -418,7 +418,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">MEMBER ID</span>
                                             <div className="flex flex-1 items-center gap-3 overflow-hidden">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-mono font-black text-sm sm:text-base md:text-2xl text-white truncate">#{selectedMember.socials?.discordId || selectedMember.id}</span>
+                                                <span className="font-mono font-black text-sm sm:text-base md:text-2xl text-white truncate">#{String(selectedMember.id).padStart(3, '0')}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
