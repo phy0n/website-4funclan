@@ -303,8 +303,6 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         </div>
 
                                         <div className="relative w-full h-[420px] flex flex-col bg-black rounded-lg border border-white/5 overflow-hidden">
-                                            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
-
                                             <div className="relative pt-5 pb-3 px-5 flex justify-between items-start border-b border-white/5 z-20">
                                                 <div className="flex flex-col">
                                                     <span className="font-black text-2xl tracking-tighter text-white uppercase leading-none">4FUN</span>
@@ -317,9 +315,9 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
                                             <div className="relative w-full h-[220px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b border-white/5 shadow-inner shrink-0">
                                                 {isOnline && (
-                                                    <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-black/60 px-2 py-1 rounded-full border border-white/10 backdrop-blur-md">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                                        <span className="text-[7px] font-bold tracking-widest text-zinc-300 uppercase">ONLINE</span>
+                                                    <div className="absolute top-2 right-2 z-20 flex items-center justify-center gap-1.5 bg-black/70 px-2.5 py-1 rounded-full border border-white/10 backdrop-blur-md">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
+                                                        <span className="text-[7.5px] font-bold tracking-widest text-zinc-300 uppercase leading-none select-none">ONLINE</span>
                                                     </div>
                                                 )}
 
@@ -337,7 +335,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <div className="relative z-20 flex flex-col items-center flex-1 px-4 py-4 w-full bg-black">
                                                 <h3 className="font-black text-xl text-white tracking-tighter drop-shadow-lg leading-none text-center">{member.name}</h3>
                                                 <p className="text-zinc-500 font-bold text-[9px] tracking-[0.2em] uppercase mt-1 mb-3 text-center">
-                                                    @{member.username}
+                                                    {member.username}
                                                 </p>
 
                                                 <div className="flex flex-wrap justify-center gap-1.5 mb-auto">
@@ -371,10 +369,8 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                     <div className="relative w-full max-w-4xl max-h-full bg-black rounded-2xl p-1 shadow-[0_20px_50px_rgba(0,0,0,0.9)] border border-white/20 flex flex-col mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
 
                         <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] rounded-xl border-[2px] border-white/5 overflow-y-auto scrollbar-hide">
-                            {/* <div className={`absolute top-0 inset-x-0 h-40 ${getRoleBannerColor(getHighestRole(selectedMember.roles))} opacity-20 blur-[60px] z-0 pointer-events-none`}></div> */}
-                            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] z-0 pointer-events-none mix-blend-overlay"></div>
-                            <div className="w-full md:w-[320px] flex flex-col items-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-white/5 bg-black/20 z-10 shrink-0">
-                                <div className="relative w-[180px] h-[240px] md:w-[250px] md:h-[340px] flex items-end justify-center mb-6 md:mb-8 bg-transparent">
+                            <div className="w-full md:w-[320px] flex flex-col items-center pt-8 pb-4 px-6 md:p-8 border-b md:border-b-0 md:border-r border-white/5 bg-black/20 z-10 shrink-0">
+                                <div className="relative w-[240px] h-[300px] sm:w-[280px] sm:h-[330px] md:w-[260px] md:h-[350px] flex items-end justify-center mb-2 md:mb-8 bg-transparent">
 
                                     {((selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image) && !selectedMember.image?.includes('wikipedia') && (
                                         <Image
@@ -382,7 +378,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             alt={selectedMember.name}
                                             fill
                                             unoptimized
-                                            className="object-contain object-bottom drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)] scale-[1.15] md:scale-[1.35] origin-bottom"
+                                            className="object-contain object-bottom drop-shadow-[0_20px_25px_rgba(0,0,0,0.95)] scale-[1.4] sm:scale-[1.45] md:scale-[1.35] origin-bottom transition-transform"
                                         />
                                     )}
                                 </div>
@@ -418,7 +414,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">MEMBER ID</span>
                                             <div className="flex flex-1 items-center gap-3 overflow-hidden">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-mono font-black text-sm sm:text-base md:text-2xl text-white truncate">#{String(selectedMember.id).padStart(3, '0')}</span>
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">#{String(selectedMember.id).padStart(3, '0')}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
@@ -432,7 +428,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                             <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Username</span>
                                             <div className="flex flex-1 items-center gap-3">
                                                 <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">@{selectedMember.username}</span>
+                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">{selectedMember.username}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-start gap-4">
@@ -548,6 +544,11 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                     </div>
 
                                 </div>
+                            </div>
+
+                            {/* 4FUN Logo (Khusus Mode HP di Pojok Kiri Atas) */}
+                            <div className="absolute top-4 left-4 z-50 md:hidden pointer-events-none select-none">
+                                <Image src="/img/4Flogo.png" alt="4FUN Clan" width={44} height={44} className="object-contain drop-shadow-lg" />
                             </div>
 
                             <button

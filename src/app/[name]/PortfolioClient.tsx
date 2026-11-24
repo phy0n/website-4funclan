@@ -101,7 +101,7 @@ export default function PortfolioClient({ member }: { member: Member }) {
                             {member.name}
                         </h1>
                         <h2 className="text-lg md:text-3xl font-medium text-zinc-400 mt-2 mb-6 md:mb-8">
-                            @{member.username}
+                            {member.username}
                         </h2>
 
                         {member.roles.length > 0 && (
