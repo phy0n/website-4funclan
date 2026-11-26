@@ -249,6 +249,16 @@ export default function Home() {
         </section>
 
         <section className="w-full pt-20 md:pt-32 pb-16 md:pb-24 mt-12 relative flex flex-col items-center text-center">
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <Image
+              src="/img/4FChubby.png"
+              alt=""
+              fill
+              priority
+              unoptimized
+              className="object-cover object-center opacity-10"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#0a0a0a] -z-20"></div>
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-64 bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
