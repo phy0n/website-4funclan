@@ -368,6 +368,23 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                                         />
                                     )}
                                 </div>
+
+                                {/* Signature */}
+                                <div className="hidden md:flex flex-col items-center justify-center w-full mt-4 mb-2 pointer-events-none select-none relative">
+                                    <style>{`
+                                        @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+                                    `}</style>
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] blur-[1px]">
+                                        <span className="text-5xl text-white font-black tracking-tighter">4FUNCLAN</span>
+                                    </div>
+                                    <div className="relative z-10 -rotate-12 transform scale-150 opacity-90 mt-4 mb-2">
+                                        <span className="text-5xl text-primary capitalize drop-shadow-md" style={{ fontFamily: '"Mrs Saint Delafield", cursive' }}>
+                                            {selectedMember.name}
+                                        </span>
+                                    </div>
+                                    <div className="w-1/2 h-px bg-white/15 mt-4 rounded-full"></div>
+                                    <span className="text-[7px] font-mono tracking-widest text-zinc-600 uppercase mt-2">Verified Identity</span>
+                                </div>
                             </div>
 
                             {/* Right: Info */}
