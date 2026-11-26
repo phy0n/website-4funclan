@@ -23,10 +23,12 @@ const ROLE_PRIORITY: Record<string, number> = {
     "OWNER": 1,
     "CO OWNER": 2,
     "EXECUTIVE": 2.5,
-    "ADMIN": 3,
-    "STAFF": 4,
+    "MANAGER": 3,
+    "HEAD DIVISION": 3.5,
+    "STAFF DIVISION": 4,
     "TRAINEE": 4.5,
-    "ASSESSOR": 5,
+    "DARKSIDE HANDLER": 5,
+    "FEARLESS HANDLER": 5.5,
     "DARKSIDE": 6,
     "FEARLESS": 6.5,
     "STREAMER": 7,
@@ -48,10 +50,12 @@ const getRoleStyle = (role: string) => {
         case "OWNER": return "text-white";
         case "CO OWNER": return "text-blue-400";
         case "EXECUTIVE": return "text-fuchsia-400";
-        case "ADMIN": return "text-purple-400";
-        case "STAFF": return "text-cyan-400";
+        case "MANAGER": return "text-purple-400";
+        case "HEAD DIVISION": return "text-indigo-400";
+        case "STAFF DIVISION": return "text-cyan-400";
         case "TRAINEE": return "text-lime-400";
-        case "ASSESSOR": return "text-green-400";
+        case "DARKSIDE HANDLER": return "text-red-400";
+        case "FEARLESS HANDLER": return "text-orange-400";
         case "DARKSIDE": return "text-red-500";
         case "FEARLESS": return "text-orange-400";
         case "STREAMER": return "text-yellow-400";
@@ -65,12 +69,14 @@ const getRoleBannerColor = (role: string) => {
         case "OWNER": return "bg-white";
         case "CO OWNER": return "bg-blue-600";
         case "EXECUTIVE": return "bg-fuchsia-500";
-        case "ADMIN": return "bg-purple-500";
-        case "STAFF": return "bg-cyan-500";
+        case "MANAGER": return "bg-purple-500";
+        case "HEAD DIVISION": return "bg-indigo-500";
+        case "STAFF DIVISION": return "bg-cyan-500";
         case "TRAINEE": return "bg-lime-400";
-        case "ASSESSOR": return "bg-green-500";
+        case "DARKSIDE HANDLER": return "bg-red-400";
+        case "FEARLESS HANDLER": return "bg-orange-400";
         case "DARKSIDE": return "bg-primary";
-        case "FEARLESS": return "bg-orange-400";
+        case "FEARLESS": return "bg-orange-500";
         case "STREAMER": return "bg-yellow-500";
         case "MEMBER": return "bg-zinc-700";
         default: return "bg-gray-600";
@@ -219,7 +225,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         return matchesFilter && matchesSearch && matchesStatus;
     });
 
-    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "ADMIN", "STAFF", "TRAINEE", "ASSESSOR", "DARKSIDE", "FEARLESS", "STREAMER", "MEMBER"];
+    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "MANAGER", "HEAD DIVISION", "STAFF DIVISION", "TRAINEE", "DARKSIDE HANDLER", "FEARLESS HANDLER", "DARKSIDE", "FEARLESS", "STREAMER", "MEMBER"];
 
     const selectedRobloxIdMatch = selectedMember?.robloxProfile?.match(/users\/(\d+)/);
     const selectedRobloxId = selectedRobloxIdMatch ? parseInt(selectedRobloxIdMatch[1]) : null;

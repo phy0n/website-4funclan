@@ -14,10 +14,12 @@ const getRoleStyle = (role: string) => {
         case "OWNER": return "text-white";
         case "CO OWNER": return "text-blue-400";
         case "EXECUTIVE": return "text-fuchsia-400";
-        case "ADMIN": return "text-purple-400";
-        case "STAFF": return "text-cyan-400";
+        case "MANAGER": return "text-purple-400";
+        case "HEAD DIVISION": return "text-indigo-400";
+        case "STAFF DIVISION": return "text-cyan-400";
         case "TRAINEE": return "text-lime-400";
-        case "ASSESSOR": return "text-green-400";
+        case "DARKSIDE HANDLER": return "text-red-400";
+        case "FEARLESS HANDLER": return "text-orange-400";
         case "DARKSIDE": return "text-red-500";
         case "FEARLESS": return "text-orange-400";
         case "STREAMER": return "text-yellow-400";
