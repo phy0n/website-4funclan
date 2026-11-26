@@ -11,16 +11,18 @@ import { motion } from "framer-motion";
 
 const getRoleStyle = (role: string) => {
     switch (role) {
-        case "OWNER": return "bg-[#0a0a0a] text-white border-white/20";
-        case "CO OWNER": return "bg-blue-900/80 text-blue-200 border-blue-600/30";
-        case "EXECUTIVE": return "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30";
-        case "ADMIN": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
-        case "STAFF": return "bg-cyan-500/20 text-cyan-300 border-cyan-500/30";
-        case "ASSESSOR": return "bg-green-500/20 text-green-400 border-green-500/30";
-        case "DARK SIDE": return "bg-red-600/20 text-red-500 border-red-600/30";
-        case "CONTENT CREATOR": return "bg-yellow-500/20 text-yellow-500 border-yellow-500/30";
-        case "MEMBER": return "bg-pink-500/20 text-pink-400 border-pink-500/30";
-        default: return "bg-white/5 text-gray-400 border-white/10";
+        case "OWNER": return "text-white";
+        case "CO OWNER": return "text-blue-400";
+        case "EXECUTIVE": return "text-fuchsia-400";
+        case "ADMIN": return "text-purple-400";
+        case "STAFF": return "text-cyan-400";
+        case "TRAINEE": return "text-lime-400";
+        case "ASSESSOR": return "text-green-400";
+        case "DARKSIDE": return "text-red-500";
+        case "FEARLESS": return "text-orange-400";
+        case "STREAMER": return "text-yellow-400";
+        case "MEMBER": return "text-zinc-400";
+        default: return "text-zinc-500";
     }
 };
 
@@ -107,7 +109,7 @@ export default function PortfolioClient({ member }: { member: Member }) {
                         {member.roles.length > 0 && (
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mb-6 md:mb-8">
                                 {member.roles.map((role) => (
-                                    <span key={role} className={`px-3 py-1 md:px-4 md:py-1.5 border text-[9px] md:text-xs font-black uppercase tracking-widest rounded ${getRoleStyle(role)}`}>
+                                    <span key={role} className={`text-[9px] md:text-xs font-black uppercase tracking-widest ${getRoleStyle(role)}`}>
                                         {role}
                                     </span>
                                 ))}

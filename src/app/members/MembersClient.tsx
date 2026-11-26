@@ -25,9 +25,11 @@ const ROLE_PRIORITY: Record<string, number> = {
     "EXECUTIVE": 2.5,
     "ADMIN": 3,
     "STAFF": 4,
+    "TRAINEE": 4.5,
     "ASSESSOR": 5,
-    "DARK SIDE": 6,
-    "CONTENT CREATOR": 7,
+    "DARKSIDE": 6,
+    "FEARLESS": 6.5,
+    "STREAMER": 7,
     "MEMBER": 8
 };
 
@@ -43,16 +45,18 @@ function getHighestRole(roles: string[]) {
 
 const getRoleStyle = (role: string) => {
     switch (role) {
-        case "OWNER": return "bg-[#0a0a0a] text-white border-white/20";
-        case "CO OWNER": return "bg-blue-900/80 text-blue-200 border-blue-600/30";
-        case "EXECUTIVE": return "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30";
-        case "ADMIN": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
-        case "STAFF": return "bg-cyan-500/20 text-cyan-300 border-cyan-500/30";
-        case "ASSESSOR": return "bg-green-500/20 text-green-400 border-green-500/30";
-        case "DARK SIDE": return "bg-red-600/20 text-red-500 border-red-600/30";
-        case "CONTENT CREATOR": return "bg-yellow-500/20 text-yellow-500 border-yellow-500/30";
-        case "MEMBER": return "bg-pink-500/20 text-pink-400 border-pink-500/30";
-        default: return "bg-white/5 text-gray-400 border-white/10";
+        case "OWNER": return "text-white";
+        case "CO OWNER": return "text-blue-400";
+        case "EXECUTIVE": return "text-fuchsia-400";
+        case "ADMIN": return "text-purple-400";
+        case "STAFF": return "text-cyan-400";
+        case "TRAINEE": return "text-lime-400";
+        case "ASSESSOR": return "text-green-400";
+        case "DARKSIDE": return "text-red-500";
+        case "FEARLESS": return "text-orange-400";
+        case "STREAMER": return "text-yellow-400";
+        case "MEMBER": return "text-zinc-400";
+        default: return "text-zinc-500";
     }
 };
 
@@ -63,10 +67,12 @@ const getRoleBannerColor = (role: string) => {
         case "EXECUTIVE": return "bg-fuchsia-500";
         case "ADMIN": return "bg-purple-500";
         case "STAFF": return "bg-cyan-500";
+        case "TRAINEE": return "bg-lime-400";
         case "ASSESSOR": return "bg-green-500";
-        case "DARK SIDE": return "bg-primary";
-        case "CONTENT CREATOR": return "bg-yellow-500";
-        case "MEMBER": return "bg-pink-500";
+        case "DARKSIDE": return "bg-primary";
+        case "FEARLESS": return "bg-orange-400";
+        case "STREAMER": return "bg-yellow-500";
+        case "MEMBER": return "bg-zinc-700";
         default: return "bg-gray-600";
     }
 };
@@ -213,7 +219,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
         return matchesFilter && matchesSearch && matchesStatus;
     });
 
-    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "ADMIN", "STAFF", "ASSESSOR", "DARK SIDE", "CONTENT CREATOR", "MEMBER"];
+    const ALL_ROLES = ["ALL", "OWNER", "CO OWNER", "EXECUTIVE", "ADMIN", "STAFF", "TRAINEE", "ASSESSOR", "DARKSIDE", "FEARLESS", "STREAMER", "MEMBER"];
 
     const selectedRobloxIdMatch = selectedMember?.robloxProfile?.match(/users\/(\d+)/);
     const selectedRobloxId = selectedRobloxIdMatch ? parseInt(selectedRobloxIdMatch[1]) : null;
@@ -285,7 +291,7 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                 </div>
 
                 {filteredMembers.length > 0 ? (
-                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 pt-6 pb-12">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3 pt-6 pb-12">
                         {filteredMembers.map((member) => {
                             const mainRole = getHighestRole(member.roles);
                             const bannerColor = getRoleBannerColor(mainRole);
@@ -296,59 +302,39 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
                             const isOnline = currentPresence && currentPresence.userPresenceType > 0;
 
                             return (
-                                <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative w-full sm:w-auto flex flex-col pt-4 pb-2 px-2 items-center cursor-pointer hover:-translate-y-2 transition-transform duration-500">
-                                    <div className="relative w-full sm:w-[300px] max-w-[300px] bg-black rounded-xl p-1 shadow-[0_15px_35px_rgba(0,0,0,0.8)] border border-white/20 flex flex-col mx-auto">
-                                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black border-t border-l border-r border-white/20 rounded-t-xl z-30 flex items-center justify-center">
-                                            <div className="w-10 h-2 bg-[#111] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,1)]"></div>
+                                <div key={member.id} onClick={() => setSelectedMember(member)} className="group relative cursor-pointer">
+                                    <div className="relative w-full bg-[#111] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 overflow-hidden hover:-translate-y-1">
+
+                                        <div className="relative w-full aspect-square bg-[#0a0a0a] flex items-center justify-center overflow-hidden">
+                                            <span className="absolute top-3 left-3 z-20 font-mono text-zinc-600 text-[10px] font-bold">#{String(member.id).padStart(3, '0')}</span>
+
+                                            {((robloxId && liveAvatars[robloxId]) || member.image) && !member.image?.includes('wikipedia') && (
+                                                <Image
+                                                    src={(robloxId && liveAvatars[robloxId]) || member.image}
+                                                    alt={`${member.name} avatar`}
+                                                    fill
+                                                    unoptimized
+                                                    className="object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]"
+                                                />
+                                            )}
                                         </div>
 
-                                        <div className="relative w-full h-[420px] flex flex-col bg-black rounded-lg border border-white/5 overflow-hidden">
-                                            <div className="relative pt-5 pb-3 px-5 flex justify-between items-start border-b border-white/5 z-20">
-                                                <div className="flex flex-col">
-                                                    <span className="font-black text-2xl tracking-tighter text-white uppercase leading-none">4FUN</span>
-                                                    <span className="text-[7px] tracking-[0.2em] text-zinc-500 uppercase font-bold mt-0.5">Member Identity</span>
-                                                </div>
-                                                <div className="text-right flex flex-col items-end">
-                                                    <span className="font-mono text-zinc-500 text-[11px] font-bold">#{String(member.id).padStart(3, '0')}</span>
-                                                </div>
-                                            </div>
+                                        <div className="relative z-20 px-3 pt-3 pb-4 w-full">
+                                            <h3 className="font-black text-sm text-white tracking-tight leading-none">{member.name}</h3>
+                                            <p className="text-zinc-600 font-semibold text-[9px] tracking-widest uppercase mt-0.5 mb-2">
+                                                {member.username}
+                                            </p>
 
-                                            <div className="relative w-full h-[220px] bg-[#0a0a0a] flex items-center justify-center overflow-hidden border-b border-white/5 shadow-inner shrink-0">
-                                                {isOnline && (
-                                                    <div className="absolute top-2 right-2 z-20 flex items-center justify-center gap-1.5 bg-black/70 px-2.5 py-1 rounded-full border border-white/10 backdrop-blur-md">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
-                                                        <span className="text-[7.5px] font-bold tracking-widest text-zinc-300 uppercase leading-none select-none">ONLINE</span>
-                                                    </div>
-                                                )}
-
-                                                {((robloxId && liveAvatars[robloxId]) || member.image) && !member.image?.includes('wikipedia') && (
-                                                    <Image
-                                                        src={(robloxId && liveAvatars[robloxId]) || member.image}
-                                                        alt={`${member.name} avatar`}
-                                                        fill
-                                                        unoptimized
-                                                        className="object-contain object-bottom drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)]"
-                                                    />
-                                                )}
-                                            </div>
-
-                                            <div className="relative z-20 flex flex-col items-center flex-1 px-4 py-4 w-full bg-black">
-                                                <h3 className="font-black text-xl text-white tracking-tighter drop-shadow-lg leading-none text-center">{member.name}</h3>
-                                                <p className="text-zinc-500 font-bold text-[9px] tracking-[0.2em] uppercase mt-1 mb-3 text-center">
-                                                    {member.username}
-                                                </p>
-
-                                                <div className="flex flex-wrap justify-center gap-1.5 mb-auto">
-                                                    {member.roles.map((role) => (
-                                                        <span key={role} className={`font-black text-[8px] uppercase tracking-widest px-2 py-1 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
-                                                            {role}
-                                                        </span>
-                                                    ))}
-                                                </div>
-
-                                                <div className="w-full h-8 opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/UPC-A-036000291452.svg/2560px-UPC-A-036000291452.svg.png')] bg-contain bg-center bg-no-repeat invert mt-4 mb-1"></div>
+                                            <div className="flex flex-wrap gap-x-2 gap-y-1">
+                                                {member.roles.map((role) => (
+                                                    <span key={role} className={`font-bold text-[8px] uppercase tracking-widest ${getRoleStyle(role)}`}>
+                                                        {role}
+                                                    </span>
+                                                ))}
                                             </div>
                                         </div>
+
+                                        <div className={`h-[2px] w-full ${getRoleBannerColor(mainRole)}`}></div>
                                     </div>
                                 </div>
                             );
@@ -366,194 +352,168 @@ export default function MembersClient({ initialMembers }: { initialMembers: Memb
 
             {selectedMember && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 md:py-12 bg-black/80 backdrop-blur-md transition-opacity duration-300" onClick={() => setSelectedMember(null)}>
-                    <div className="relative w-full max-w-4xl max-h-full bg-black rounded-2xl p-1 shadow-[0_20px_50px_rgba(0,0,0,0.9)] border border-white/20 flex flex-col mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                    <div className="relative w-full max-w-3xl max-h-full bg-[#0a0a0a] border border-white/[0.08] flex flex-col mx-auto overflow-hidden" onClick={(e) => e.stopPropagation()}>
 
-                        <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] rounded-xl border-[2px] border-white/5 overflow-y-auto scrollbar-hide">
-                            <div className="w-full md:w-[320px] flex flex-col items-center pt-8 pb-4 px-6 md:p-8 border-b md:border-b-0 md:border-r border-white/5 bg-black/20 z-10 shrink-0">
-                                <div className="relative w-[240px] h-[300px] sm:w-[280px] sm:h-[330px] md:w-[260px] md:h-[350px] flex items-end justify-center mb-2 md:mb-8 bg-transparent">
-
+                        <div className="relative w-full h-full flex flex-col md:flex-row overflow-y-auto scrollbar-hide">
+                            {/* Left: Avatar */}
+                            <div className="w-full md:w-[300px] flex flex-col items-center pt-6 pb-4 px-6 md:p-6 border-b md:border-b-0 md:border-r border-white/[0.06] bg-black/40 shrink-0">
+                                <div className="relative w-[200px] h-[260px] sm:w-[240px] sm:h-[300px] md:w-[240px] md:h-[320px] flex items-end justify-center bg-transparent">
                                     {((selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image) && !selectedMember.image?.includes('wikipedia') && (
                                         <Image
                                             src={(selectedRobloxId && liveAvatars[selectedRobloxId]) || selectedMember.image}
                                             alt={selectedMember.name}
                                             fill
                                             unoptimized
-                                            className="object-contain object-bottom drop-shadow-[0_20px_25px_rgba(0,0,0,0.95)] scale-[1.4] sm:scale-[1.45] md:scale-[1.35] origin-bottom transition-transform"
+                                            className="object-contain object-bottom drop-shadow-[0_15px_20px_rgba(0,0,0,0.9)] scale-[1.3] sm:scale-[1.35] md:scale-[1.3] origin-bottom"
                                         />
                                     )}
                                 </div>
-
-                                <div className="hidden md:flex flex-col items-center justify-center w-full mb-6 mt-6 pointer-events-none select-none relative">
-                                    <style>{`
-                                        @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
-                                    `}</style>
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] blur-[1px]">
-                                        <span className="text-5xl text-white font-black tracking-tighter mix-blend-overlay">4FUNCLAN</span>
-                                    </div>
-                                    <div className="relative z-10 -rotate-12 transform scale-150 opacity-90 mt-4 mb-2">
-                                        <span className="text-5xl text-primary capitalize drop-shadow-md" style={{ fontFamily: '"Mrs Saint Delafield", cursive' }}>
-                                            {selectedMember.name}
-                                        </span>
-                                    </div>
-                                    <div className="w-1/2 h-px bg-white/20 mt-4 rounded-full"></div>
-                                    <span className="text-[7px] font-mono tracking-widest text-zinc-500 uppercase mt-2">Verified Identity</span>
-                                </div>
-
-
                             </div>
 
-                            <div className="flex-1 flex flex-col p-6 md:p-10 z-10 relative">
-                                <div className="flex flex-col items-start mb-6 border-b border-white/5 pb-6 shrink-0">
-                                    <span className="font-black text-2xl md:text-4xl tracking-tighter text-white uppercase drop-shadow-md leading-none">4FUN CLAN</span>
-                                    <span className="text-[10px] md:text-xs tracking-[0.3em] text-zinc-500 uppercase font-bold mt-2">Official Member Identification</span>
+                            {/* Right: Info */}
+                            <div className="flex-1 flex flex-col p-6 md:p-8 relative">
+                                {/* Header */}
+                                <div className="mb-6 pb-5 border-b border-white/[0.06]">
+                                    <span className="font-black text-2xl md:text-3xl tracking-tighter text-white uppercase drop-shadow-md leading-none">4FUN CLAN</span>
+                                    <p className="text-[10px] md:text-xs tracking-[0.3em] text-zinc-500 uppercase font-bold mt-2">Official Member Identification</p>
                                 </div>
 
-                                <div className="flex-1 flex flex-col justify-between">
-                                    <div className="space-y-5">
-                                        <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">MEMBER ID</span>
-                                            <div className="flex flex-1 items-center gap-3 overflow-hidden">
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">#{String(selectedMember.id).padStart(3, '0')}</span>
+                                {/* Details */}
+                                <div className="space-y-5 flex-1">
+                                    <div className="flex items-center gap-4">
+                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-28 shrink-0 tracking-widest uppercase">Member ID</span>
+                                        <div className="flex items-center gap-3">
+                                            <span className="font-bold text-base md:text-lg text-zinc-200">:</span>
+                                            <span className="font-bold text-base md:text-lg text-white">#{String(selectedMember.id).padStart(3, '0')}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-28 shrink-0 tracking-widest uppercase">Name</span>
+                                        <div className="flex items-center gap-3">
+                                            <span className="font-bold text-base md:text-lg text-zinc-200">:</span>
+                                            <span className="font-bold text-base md:text-lg text-white uppercase truncate">{selectedMember.name}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-28 shrink-0 tracking-widest uppercase">Username</span>
+                                        <div className="flex items-center gap-3">
+                                            <span className="font-bold text-base md:text-lg text-zinc-200">:</span>
+                                            <span className="font-bold text-base md:text-lg text-white truncate">{selectedMember.username}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <span className="font-bold text-xs md:text-sm text-zinc-500 w-28 shrink-0 tracking-widest uppercase">Roles</span>
+                                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                                            <span className="font-bold text-base md:text-lg text-zinc-200">:</span>
+                                            <div className="flex flex-wrap gap-x-3 gap-y-1 items-center">
+                                                {selectedMember.roles.map((role) => (
+                                                    <span key={role} className={`font-black text-sm md:text-base uppercase tracking-wide ${getRoleStyle(role)}`}>
+                                                        {role}
+                                                    </span>
+                                                ))}
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Name</span>
-                                            <div className="flex flex-1 items-center gap-3">
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">{selectedMember.name}</span>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase">Username</span>
-                                            <div className="flex flex-1 items-center gap-3">
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase truncate">{selectedMember.username}</span>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-start gap-4">
-                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase mt-1">Roles</span>
-                                            <div className="flex flex-1 gap-3">
-                                                <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                <div className="flex flex-wrap gap-2 flex-1 items-start">
-                                                    {selectedMember.roles.map((role) => (
-                                                        <span key={role} className={`font-black text-[10px] md:text-xs uppercase tracking-widest px-2.5 py-1 rounded border ${getRoleStyle(role)} backdrop-blur-md`}>
-                                                            {role}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {selectedMember.description && (
-                                            <div className="flex items-start gap-4 mt-2">
-                                                <span className="font-bold text-xs md:text-sm text-zinc-500 w-24 shrink-0 tracking-widest uppercase mt-1">About</span>
-                                                <div className="flex flex-1 gap-3">
-                                                    <span className="font-bold text-base md:text-lg text-zinc-200 uppercase">:</span>
-                                                    <p className="text-xs md:text-sm text-zinc-400 font-medium leading-relaxed italic mt-1.5 line-clamp-3">
-                                                        "{selectedMember.description}"
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        )}
                                     </div>
 
-                                    {(() => {
-                                        const rPresence = (selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence;
+                                    {selectedMember.description && (
+                                        <div className="flex items-start gap-4">
+                                            <span className="font-bold text-xs md:text-sm text-zinc-500 w-28 shrink-0 tracking-widest uppercase mt-1">About</span>
+                                            <div className="flex gap-3 flex-1">
+                                                <span className="font-bold text-base md:text-lg text-zinc-200">:</span>
+                                                <p className="text-sm text-zinc-400 font-medium leading-relaxed mt-0.5">
+                                                    {selectedMember.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
 
-                                        const isRobloxPlaying = rPresence?.userPresenceType === 2;
-                                        const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
+                                {/* Live Status */}
+                                {(() => {
+                                    const rPresence = (selectedRobloxId && livePresences[selectedRobloxId]) || selectedMember.presence;
+                                    const isRobloxPlaying = rPresence?.userPresenceType === 2;
+                                    const isRobloxOnline = rPresence?.userPresenceType === 1 || rPresence?.userPresenceType === 3;
 
-                                        const widgets = [];
+                                    let statusWidget = null;
 
-                                        if (isRobloxPlaying) {
-                                            widgets.push(
-                                                <div key="roblox-playing" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                    <div className="flex items-center gap-4">
-                                                        {rPresence.gameIconUrl ? (
-                                                            <div className="relative w-12 h-12 shrink-0 overflow-hidden border border-white/10">
-                                                                <Image src={rPresence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
-                                                            </div>
-                                                        ) : (
-                                                            <div className="w-12 h-12 bg-zinc-800 border border-white/10 flex items-center justify-center shrink-0">
-                                                                <span className="text-zinc-600 font-bold">?</span>
-                                                            </div>
-                                                        )}
-                                                        <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className="text-[9px] font-bold text-green-400 uppercase tracking-widest mb-0.5">Playing Roblox</span>
-                                                            <span className="text-sm text-white font-bold truncate">{rPresence.lastLocation || 'Hidden Location'}</span>
-                                                        </div>
+                                    if (isRobloxPlaying) {
+                                        statusWidget = (
+                                            <div className="flex items-center gap-3">
+                                                {rPresence.gameIconUrl ? (
+                                                    <div className="relative w-10 h-10 shrink-0 overflow-hidden border border-white/[0.06]">
+                                                        <Image src={rPresence.gameIconUrl} alt="Game Icon" fill unoptimized className="object-cover" />
                                                     </div>
-                                                </div>
-                                            );
-                                        }
-
-                                        if (isRobloxOnline && !isRobloxPlaying) {
-                                            widgets.push(
-                                                <div key="roblox-online" className="bg-[#161616] border border-white/5 p-4 rounded mt-4">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className={`w-12 h-12 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10 border-orange-500/20' : 'bg-white/5 border-white/10'} flex items-center justify-center border shrink-0`}>
-                                                            <SiRoblox size={20} className={`${rPresence.userPresenceType === 3 ? 'text-orange-500 drop-shadow-[0_0_8px_#f97316]' : 'text-zinc-200'}`} />
-                                                        </div>
-                                                        <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className={`text-[10px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-[#00b06f]'} uppercase tracking-widest mb-0.5`}>
-                                                                {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
-                                                            </span>
-                                                            <span className="text-sm text-white font-bold truncate">
-                                                                {rPresence.userPresenceType === 3
-                                                                    ? (rPresence.lastLocation || 'Developing on Roblox')
-                                                                    : (rPresence.lastLocation && rPresence.lastLocation !== 'Website' ? rPresence.lastLocation : 'Active on Roblox')}
-                                                            </span>
-                                                        </div>
+                                                ) : (
+                                                    <div className="w-10 h-10 bg-zinc-900 border border-white/[0.06] flex items-center justify-center shrink-0">
+                                                        <SiRoblox size={16} className="text-green-400" />
                                                     </div>
+                                                )}
+                                                <div className="flex flex-col min-w-0">
+                                                    <span className="text-[9px] font-bold text-green-400 uppercase tracking-widest">Playing Roblox</span>
+                                                    <span className="text-sm text-white font-bold truncate">{rPresence.lastLocation || 'Hidden Location'}</span>
                                                 </div>
-                                            );
-                                        }
-
-                                        if (widgets.length === 0) {
-                                            widgets.push(
-                                                <div key="offline-status" className="bg-[#161616]/50 border border-white/5 p-4 rounded mt-4 opacity-70">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="w-12 h-12 bg-zinc-800/30 flex items-center justify-center border border-white/5 shrink-0">
-                                                            <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
-                                                        </div>
-                                                        <div className="flex flex-col flex-1 min-w-0">
-                                                            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-0.5">Status</span>
-                                                            <span className="text-sm text-zinc-400 font-bold truncate">Currently Offline</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        }
-
-                                        return (
-                                            <div className="mt-6 flex flex-col gap-2 shrink-0">
-                                                <h3 className="text-[9px] font-bold text-zinc-600 uppercase tracking-[0.2em] border-t border-white/5 pt-4">Live Status</h3>
-                                                {widgets}
                                             </div>
                                         );
-                                    })()}
+                                    } else if (isRobloxOnline) {
+                                        statusWidget = (
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-10 h-10 ${rPresence.userPresenceType === 3 ? 'bg-orange-500/10' : 'bg-white/[0.03]'} flex items-center justify-center border border-white/[0.06] shrink-0`}>
+                                                    <SiRoblox size={16} className={rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-zinc-300'} />
+                                                </div>
+                                                <div className="flex flex-col min-w-0">
+                                                    <span className={`text-[9px] font-bold ${rPresence.userPresenceType === 3 ? 'text-orange-500' : 'text-green-400'} uppercase tracking-widest`}>
+                                                        {rPresence.userPresenceType === 3 ? 'In Studio' : 'Online'}
+                                                    </span>
+                                                    <span className="text-sm text-white font-bold truncate">
+                                                        {rPresence.userPresenceType === 3
+                                                            ? (rPresence.lastLocation || 'Developing on Roblox')
+                                                            : (rPresence.lastLocation && rPresence.lastLocation !== 'Website' ? rPresence.lastLocation : 'Active on Roblox')}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        );
+                                    } else {
+                                        statusWidget = (
+                                            <div className="flex items-center gap-3 opacity-50">
+                                                <div className="w-10 h-10 bg-white/[0.02] flex items-center justify-center border border-white/[0.04] shrink-0">
+                                                    <div className="w-2 h-2 rounded-full bg-zinc-600"></div>
+                                                </div>
+                                                <div className="flex flex-col min-w-0">
+                                                    <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Status</span>
+                                                    <span className="text-sm text-zinc-500 font-bold">Currently Offline</span>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
 
-                                    <div className="mt-6 pt-6 border-t border-white/5 w-full flex justify-center">
-                                        <Link
-                                            href={`/${selectedMember.name.toLowerCase().replace(/\s+/g, "")}`}
-                                            className="flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest"
-                                        >
-                                            Visit Profile Page <ArrowRight size={12} />
-                                        </Link>
-                                    </div>
+                                    return (
+                                        <div className="mt-6 pt-5 border-t border-white/[0.06]">
+                                            <span className="text-[9px] font-bold text-zinc-600 uppercase tracking-widest mb-3 block">Live Status</span>
+                                            {statusWidget}
+                                        </div>
+                                    );
+                                })()}
 
+                                {/* Profile Link */}
+                                <div className="mt-5 pt-5 border-t border-white/[0.06] flex justify-center">
+                                    <Link
+                                        href={`/${selectedMember.name.toLowerCase().replace(/\s+/g, "")}`}
+                                        className="flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest"
+                                    >
+                                        Visit Profile Page <ArrowRight size={12} />
+                                    </Link>
                                 </div>
                             </div>
 
-                            {/* 4FUN Logo (Khusus Mode HP di Pojok Kiri Atas) */}
+                            {/* 4FUN Logo (Mobile) */}
                             <div className="absolute top-4 left-4 z-50 md:hidden pointer-events-none select-none">
-                                <Image src="/img/4Flogo.png" alt="4FUN Clan" width={44} height={44} className="object-contain drop-shadow-lg" />
+                                <Image src="/img/4Flogo.png" alt="4FUN Clan" width={36} height={36} className="object-contain drop-shadow-lg" />
                             </div>
 
+                            {/* Close Button */}
                             <button
                                 onClick={() => setSelectedMember(null)}
-                                className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-white/20 rounded-full text-white/50 hover:text-white transition-colors border border-white/10 cursor-pointer backdrop-blur-md">
+                                className="absolute top-3 right-3 z-50 p-2 bg-black/50 hover:bg-white/10 text-white/40 hover:text-white transition-colors cursor-pointer backdrop-blur-sm">
                                 <X size={16} />
                             </button>
                         </div>
